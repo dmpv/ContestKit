@@ -19,6 +19,9 @@
 		3429FE3025BF2F7200BBB434 /* RDXKit.Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2425BF2F7200BBB434 /* RDXKit.Hook.swift */; };
 		3429FE3125BF2F7200BBB434 /* RDXKit.Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2525BF2F7200BBB434 /* RDXKit.Thunk.swift */; };
 		3429FE3225BF2F7200BBB434 /* RDXKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2625BF2F7200BBB434 /* RDXKit.swift */; };
+		3429FE3D25BF385200BBB434 /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE3A25BF385200BBB434 /* Namespace.swift */; };
+		3429FE3E25BF385200BBB434 /* fatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE3B25BF385200BBB434 /* fatalError.swift */; };
+		3429FE3F25BF385200BBB434 /* falllback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE3C25BF385200BBB434 /* falllback.swift */; };
 		34F1FD7925BE6F9000A5F2D1 /* ContestKit_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */; };
 		34F1FD7B25BE6F9000A5F2D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1FD7A25BE6F9000A5F2D1 /* ContentView.swift */; };
 		34F1FD7D25BE6F9300A5F2D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F1FD7C25BE6F9300A5F2D1 /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		3429FE2425BF2F7200BBB434 /* RDXKit.Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Hook.swift; sourceTree = "<group>"; };
 		3429FE2525BF2F7200BBB434 /* RDXKit.Thunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Thunk.swift; sourceTree = "<group>"; };
 		3429FE2625BF2F7200BBB434 /* RDXKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.swift; sourceTree = "<group>"; };
+		3429FE3A25BF385200BBB434 /* Namespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
+		3429FE3B25BF385200BBB434 /* fatalError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fatalError.swift; sourceTree = "<group>"; };
+		3429FE3C25BF385200BBB434 /* falllback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = falllback.swift; sourceTree = "<group>"; };
 		34F1FD7525BE6F9000A5F2D1 /* ContestKit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ContestKit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestKit_iOSApp.swift; sourceTree = "<group>"; };
 		34F1FD7A25BE6F9000A5F2D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +147,16 @@
 			path = Middlewares;
 			sourceTree = "<group>";
 		};
+		3429FE3925BF385200BBB434 /* ToolKit */ = {
+			isa = PBXGroup;
+			children = (
+				3429FE3A25BF385200BBB434 /* Namespace.swift */,
+				3429FE3B25BF385200BBB434 /* fatalError.swift */,
+				3429FE3C25BF385200BBB434 /* falllback.swift */,
+			);
+			path = ToolKit;
+			sourceTree = "<group>";
+		};
 		34F1FD6C25BE6F9000A5F2D1 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +199,7 @@
 		34F1FD8F25BE710000A5F2D1 /* ContestKit */ = {
 			isa = PBXGroup;
 			children = (
+				3429FE3925BF385200BBB434 /* ToolKit */,
 				3429FE1C25BF2F7200BBB434 /* RDXKit */,
 				3429FE1725BF2F7200BBB434 /* RDXKit+Proxy */,
 				34F1FD9C25BE711500A5F2D1 /* draft.swift */,
@@ -315,9 +332,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F1FD9D25BE711500A5F2D1 /* draft.swift in Sources */,
+				3429FE3E25BF385200BBB434 /* fatalError.swift in Sources */,
+				3429FE3D25BF385200BBB434 /* Namespace.swift in Sources */,
 				3429FE2E25BF2F7200BBB434 /* RDXKit.Middleware.swift in Sources */,
 				3429FE3025BF2F7200BBB434 /* RDXKit.Hook.swift in Sources */,
 				3429FE3125BF2F7200BBB434 /* RDXKit.Thunk.swift in Sources */,
+				3429FE3F25BF385200BBB434 /* falllback.swift in Sources */,
 				3429FE2825BF2F7200BBB434 /* Lens+operators.swift in Sources */,
 				3429FE2C25BF2F7200BBB434 /* RDXKit.Action.swift in Sources */,
 				3429FE2725BF2F7200BBB434 /* RDXKit.Proxy.swift in Sources */,
