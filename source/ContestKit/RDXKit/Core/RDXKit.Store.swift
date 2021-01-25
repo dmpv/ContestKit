@@ -8,16 +8,13 @@
 
 import Foundation
 
-import RxSwift
-import RxCocoa
-
 extension RDXKit {
     typealias Dispatch<ActionT: Action> = (ActionT) -> Void
 
     final class Store<StateT: Equatable>: StoreType {
         private(set) var state: StateT
 
-        private(set) lazy var bag = DisposeBag()
+        private(set) var disposable = Disposable()
 
         private lazy var dispatchBody: Dispatch<AnyAction<StateT>> = { [weak self] action in
             assert(Thread.isMainThread)
@@ -33,11 +30,7 @@ extension RDXKit {
             }
         }
 
-        private lazy var stateRelay = BehaviorRelay(value: state)
-
-        func addObserver() -> Observable<StateT> {
-            stateRelay.asObservable()
-        }
+        private(set) lazy var stateObservable = Observable(value: state)
 
         var broadcasting: AnyAction<StateT>?
 
@@ -47,7 +40,7 @@ extension RDXKit {
                 fatalError(.shouldNeverBeCalled())
             }
             broadcasting = action.boxed()
-            stateRelay.accept(state)
+            stateObservable.value = state
             broadcasting = nil
         }
 

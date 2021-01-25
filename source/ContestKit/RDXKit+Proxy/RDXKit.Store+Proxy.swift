@@ -16,11 +16,11 @@ extension RDXKit.Store {
         )
         proxyStore.apply(middleware: RDXKit.makeThunkMiddleware())
 
-        addObserver()
-            .subscribeOnChanges { [weak proxyStore] state in
+        stateObservable
+            .addObserver { [weak proxyStore] state in
                 proxyStore?.dispatch(RDXKit.ProxyAction(state: config.lens.get(state)))
             }
-            .disposed(by: proxyStore.bag)
+            .disposed(by: proxyStore.disposable)
 
         return proxyStore
     }
