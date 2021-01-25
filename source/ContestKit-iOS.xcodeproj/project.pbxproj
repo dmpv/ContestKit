@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3429FE2725BF2F7200BBB434 /* RDXKit.Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE1825BF2F7200BBB434 /* RDXKit.Proxy.swift */; };
+		3429FE2825BF2F7200BBB434 /* Lens+operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE1925BF2F7200BBB434 /* Lens+operators.swift */; };
+		3429FE2925BF2F7200BBB434 /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE1A25BF2F7200BBB434 /* Lens.swift */; };
+		3429FE2A25BF2F7200BBB434 /* RDXKit.Store+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE1B25BF2F7200BBB434 /* RDXKit.Store+Proxy.swift */; };
+		3429FE2B25BF2F7200BBB434 /* RDXKit.AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE1E25BF2F7200BBB434 /* RDXKit.AnyAction.swift */; };
+		3429FE2C25BF2F7200BBB434 /* RDXKit.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE1F25BF2F7200BBB434 /* RDXKit.Action.swift */; };
+		3429FE2D25BF2F7200BBB434 /* RDXKit.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2025BF2F7200BBB434 /* RDXKit.Store.swift */; };
+		3429FE2E25BF2F7200BBB434 /* RDXKit.Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2125BF2F7200BBB434 /* RDXKit.Middleware.swift */; };
+		3429FE2F25BF2F7200BBB434 /* RDXKit.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2325BF2F7200BBB434 /* RDXKit.Log.swift */; };
+		3429FE3025BF2F7200BBB434 /* RDXKit.Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2425BF2F7200BBB434 /* RDXKit.Hook.swift */; };
+		3429FE3125BF2F7200BBB434 /* RDXKit.Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2525BF2F7200BBB434 /* RDXKit.Thunk.swift */; };
+		3429FE3225BF2F7200BBB434 /* RDXKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3429FE2625BF2F7200BBB434 /* RDXKit.swift */; };
 		34F1FD7925BE6F9000A5F2D1 /* ContestKit_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */; };
 		34F1FD7B25BE6F9000A5F2D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1FD7A25BE6F9000A5F2D1 /* ContentView.swift */; };
 		34F1FD7D25BE6F9300A5F2D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F1FD7C25BE6F9300A5F2D1 /* Assets.xcassets */; };
@@ -43,6 +55,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3429FE1825BF2F7200BBB434 /* RDXKit.Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Proxy.swift; sourceTree = "<group>"; };
+		3429FE1925BF2F7200BBB434 /* Lens+operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lens+operators.swift"; sourceTree = "<group>"; };
+		3429FE1A25BF2F7200BBB434 /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
+		3429FE1B25BF2F7200BBB434 /* RDXKit.Store+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RDXKit.Store+Proxy.swift"; sourceTree = "<group>"; };
+		3429FE1E25BF2F7200BBB434 /* RDXKit.AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.AnyAction.swift; sourceTree = "<group>"; };
+		3429FE1F25BF2F7200BBB434 /* RDXKit.Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Action.swift; sourceTree = "<group>"; };
+		3429FE2025BF2F7200BBB434 /* RDXKit.Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Store.swift; sourceTree = "<group>"; };
+		3429FE2125BF2F7200BBB434 /* RDXKit.Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Middleware.swift; sourceTree = "<group>"; };
+		3429FE2325BF2F7200BBB434 /* RDXKit.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Log.swift; sourceTree = "<group>"; };
+		3429FE2425BF2F7200BBB434 /* RDXKit.Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Hook.swift; sourceTree = "<group>"; };
+		3429FE2525BF2F7200BBB434 /* RDXKit.Thunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Thunk.swift; sourceTree = "<group>"; };
+		3429FE2625BF2F7200BBB434 /* RDXKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.swift; sourceTree = "<group>"; };
 		34F1FD7525BE6F9000A5F2D1 /* ContestKit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ContestKit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestKit_iOSApp.swift; sourceTree = "<group>"; };
 		34F1FD7A25BE6F9000A5F2D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +99,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3429FE1725BF2F7200BBB434 /* RDXKit+Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				3429FE1825BF2F7200BBB434 /* RDXKit.Proxy.swift */,
+				3429FE1925BF2F7200BBB434 /* Lens+operators.swift */,
+				3429FE1A25BF2F7200BBB434 /* Lens.swift */,
+				3429FE1B25BF2F7200BBB434 /* RDXKit.Store+Proxy.swift */,
+			);
+			path = "RDXKit+Proxy";
+			sourceTree = "<group>";
+		};
+		3429FE1C25BF2F7200BBB434 /* RDXKit */ = {
+			isa = PBXGroup;
+			children = (
+				3429FE1D25BF2F7200BBB434 /* Core */,
+				3429FE2225BF2F7200BBB434 /* Middlewares */,
+				3429FE2625BF2F7200BBB434 /* RDXKit.swift */,
+			);
+			path = RDXKit;
+			sourceTree = "<group>";
+		};
+		3429FE1D25BF2F7200BBB434 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3429FE1E25BF2F7200BBB434 /* RDXKit.AnyAction.swift */,
+				3429FE1F25BF2F7200BBB434 /* RDXKit.Action.swift */,
+				3429FE2025BF2F7200BBB434 /* RDXKit.Store.swift */,
+				3429FE2125BF2F7200BBB434 /* RDXKit.Middleware.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3429FE2225BF2F7200BBB434 /* Middlewares */ = {
+			isa = PBXGroup;
+			children = (
+				3429FE2325BF2F7200BBB434 /* RDXKit.Log.swift */,
+				3429FE2425BF2F7200BBB434 /* RDXKit.Hook.swift */,
+				3429FE2525BF2F7200BBB434 /* RDXKit.Thunk.swift */,
+			);
+			path = Middlewares;
+			sourceTree = "<group>";
+		};
 		34F1FD6C25BE6F9000A5F2D1 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +183,8 @@
 		34F1FD8F25BE710000A5F2D1 /* ContestKit */ = {
 			isa = PBXGroup;
 			children = (
+				3429FE1C25BF2F7200BBB434 /* RDXKit */,
+				3429FE1725BF2F7200BBB434 /* RDXKit+Proxy */,
 				34F1FD9C25BE711500A5F2D1 /* draft.swift */,
 				34F1FD9025BE710000A5F2D1 /* ContestKit.h */,
 				34F1FD9125BE710000A5F2D1 /* Info.plist */,
@@ -247,6 +315,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F1FD9D25BE711500A5F2D1 /* draft.swift in Sources */,
+				3429FE2E25BF2F7200BBB434 /* RDXKit.Middleware.swift in Sources */,
+				3429FE3025BF2F7200BBB434 /* RDXKit.Hook.swift in Sources */,
+				3429FE3125BF2F7200BBB434 /* RDXKit.Thunk.swift in Sources */,
+				3429FE2825BF2F7200BBB434 /* Lens+operators.swift in Sources */,
+				3429FE2C25BF2F7200BBB434 /* RDXKit.Action.swift in Sources */,
+				3429FE2725BF2F7200BBB434 /* RDXKit.Proxy.swift in Sources */,
+				3429FE2A25BF2F7200BBB434 /* RDXKit.Store+Proxy.swift in Sources */,
+				3429FE2925BF2F7200BBB434 /* Lens.swift in Sources */,
+				3429FE2D25BF2F7200BBB434 /* RDXKit.Store.swift in Sources */,
+				3429FE3225BF2F7200BBB434 /* RDXKit.swift in Sources */,
+				3429FE2B25BF2F7200BBB434 /* RDXKit.AnyAction.swift in Sources */,
+				3429FE2F25BF2F7200BBB434 /* RDXKit.Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
