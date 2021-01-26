@@ -39,7 +39,7 @@ final class Observable<ValueT> {
     }
 }
 
-struct Observation<ValueT>: Identifiable {
+struct Observation<ValueT>: CKIdentifiable {
     var id = UUID()
     var observer: (ValueT) -> Void
 }

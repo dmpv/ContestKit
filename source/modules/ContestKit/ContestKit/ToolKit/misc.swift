@@ -7,7 +7,14 @@
 
 import Foundation
 
-extension Array where Element: Identifiable {
+protocol CKIdentifiable {
+    associatedtype ID : Hashable
+
+    var id: Self.ID { get }
+}
+
+
+extension Array where Element: CKIdentifiable {
     subscript(id: Element.ID) -> Element? {
         get {
             let elements = filter { $0.id == id }
