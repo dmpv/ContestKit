@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343E8DCE25C0F969000FF0AE /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DCD25C0F969000FF0AE /* EditorView.swift */; };
 		34CC95C225BF6D5C0081E93B /* ContestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CC95C125BF6D5C0081E93B /* ContestKit.framework */; };
 		34CC95C325BF6D5C0081E93B /* ContestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34CC95C125BF6D5C0081E93B /* ContestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34F1FD7925BE6F9000A5F2D1 /* ContestKit_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		343E8DCD25C0F969000FF0AE /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		34CC95C125BF6D5C0081E93B /* ContestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ContestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F1FD7525BE6F9000A5F2D1 /* ContestKit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ContestKit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestKit_iOSApp.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				34F1FDA025BE711F00A5F2D1 /* draft.swift */,
 				34F1FD7825BE6F9000A5F2D1 /* ContestKit_iOSApp.swift */,
 				34F1FD7A25BE6F9000A5F2D1 /* ContentView.swift */,
+				343E8DCD25C0F969000FF0AE /* EditorView.swift */,
 				34F1FD7C25BE6F9300A5F2D1 /* Assets.xcassets */,
 				34F1FD8125BE6F9300A5F2D1 /* Info.plist */,
 				34F1FD7E25BE6F9300A5F2D1 /* Preview Content */,
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F1FDA125BE711F00A5F2D1 /* draft.swift in Sources */,
+				343E8DCE25C0F969000FF0AE /* EditorView.swift in Sources */,
 				34F1FD7B25BE6F9000A5F2D1 /* ContentView.swift in Sources */,
 				34F1FD7925BE6F9000A5F2D1 /* ContestKit_iOSApp.swift in Sources */,
 			);

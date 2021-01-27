@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class EditorView: UIView {
+public final class EditorView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }
     }
@@ -22,7 +22,7 @@ final class EditorView: UIView {
 
     private var tableView: UITableView!
 
-    init() {
+    public init() {
         super.init(frame: .zero)
         setup()
         activate()
@@ -65,7 +65,7 @@ final class EditorView: UIView {
     private func handlersDidChange() {
     }
 
-    override func updateConstraints() {
+    public override func updateConstraints() {
         defer {
             currentLayout = state?.layout
             super.updateConstraints()
