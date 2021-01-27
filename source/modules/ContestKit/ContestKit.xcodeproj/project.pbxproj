@@ -14,6 +14,8 @@
 		343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC225C0F20E000FF0AE /* PickerCell.swift */; };
 		343E8DC625C0F218000FF0AE /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC525C0F218000FF0AE /* ButtonCell.swift */; };
 		343E8DCA25C0F236000FF0AE /* AnimationTimingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */; };
+		343E8DD025C0FD04000FF0AE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DCF25C0FD04000FF0AE /* AppState.swift */; };
+		343E8DD325C1B75F000FF0AE /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DD225C1B75F000FF0AE /* Module.swift */; };
 		34CC95B925BF6CA80081E93B /* ContestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34CC95B725BF6CA80081E93B /* ContestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34CC95DC25BF6DF80081E93B /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C625BF6DF80081E93B /* misc.swift */; };
 		34CC95DD25BF6DF80081E93B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C725BF6DF80081E93B /* Namespace.swift */; };
@@ -43,6 +45,8 @@
 		343E8DC225C0F20E000FF0AE /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		343E8DC525C0F218000FF0AE /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingCell.swift; sourceTree = "<group>"; };
+		343E8DCF25C0FD04000FF0AE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		343E8DD225C1B75F000FF0AE /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		34CC95B425BF6CA80081E93B /* ContestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ContestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CC95B725BF6CA80081E93B /* ContestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContestKit.h; sourceTree = "<group>"; };
 		34CC95B825BF6CA80081E93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				34CC95DB25BF6DF80081E93B /* draft.swift */,
+				343E8DCF25C0FD04000FF0AE /* AppState.swift */,
+				343E8DD225C1B75F000FF0AE /* Module.swift */,
 				343E8D9325C0E487000FF0AE /* AnimationState.swift */,
 				343E8DB925C0E9FB000FF0AE /* ui.swift */,
 				343E8DBC25C0ED65000FF0AE /* EditorView.swift */,
@@ -253,6 +259,7 @@
 				34CC95E725BF6DF80081E93B /* RDXKit.Store.swift in Sources */,
 				34CC95E025BF6DF80081E93B /* Observable.swift in Sources */,
 				343E8DC625C0F218000FF0AE /* ButtonCell.swift in Sources */,
+				343E8DD325C1B75F000FF0AE /* Module.swift in Sources */,
 				34CC95E525BF6DF80081E93B /* RDXKit.AnyAction.swift in Sources */,
 				34CC95DE25BF6DF80081E93B /* fatalError.swift in Sources */,
 				34CC95E925BF6DF80081E93B /* RDXKit.Log.swift in Sources */,
@@ -269,6 +276,7 @@
 				34CC95DD25BF6DF80081E93B /* Namespace.swift in Sources */,
 				343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */,
 				343E8D9425C0E487000FF0AE /* AnimationState.swift in Sources */,
+				343E8DD025C0FD04000FF0AE /* AppState.swift in Sources */,
 				343E8DBA25C0E9FB000FF0AE /* ui.swift in Sources */,
 				34CC95E325BF6DF80081E93B /* Lens.swift in Sources */,
 			);

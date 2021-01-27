@@ -11,7 +11,7 @@ import Foundation
 extension RDXKit {
     typealias Dispatch<ActionT: Action> = (ActionT) -> Void
 
-    final class Store<StateT: Equatable>: StoreType {
+    public final class Store<StateT: Equatable>: StoreType {
         private(set) var state: StateT
 
         private(set) var disposable = Disposable()
@@ -44,7 +44,7 @@ extension RDXKit {
             broadcasting = nil
         }
 
-        init(state: StateT) {
+        public init(state: StateT) {
             self.state = state
         }
     }

@@ -12,9 +12,9 @@ import ContestKit
 
 struct Editor: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<Editor>) -> UIViewController {
-        let editorView = EditorView()
+        let appModule = AppModule.shared
         let vc = UIViewController()
-        vc.view = editorView
+        vc.view = appModule.editorView
         return vc
     }
 
@@ -23,3 +23,6 @@ struct Editor: UIViewControllerRepresentable {
     }
 }
 
+extension AppModule {
+    static let shared = AppModule(store: .init(state: .init()))
+}

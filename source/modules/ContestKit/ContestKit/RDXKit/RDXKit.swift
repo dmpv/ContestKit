@@ -8,4 +8,4 @@
 
 import Foundation
 
-class RDXKit: Namespace {}
+public class RDXKit: Namespace {}

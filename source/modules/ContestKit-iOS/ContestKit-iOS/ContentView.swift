@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingEditor = false
+    @State private var showingEditor = true
 
     var body: some View {
         Button("Edit") {

@@ -50,6 +50,10 @@ class Disposable {
     init(dispose: @escaping () -> Void = {}) {
         self.dispose = dispose
     }
+
+    deinit {
+        dispose()
+    }
 }
 
 extension Disposable {
