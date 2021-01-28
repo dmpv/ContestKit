@@ -9,9 +9,9 @@
 import Foundation
 
 extension RDXKit {
-    struct AnyAction<StateT>: RDXKitAction {
+    public struct AnyAction<StateT>: RDXKitAction {
         let unbox: Any
-        let id: String
+        public let id: String
         private let adjustBody: (inout StateT) -> Void
 
         init<ActionT: Action>(_ unbox: ActionT) where ActionT.State == StateT {
@@ -24,7 +24,7 @@ extension RDXKit {
             }
         }
 
-        func adjust(_ state: inout StateT) {
+        public func adjust(_ state: inout StateT) {
             adjustBody(&state)
         }
     }

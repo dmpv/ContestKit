@@ -35,7 +35,7 @@ final class Observable<ValueT> {
         let observation = Observation(observer: observer)
         observations[observation.id] = observation
         observer(value)
-        return Disposable { [weak self] in self?.observations[observation.id] = nil }
+        return Disposable { [weak self] in self?.observations[safe: observation.id] = nil }
     }
 }
 

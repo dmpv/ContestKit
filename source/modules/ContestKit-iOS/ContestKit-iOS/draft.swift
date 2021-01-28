@@ -8,7 +8,3 @@
 import Foundation
 
 import ContestKit
-
-func tst() {
-    ContestKit.tst()
-}

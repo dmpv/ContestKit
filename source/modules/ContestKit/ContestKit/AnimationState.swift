@@ -7,20 +7,7 @@
 
 import Foundation
 
-public struct TimePoint: ValueType, Equatable {
-    var x: TimeInterval = 0
-    var y: TimeInterval = 0
-
-    public init(
-        x: TimeInterval = 0,
-        y: TimeInterval = 0
-    ) {
-        self.x = x
-        self.y = y
-    }
-}
-
-public struct AnimationTiming: ValueType, Equatable {
+public struct AnimationTimingState: StateType {
     var startsAt: TimeInterval = 0
     var c1: TimePoint = .init()
     var c2: TimePoint = .init()
@@ -42,18 +29,27 @@ public struct AnimationTiming: ValueType, Equatable {
     }
 }
 
-public struct MessageAnimationConfigState: ValueType, Equatable {
-    var positionXTiming: AnimationTiming = .init()
-    var positionYTiming: AnimationTiming = .init()
-    var bubbleShape: AnimationTiming = .init()
+extension AnimationTimingState {
+    static func makeDefault(duration: TimeInterval) -> Self {
+        .init(
+            startsAt: 0,
+            c1: .init(x: duration * 0.5),
+            c2: .init(x: duration * -0.5),
+            endsAt: duration,
+            duration: duration
+        )
+    }
+}
+
+public struct TimePoint: StateType {
+    var x: TimeInterval = 0
+    var y: TimeInterval = 0
 
     public init(
-        positionXTiming: AnimationTiming = .init(),
-        positionYTiming: AnimationTiming = .init(),
-        bubbleShape: AnimationTiming = .init()
+        x: TimeInterval = 0,
+        y: TimeInterval = 0
     ) {
-        self.positionXTiming = positionXTiming
-        self.positionYTiming = positionYTiming
-        self.bubbleShape = bubbleShape
+        self.x = x
+        self.y = y
     }
 }

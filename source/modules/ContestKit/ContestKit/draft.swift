@@ -7,4 +7,12 @@
 
 import Foundation
 
-public func tst() {}
+protocol StateType: ValueType, Equatable {}
+
+protocol IDType: ValueType, Hashable {}
+
+class L10n: Namespace {
+    static func stub(_ string: String) -> String {
+        NSLocalizedString(string, comment: "")
+    }
+}

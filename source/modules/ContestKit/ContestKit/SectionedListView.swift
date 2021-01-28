@@ -1,5 +1,5 @@
 //
-//  ButtonCell.swift
+//  SectionedListView.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 27.01.2021.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class ButtonCell: UITableViewCell, RowCell {
+public final class SectionedListView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }
     }
@@ -17,13 +17,16 @@ final class ButtonCell: UITableViewCell, RowCell {
         didSet { handlersDidChange() }
     }
 
-    var module: RowModule?
-
     private var activated = false
     private var currentLayout: Layout?
 
-    override init(style: CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
+    private var tableView: UITableView!
+
+    private let module: SectionedListModule
+
+    public init(module: SectionedListModule) {
+        self.module = module
+        super.init(frame: .zero)
         setup()
         activate()
     }
@@ -41,12 +44,14 @@ final class ButtonCell: UITableViewCell, RowCell {
     }
 
     private func setup() {
+        tableView = module.tableView.applying {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        addSubview(tableView)
     }
 
     private func stateDidChange(from oldState: State?) {
         guard state != oldState || !activated else { return }
-
-        textLabel!.text = state?.name
 
         layoutDidChange(from: oldState?.layout)
         appearanceDidChange(from: oldState?.appearance)
@@ -60,52 +65,40 @@ final class ButtonCell: UITableViewCell, RowCell {
 
     private func appearanceDidChange(from oldAppearance: Appearance?) {
         guard state?.appearance != oldAppearance || !activated else { return }
-
-        textLabel!.applying {
-            $0.textColor = state?.appearance.textColor
-        }
     }
 
     private func handlersDidChange() {
     }
 
-    override func updateConstraints() {
+    public override func updateConstraints() {
         defer {
             currentLayout = state?.layout
             super.updateConstraints()
         }
         guard state?.layout != currentLayout || !activated else { return }
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected {
-            handlers.onPress?()
-        }
+        [
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ].forEach { $0.isActive = true }
     }
 }
 
-extension ButtonCell {
-    struct State: Equatable {
-        var name: String
-        var layout = Layout()
-        var appearance = Appearance()
+extension SectionedListView {
+    struct State: StateType {
+        var sectionedList: SectionedListState = .init()
+        var layout: Layout = .init()
+        var appearance: Appearance = .init()
     }
 
     struct Layout: Equatable {
     }
 
     struct Appearance: Equatable {
-        var textColor: UIColor? = .systemBlue
     }
 
     struct Handlers {
-        var onPress: (() -> Void)?
-    }
-}
-
-extension ButtonCell.Appearance {
-    static func makeDestructive() -> Self {
-        .init(textColor: .systemRed)
     }
 }

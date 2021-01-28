@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RDXKitStoreType {
+public protocol RDXKitStoreType {
     associatedtype State: Equatable
 
     var state: State { get }
@@ -21,6 +21,6 @@ protocol RDXKitStoreType {
 }
 
 extension RDXKit {
-    typealias StoreType = RDXKitStoreType
-    typealias Middleware<StoreT: StoreType, ActionT: Action> = (StoreT, @escaping Dispatch<ActionT>) -> Dispatch<ActionT>
+    public typealias StoreType = RDXKitStoreType
+    public typealias Middleware<StoreT: StoreType, ActionT: Action> = (StoreT, @escaping Dispatch<ActionT>) -> Dispatch<ActionT>
 }

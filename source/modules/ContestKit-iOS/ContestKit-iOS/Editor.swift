@@ -1,5 +1,5 @@
 //
-//  EditorView.swift
+//  Editor.swift
 //  ContestKit-iOS
 //
 //  Created by Dmitry Purtov on 27.01.2021.
@@ -10,11 +10,19 @@ import SwiftUI
 
 import ContestKit
 
+//let appStore: RDXKit.Store<AppState> = .init(state: .init())
+
 struct Editor: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<Editor>) -> UIViewController {
-        let appModule = AppModule.shared
+        let appStore = RDXKit.Store<AppState>(state: .init())
+        appStore.apply(middleware: RDXKit.makeThunkMiddleware())
+
+        let appModule = AppModule(store: appStore)
+
+        appStore.dispatch(appModule.fetchDefaultAnimationConfig())
+
         let vc = UIViewController()
-        vc.view = appModule.editorView
+        vc.view = appModule.editorView(for: .smallText)
         return vc
     }
 
@@ -23,6 +31,6 @@ struct Editor: UIViewControllerRepresentable {
     }
 }
 
-extension AppModule {
-    static let shared = AppModule(store: .init(state: .init()))
-}
+//extension AppModule {
+//    static let shared = AppModule(store: appStore)
+//}

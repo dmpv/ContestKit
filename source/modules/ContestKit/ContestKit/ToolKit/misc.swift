@@ -8,14 +8,14 @@
 import Foundation
 
 protocol CKIdentifiable {
-    associatedtype ID : Hashable
+    associatedtype ID: Hashable
 
     var id: Self.ID { get }
 }
 
 
 extension Array where Element: CKIdentifiable {
-    subscript(id: Element.ID) -> Element? {
+    subscript(safe id: Element.ID) -> Element? {
         get {
             let elements = filter { $0.id == id }
             assert(elements.count <= 1)
@@ -34,6 +34,29 @@ extension Array where Element: CKIdentifiable {
             } else {
                 append(newValue)
             }
+        }
+    }
+}
+
+extension Array where Element: CKIdentifiable {
+    subscript(id: Element.ID) -> Element {
+        get {
+            self[safe: id]!
+        }
+        set {
+            self[safe: id] = newValue
+        }
+    }
+}
+
+extension Array where Element: Equatable {
+    var areUnique: Bool {
+        unique.count == count
+    }
+
+    var unique: Self {
+        reduce([]) { partialUnique, element in
+            partialUnique.contains(element) ? partialUnique : partialUnique + [element]
         }
     }
 }

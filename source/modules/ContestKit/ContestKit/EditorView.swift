@@ -20,9 +20,12 @@ public final class EditorView: UIView {
     private var activated = false
     private var currentLayout: Layout?
 
-    private var tableView: UITableView!
+    private var sectionedListView: SectionedListView!
 
-    public init() {
+    private let module: SectionedListModule
+
+    public init(module: SectionedListModule) {
+        self.module = module
         super.init(frame: .zero)
         setup()
         activate()
@@ -41,8 +44,10 @@ public final class EditorView: UIView {
     }
 
     private func setup() {
-        tableView = UITableView(frame: .zero, style: .grouped)
-        addSubview(tableView)
+        sectionedListView = module.view.applying {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        addSubview(sectionedListView)
     }
 
     private func stateDidChange(from oldState: State?) {
@@ -73,22 +78,16 @@ public final class EditorView: UIView {
         guard state?.layout != currentLayout || !activated else { return }
 
         [
-            tableView.topAnchor.constraint(equalTo: topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            sectionedListView.topAnchor.constraint(equalTo: topAnchor),
+            sectionedListView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            sectionedListView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            sectionedListView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ].forEach { $0.isActive = true }
     }
 }
 
 extension EditorView {
     struct State: Equatable {
-        var typePickerCell: PickerCell.State
-        var durationPickerCell: PickerCell.State
-        var shareButtonCell: ButtonCell.State
-        var importButtonCell: ButtonCell.State
-        var restoreDefaultsButtonCell: ButtonCell.State
-        var timingCells: [AnimationTimingCell.State] = []
         var layout = Layout()
         var appearance = Appearance()
     }
@@ -101,34 +100,4 @@ extension EditorView {
 
     struct Handlers {
     }
-}
-
-extension EditorView.State {
-    var list: SectionedList {
-        .init(
-            sections: [
-                .init(
-                    rows: [
-                        .init(id: "type"),
-                        .init(id: "duration"),
-                        .init(id: "share"),
-                        .init(id: "import"),
-                    ]
-                ),
-            ]
-        )
-    }
-}
-
-struct SectionedList {
-    var sections: [ListSection] = []
-}
-
-struct ListSection {
-    var name: String?
-    var rows: [ListRow] = []
-}
-
-struct ListRow: CKIdentifiable {
-    var id: String
 }

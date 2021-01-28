@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RDXKitAction: CustomDebugStringConvertible {
+public protocol RDXKitAction: CustomDebugStringConvertible {
     associatedtype State
     func adjust(_ state: inout State)
 
@@ -16,7 +16,7 @@ protocol RDXKitAction: CustomDebugStringConvertible {
 }
 
 extension RDXKit {
-    typealias Action = RDXKitAction
+    public typealias Action = RDXKitAction
 }
 
 extension RDXKit.Action {
@@ -47,7 +47,7 @@ extension RDXKit.Action {
         }.boxed()
     }
 
-    var debugDescription: String {
+    public var debugDescription: String {
         "\(type(of: self))"
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class PickerCell: UITableViewCell {
+final class PickerCell: UITableViewCell, RowCell {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }
     }
@@ -17,11 +17,13 @@ final class PickerCell: UITableViewCell {
         didSet { handlersDidChange() }
     }
 
+    var module: RowModule?
+
     private var activated = false
     private var currentLayout: Layout?
 
     override init(style: CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         setup()
         activate()
     }
@@ -39,10 +41,14 @@ final class PickerCell: UITableViewCell {
     }
 
     private func setup() {
+        accessoryType = .disclosureIndicator
     }
 
     private func stateDidChange(from oldState: State?) {
         guard state != oldState || !activated else { return }
+
+        textLabel!.text = state?.name
+        detailTextLabel?.text = state?.selectedOption
 
         layoutDidChange(from: oldState?.layout)
         appearanceDidChange(from: oldState?.appearance)
@@ -56,6 +62,10 @@ final class PickerCell: UITableViewCell {
 
     private func appearanceDidChange(from oldAppearance: Appearance?) {
         guard state?.appearance != oldAppearance || !activated else { return }
+
+        textLabel!.applying {
+            $0.textColor = state?.appearance.textColor
+        }
     }
 
     private func handlersDidChange() {
@@ -68,11 +78,19 @@ final class PickerCell: UITableViewCell {
         }
         guard state?.layout != currentLayout || !activated else { return }
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected {
+            handlers.onPress?()
+        }
+    }
 }
 
 extension PickerCell {
     struct State: Equatable {
         var name: String
+        var selectedOption: String
         var layout = Layout()
         var appearance = Appearance()
     }
@@ -81,8 +99,10 @@ extension PickerCell {
     }
 
     struct Appearance: Equatable {
+        var textColor: UIColor?
     }
 
     struct Handlers {
+        var onPress: (() -> Void)?
     }
 }

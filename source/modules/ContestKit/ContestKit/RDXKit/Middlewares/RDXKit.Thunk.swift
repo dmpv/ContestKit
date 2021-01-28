@@ -16,10 +16,12 @@ extension RDXKit {
             self.body = body
         }
 
-        func adjust(_ state: inout StoreT.State) {}
+        func adjust(_ state: inout StoreT.State) {
+            assertionFailure("No ThunkMiddleware applied to the Store<\(StoreT.State.self)>")
+        }
     }
 
-    static func makeThunkMiddleware<StoreT: StoreType>() -> Middleware<StoreT, AnyAction<StoreT.State>> {
+    public static func makeThunkMiddleware<StoreT: StoreType>() -> Middleware<StoreT, AnyAction<StoreT.State>> {
         return { store, next in
             return { action in
                 switch action.unbox {

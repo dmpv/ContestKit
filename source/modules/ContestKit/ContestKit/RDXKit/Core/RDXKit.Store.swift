@@ -9,10 +9,10 @@
 import Foundation
 
 extension RDXKit {
-    typealias Dispatch<ActionT: Action> = (ActionT) -> Void
+    public typealias Dispatch<ActionT: Action> = (ActionT) -> Void
 
     public final class Store<StateT: Equatable>: StoreType {
-        private(set) var state: StateT
+        public private(set) var state: StateT
 
         private(set) var disposable = Disposable()
 
@@ -22,7 +22,7 @@ extension RDXKit {
             action.adjust(&self.state)
         }
 
-        func apply(middleware: @escaping Middleware<Store, AnyAction<StateT>>) {
+        public func apply(middleware: @escaping Middleware<Store, AnyAction<StateT>>) {
             let dispatchBody = self.dispatchBody
             self.dispatchBody = { [weak self] action in
                 guard let self = self else { return }
@@ -34,7 +34,7 @@ extension RDXKit {
 
         var broadcasting: AnyAction<StateT>?
 
-        func dispatch<ActionT: Action>(_ action: ActionT) where ActionT.State == StateT {
+        public func dispatch<ActionT: Action>(_ action: ActionT) where ActionT.State == StateT {
             dispatchBody(action.boxed())
             if let _ = broadcasting {
                 fatalError(.shouldNeverBeCalled())
