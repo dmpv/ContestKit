@@ -34,7 +34,9 @@ extension MessageAnimationEditorState {
         set {
             messageAnimationConfig.timings = newValue.sections.compactMap { section in
                 switch section {
-                case .common:
+                case .messageAnimations,
+                     .backgroundAnimation,
+                     .common:
                     return nil
                 case .timing(_, let rows):
                     guard case .animationTiming(let timing) = rows[0] else { return fallback(nil) }

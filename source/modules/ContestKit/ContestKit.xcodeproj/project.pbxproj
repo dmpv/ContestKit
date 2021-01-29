@@ -18,6 +18,7 @@
 		3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */; };
 		3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3725C470D500EA3477 /* DottedLineView.swift */; };
 		3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */; };
+		34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DEA25C4C33E005733DD /* AppConfigState.swift */; };
 		348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953AF25C1EF1500192DC8 /* SectionedListView.swift */; };
 		348953B325C20E8500192DC8 /* SectionedListState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953B225C20E8500192DC8 /* SectionedListState.Module.swift */; };
 		348953B625C210EE00192DC8 /* SectionedListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953B525C210EE00192DC8 /* SectionedListState.swift */; };
@@ -69,6 +70,7 @@
 		3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingDottedView.swift; sourceTree = "<group>"; };
 		3449FC3725C470D500EA3477 /* DottedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineView.swift; sourceTree = "<group>"; };
 		3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingPathView.swift; sourceTree = "<group>"; };
+		34817DEA25C4C33E005733DD /* AppConfigState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigState.swift; sourceTree = "<group>"; };
 		348953AF25C1EF1500192DC8 /* SectionedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListView.swift; sourceTree = "<group>"; };
 		348953B225C20E8500192DC8 /* SectionedListState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListState.Module.swift; sourceTree = "<group>"; };
 		348953B525C210EE00192DC8 /* SectionedListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListState.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				343E8DD225C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift */,
 				343E8D9325C0E487000FF0AE /* AnimationState.swift */,
 				34F2E51125C23D2B00EB0B96 /* SmallMessageAnimationConfig.swift */,
+				34817DEA25C4C33E005733DD /* AppConfigState.swift */,
 				343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */,
 				348953AF25C1EF1500192DC8 /* SectionedListView.swift */,
 				348953B525C210EE00192DC8 /* SectionedListState.swift */,
@@ -351,6 +354,7 @@
 				343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */,
 				343E8D9425C0E487000FF0AE /* AnimationState.swift in Sources */,
 				348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */,
+				34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */,
 				34F2E51B25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift in Sources */,
 				34F2E50E25C2348F00EB0B96 /* SectionedListState+substates.swift in Sources */,
 				34F2E50825C2269E00EB0B96 /* MessageAnimationEditorState.swift in Sources */,

@@ -48,6 +48,10 @@ extension SectionedListModule {
 
     fileprivate func title(for sectionID: SectionID) -> String? {
         switch sectionID {
+        case .messageAnimations:
+            return L10n.stub("Messages")
+        case .backgroundAnimation:
+            return L10n.stub("Other")
         case .common:
             return nil
         case .timing(let messageAnimationTimingID):

@@ -73,7 +73,8 @@ final class AnimationTimingPathView: UIView {
             )
         )
         path.lineWidth = lineWidth
-        UIColor.systemRed.set()
+
+        UISlider.defaultMaxTrackTintColor.set()
         path.stroke()
     }
 }

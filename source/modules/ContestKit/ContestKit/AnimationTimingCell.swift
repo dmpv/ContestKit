@@ -62,33 +62,31 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
     private func setup() {
         selectionStyle = .none
+        contentView.layoutMargins = .init(top: 40, left: 40, bottom: 40, right: 40)
 
         pathView = AnimationTimingPathView()
         contentView.addSubview(pathView)
 
         topSlider = CKSlider().applying {
-            $0.minimumTrackTintColor = .lightGray
-            $0.maximumTrackTintColor = .systemBlue
+            $0.minimumTrackTintColor = UISlider.defaultMaxTrackTintColor
+            $0.maximumTrackTintColor = UISlider.defaultMinTrackTintColor
         }
         contentView.addSubview(topSlider)
         topSlider.addTarget(self, action: #selector(didSlideTopSlider), for: .primaryActionTriggered)
 
         topSliderOverlayView = UIView().applying {
-            $0.backgroundColor = .lightGray
-            $0.layer.cornerRadius = 2
+            $0.backgroundColor = UISlider.defaultMaxTrackTintColor
+            $0.layer.cornerRadius = UISlider.defaultTrackCornerRadius
         }
         contentView.addSubview(topSliderOverlayView)
 
-        bottomSlider = CKSlider().applying {
-            $0.minimumTrackTintColor = .systemBlue
-//            $0.maximumTrackTintColor = .systemGray
-        }
+        bottomSlider = CKSlider()
         contentView.addSubview(bottomSlider)
         bottomSlider.addTarget(self, action: #selector(didSlideBottomSlider), for: .primaryActionTriggered)
 
         bottomSliderOverlayView = UIView().applying {
-            $0.backgroundColor = .lightGray
-            $0.layer.cornerRadius = 2
+            $0.backgroundColor = UISlider.defaultMaxTrackTintColor
+            $0.layer.cornerRadius = UISlider.defaultTrackCornerRadius
         }
         contentView.addSubview(bottomSliderOverlayView)
 
@@ -120,25 +118,25 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
             $0.font = .systemFont(ofSize: 18, weight: .light)
             $0.textColor = .systemBlue
         }
-        addSubview(topTooltipLabel)
+        contentView.addSubview(topTooltipLabel)
 
         bottomTooltipLabel = UILabel().applying {
             $0.font = .systemFont(ofSize: 18, weight: .light)
             $0.textColor = .systemBlue
         }
-        addSubview(bottomTooltipLabel)
+        contentView.addSubview(bottomTooltipLabel)
 
         rightCentralTooltipLabel = UILabel().applying {
             $0.font = .systemFont(ofSize: 18, weight: .light)
             $0.textColor = .systemYellow
         }
-        addSubview(rightCentralTooltipLabel)
+        contentView.addSubview(rightCentralTooltipLabel)
 
         leftCentralTooltipLabel = UILabel().applying {
             $0.font = .systemFont(ofSize: 18, weight: .light)
             $0.textColor = .systemYellow
         }
-        addSubview(leftCentralTooltipLabel)
+        contentView.addSubview(leftCentralTooltipLabel)
     }
 
     private func stateDidChange(from oldState: State?) {
@@ -221,6 +219,8 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+//        let containerFrame = contentView.bounds
+
         topSlider.frame.adjust { frame in
             let frameHeight = frame.height
             frame = contentView.frame.inset(by: contentView.layoutMargins)
@@ -292,7 +292,12 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
 
         rightCentralTooltipLabel.frame.adjust { frame in
-            frame.origin.x = rightCentralThumbFrame.maxX + 4
+            let rightSpace = contentView.frame.width - rightCentralThumbFrame.maxX
+            if rightSpace < frame.width + 4 {
+                frame.origin.x = rightCentralThumbFrame.minX - frame.width - 4
+            } else {
+                frame.origin.x = rightCentralThumbFrame.maxX + 4
+            }
             frame.center.y = rightCentralThumbFrame.center.y
         }
 
@@ -375,6 +380,12 @@ extension UISlider {
     var trackFrame: CGRect {
         trackRect(forBounds: bounds)
     }
+
+    static let defaultMinTrackTintColor: UIColor = .systemBlue
+
+    static let defaultMaxTrackTintColor: UIColor = .init(red: 228 / 255, green: 228 / 255, blue: 230 / 255, alpha: 1)
+
+    static let defaultTrackCornerRadius: CGFloat = 2
 }
 
 class CKSlider: UISlider {

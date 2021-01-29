@@ -12,6 +12,9 @@ public struct SectionedListState: StateType {
 }
 
 enum SectionState: Equatable {
+    case messageAnimations(rows: [RowState])
+    case backgroundAnimation(rows: [RowState])
+
     case common(rows: [RowState])
     case timing(MessageAnimationTimingID, rows: [RowState])
 }
@@ -21,7 +24,9 @@ extension SectionState {
         get {
             switch self {
             case .common(let rows),
-                 .timing(_, let rows):
+                 .timing(_, let rows),
+                 .messageAnimations(let rows),
+                 .backgroundAnimation(let rows):
                 return rows
             }
         }
@@ -32,12 +37,18 @@ extension SectionState {
                 self = .common(rows: newRows)
             case .timing(let timing, _):
                 self = .timing(timing, rows: newRows)
+            case .messageAnimations:
+                self = .messageAnimations(rows: newRows)
+            case .backgroundAnimation:
+                self = .backgroundAnimation(rows: newRows)
             }
         }
     }
 }
 
 enum SectionID: IDType {
+    case messageAnimations
+    case backgroundAnimation
     case common
     case timing(MessageAnimationTimingID)
 }
@@ -45,6 +56,10 @@ enum SectionID: IDType {
 extension SectionState: StateType, CKIdentifiable {
     var id: SectionID {
         switch self {
+        case .messageAnimations:
+            return .messageAnimations
+        case .backgroundAnimation:
+            return .backgroundAnimation
         case .common:
             return .common
         case .timing(let timingID, _):
@@ -88,16 +103,18 @@ extension PickerRowState: CKIdentifiable {
     }
 }
 
-public enum ButtonRowID: StateType {
+public enum ButtonRowID: IDType {
     case share
     case fetch
     case restore
+    case messageAnimation(id: MessageAnimationConfigID)
 }
 
 public enum ButtonRowState: StateType {
     case share
     case fetch
     case restore
+    case messageAnimation(id: MessageAnimationConfigID)
 }
 
 extension ButtonRowState: CKIdentifiable {
@@ -109,6 +126,8 @@ extension ButtonRowState: CKIdentifiable {
             return .fetch
         case .restore:
             return .restore
+        case .messageAnimation(let id):
+            return .messageAnimation(id: id)
         }
     }
 }

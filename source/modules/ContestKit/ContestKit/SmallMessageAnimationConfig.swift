@@ -7,13 +7,13 @@
 
 import Foundation
 
-public enum MessageAnimationConfigID: Equatable {
+public enum MessageAnimationConfigID: IDType {
     case smallText
     case bubble
 }
 
 extension MessageAnimationConfigID {
-    var pickerCellOptionTitle: String {
+    var titleFormatted: String {
         switch self {
         case .smallText:
             return L10n.stub("Small Text")
@@ -68,26 +68,25 @@ extension MessageAnimationConfigState {
 public enum MessageAnimationTimingID: IDType {
     case positionX
     case positionY
-    case bubbleShape
-}
+    case timeAppears
 
-extension MessageAnimationTimingID {
-    var editorSectionTitle: String {
-        switch self {
-        case .positionX:
-            return L10n.stub("Position X")
-        case .positionY:
-            return L10n.stub("Position Y")
-        case .bubbleShape:
-            return L10n.stub("Bubble Shape")
-        }
-    }
+    case bubbleShape
+    case textPosition
+    case colorChange
+
+    case emojiScale
 }
 
 public enum MessageAnimationTimingState: Equatable {
     case positionX(AnimationTimingState)
     case positionY(AnimationTimingState)
+    case timeAppears(AnimationTimingState)
+
     case bubbleShape(AnimationTimingState)
+    case textPosition(AnimationTimingState)
+    case colorChange(AnimationTimingState)
+
+    case emojiScale(AnimationTimingState)
 }
 
 extension MessageAnimationTimingState: CKIdentifiable {
@@ -97,8 +96,16 @@ extension MessageAnimationTimingState: CKIdentifiable {
             return .positionX
         case .positionY:
             return .positionY
+        case .timeAppears:
+            return .timeAppears
         case .bubbleShape:
             return .bubbleShape
+        case .textPosition:
+            return .textPosition
+        case .colorChange:
+            return .colorChange
+        case .emojiScale:
+            return .emojiScale
         }
     }
 }
@@ -109,7 +116,11 @@ extension MessageAnimationTimingState {
             switch self {
             case .positionX(let timing),
                  .positionY(let timing),
-                 .bubbleShape(let timing):
+                 .bubbleShape(let timing),
+                 .timeAppears(let timing),
+                 .textPosition(let timing),
+                 .colorChange(let timing),
+                 .emojiScale(let timing):
                 return timing
             }
         }
@@ -121,6 +132,14 @@ extension MessageAnimationTimingState {
                 self = .positionY(newTiming)
             case .bubbleShape:
                 self = .bubbleShape(newTiming)
+            case .timeAppears:
+                self = .timeAppears(newTiming)
+            case .textPosition:
+                self = .textPosition(newTiming)
+            case .colorChange:
+                self = .colorChange(newTiming)
+            case .emojiScale:
+                self = .emojiScale(newTiming)
             }
         }
     }
@@ -137,28 +156,23 @@ extension MessageAnimationConfigState {
     }
 }
 
-
-public struct AppConfigState: StateType {
-    var messageAnimationConfigs: [MessageAnimationConfigState] = []
-    var defaultMessageAnimationConfigs: [MessageAnimationConfigState] = []
-
-    public init(
-        messageAnimationConfigs: [MessageAnimationConfigState] = [],
-        defaultMessageAnimationConfigs: [MessageAnimationConfigState] = []
-    ) {
-        self.messageAnimationConfigs = messageAnimationConfigs
-        self.defaultMessageAnimationConfigs = defaultMessageAnimationConfigs
+extension MessageAnimationTimingID {
+    var editorSectionTitle: String {
+        switch self {
+        case .positionX:
+            return L10n.stub("X Position")
+        case .positionY:
+            return L10n.stub("Y Position")
+        case .timeAppears:
+            return L10n.stub("Time Appears")
+        case .bubbleShape:
+            return L10n.stub("Bubble Shape")
+        case .textPosition:
+            return L10n.stub("Text Position")
+        case .colorChange:
+            return L10n.stub("Color Change")
+        case .emojiScale:
+            return L10n.stub("Emoji Scale")
+        }
     }
-}
-
-extension AppConfigState {
-    static let initialMessageAnimationConfigs: [MessageAnimationConfigState] = [
-        .smallText([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
-        ]),
-        .bubble([
-            .bubbleShape(.makeDefault(totalDuration: 1))
-        ]),
-    ]
 }
