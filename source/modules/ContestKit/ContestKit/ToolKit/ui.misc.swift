@@ -21,3 +21,9 @@ public extension Styleable {
 }
 
 extension NSObject: Styleable {}
+
+let noAutoresize: Style<UIView> = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+}
+
+extension UIEdgeInsets: ValueType {}

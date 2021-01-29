@@ -13,7 +13,7 @@ public enum MessageAnimationConfigID: Equatable {
 }
 
 extension MessageAnimationConfigID {
-    var pickerCellFormatted: String {
+    var pickerCellOptionTitle: String {
         switch self {
         case .smallText:
             return L10n.stub("Small Text")
@@ -60,15 +60,28 @@ extension MessageAnimationConfigState {
 
     var duration: TimeInterval {
         assert(timings.areUnique)
-        return timings[0].timing.duration
+        return timings[0].timing.totalDuration
     }
 }
 
 
-public enum MessageAnimationTimingID: Equatable {
+public enum MessageAnimationTimingID: IDType {
     case positionX
     case positionY
     case bubbleShape
+}
+
+extension MessageAnimationTimingID {
+    var editorSectionTitle: String {
+        switch self {
+        case .positionX:
+            return L10n.stub("Position X")
+        case .positionY:
+            return L10n.stub("Position Y")
+        case .bubbleShape:
+            return L10n.stub("Bubble Shape")
+        }
+    }
 }
 
 public enum MessageAnimationTimingState: Equatable {
@@ -92,11 +105,23 @@ extension MessageAnimationTimingState: CKIdentifiable {
 
 extension MessageAnimationTimingState {
     var timing: AnimationTimingState {
-        switch self {
-        case .positionX(let timing),
-             .positionY(let timing),
-             .bubbleShape(let timing):
-            return timing
+        get {
+            switch self {
+            case .positionX(let timing),
+                 .positionY(let timing),
+                 .bubbleShape(let timing):
+                return timing
+            }
+        }
+        set(newTiming) {
+            switch self {
+            case .positionX:
+                self = .positionX(newTiming)
+            case .positionY:
+                self = .positionY(newTiming)
+            case .bubbleShape:
+                self = .bubbleShape(newTiming)
+            }
         }
     }
 }
@@ -129,11 +154,11 @@ public struct AppConfigState: StateType {
 extension AppConfigState {
     static let initialMessageAnimationConfigs: [MessageAnimationConfigState] = [
         .smallText([
-            .positionX(.makeDefault(duration: 1)),
-            .positionY(.makeDefault(duration: 1))
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
         ]),
         .bubble([
-            .bubbleShape(.makeDefault(duration: 1))
+            .bubbleShape(.makeDefault(totalDuration: 1))
         ]),
     ]
 }

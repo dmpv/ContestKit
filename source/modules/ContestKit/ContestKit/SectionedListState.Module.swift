@@ -50,12 +50,8 @@ extension SectionedListModule {
         switch sectionID {
         case .common:
             return nil
-        case .timing(.positionX):
-            return L10n.stub("Position X")
-        case .timing(.positionY):
-            return L10n.stub("Position Y")
-        case .timing(.bubbleShape):
-            return L10n.stub("Bubble Shape")
+        case .timing(let messageAnimationTimingID):
+            return messageAnimationTimingID.editorSectionTitle
         }
     }
 
@@ -65,7 +61,7 @@ extension SectionedListModule {
              .button:
             return 44
         case .animationTiming:
-            return 120
+            return 150
         }
     }
 

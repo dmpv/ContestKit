@@ -37,7 +37,7 @@ extension SectionState {
     }
 }
 
-enum SectionID: Hashable {
+enum SectionID: IDType {
     case common
     case timing(MessageAnimationTimingID)
 }
@@ -64,7 +64,7 @@ public enum PickerRowState: StateType {
 }
 
 extension TimeInterval {
-    var pickerCellFormatted: String {
+    var pickerCellOptionTitle: String {
         let frameCount = Int(60 * self)
         let suffix = self == 1 ? " " + L10n.stub("(1 sec)") : ""
         return L10n.stub("\(frameCount)f") + suffix

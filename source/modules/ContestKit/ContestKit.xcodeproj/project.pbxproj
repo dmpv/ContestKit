@@ -51,6 +51,7 @@
 		34F2E52525C364AB00EB0B96 /* RowState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52425C364AB00EB0B96 /* RowState+substates.swift */; };
 		34F2E52925C3777700EB0B96 /* SectionedListState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52825C3777700EB0B96 /* SectionedListState.Store+substores.swift */; };
 		34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52E25C37A3600EB0B96 /* RowCell.swift */; };
+		34F2E53325C3863500EB0B96 /* CG.misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E53225C3863500EB0B96 /* CG.misc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		34F2E52425C364AB00EB0B96 /* RowState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowState+substates.swift"; sourceTree = "<group>"; };
 		34F2E52825C3777700EB0B96 /* SectionedListState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionedListState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E52E25C37A3600EB0B96 /* RowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCell.swift; sourceTree = "<group>"; };
+		34F2E53225C3863500EB0B96 /* CG.misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CG.misc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				34CC95C925BF6DF80081E93B /* falllback.swift */,
 				34CC95CA25BF6DF80081E93B /* Observable.swift */,
 				343E8D9725C0E746000FF0AE /* ValueType.swift */,
+				34F2E53225C3863500EB0B96 /* CG.misc.swift */,
 			);
 			path = ToolKit;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */,
 				34CC95E425BF6DF80081E93B /* RDXKit.Store+Proxy.swift in Sources */,
 				343E8DCA25C0F236000FF0AE /* AnimationTimingCell.swift in Sources */,
+				34F2E53325C3863500EB0B96 /* CG.misc.swift in Sources */,
 				34F2E51825C25E1700EB0B96 /* ui.misc.swift in Sources */,
 				343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */,
 				34CC95ED25BF6DF80081E93B /* draft.swift in Sources */,

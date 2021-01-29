@@ -44,9 +44,7 @@ public final class SectionedListView: UIView {
     }
 
     private func setup() {
-        tableView = module.tableView.applying {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+        tableView = module.tableView.applying(noAutoresize)
         addSubview(tableView)
     }
 

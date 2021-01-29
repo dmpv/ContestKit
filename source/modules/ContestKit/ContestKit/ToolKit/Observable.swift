@@ -51,9 +51,9 @@ class Disposable {
         self.dispose = dispose
     }
 
-    deinit {
-        dispose()
-    }
+//    deinit {
+//        dispose()
+//    }
 }
 
 extension Disposable {

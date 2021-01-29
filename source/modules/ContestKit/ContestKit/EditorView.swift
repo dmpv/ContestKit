@@ -44,9 +44,7 @@ public final class EditorView: UIView {
     }
 
     private func setup() {
-        sectionedListView = module.view.applying {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+        sectionedListView = module.view.applying(noAutoresize)
         addSubview(sectionedListView)
     }
 
