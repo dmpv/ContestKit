@@ -1,5 +1,5 @@
 //
-//  EditorView.swift
+//  MessageAnimationEditorView.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 27.01.2021.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public final class EditorView: UIView {
+public final class MessageAnimationEditorView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }
     }
@@ -84,7 +84,7 @@ public final class EditorView: UIView {
     }
 }
 
-extension EditorView {
+extension MessageAnimationEditorView {
     struct State: Equatable {
         var layout = Layout()
         var appearance = Appearance()

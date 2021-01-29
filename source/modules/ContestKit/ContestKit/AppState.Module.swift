@@ -17,8 +17,8 @@ public class AppModule {
 
     private func setup() {}
 
-    public func editorView(for id: MessageAnimationConfigID) -> EditorView {
-        let editorModule = EditorModule(store: store.editorStore(for: id))
+    public func messageAnimationEditorView(for id: MessageAnimationConfigID) -> MessageAnimationEditorView {
+        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore(for: id))
         return editorModule.view
     }
 }

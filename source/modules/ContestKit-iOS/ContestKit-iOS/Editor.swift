@@ -22,7 +22,7 @@ struct Editor: UIViewControllerRepresentable {
         appStore.dispatch(appModule.fetchDefaultAnimationConfig())
 
         let vc = UIViewController()
-        vc.view = appModule.editorView(for: .smallText)
+        vc.view = appModule.messageAnimationEditorView(for: .smallText)
         return vc
     }
 

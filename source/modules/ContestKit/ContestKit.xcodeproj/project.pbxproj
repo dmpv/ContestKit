@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		343E8D9425C0E487000FF0AE /* AnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9325C0E487000FF0AE /* AnimationState.swift */; };
 		343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9725C0E746000FF0AE /* ValueType.swift */; };
-		343E8DBD25C0ED65000FF0AE /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DBC25C0ED65000FF0AE /* EditorView.swift */; };
+		343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */; };
 		343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC225C0F20E000FF0AE /* PickerCell.swift */; };
 		343E8DC625C0F218000FF0AE /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC525C0F218000FF0AE /* ButtonCell.swift */; };
 		343E8DCA25C0F236000FF0AE /* AnimationTimingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */; };
 		343E8DD025C0FD04000FF0AE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DCF25C0FD04000FF0AE /* AppState.swift */; };
-		343E8DD325C1B75F000FF0AE /* EditorState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DD225C1B75F000FF0AE /* EditorState.Module.swift */; };
+		343E8DD325C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DD225C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift */; };
 		3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */; };
 		3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3725C470D500EA3477 /* DottedLineView.swift */; };
 		3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */; };
@@ -43,12 +43,12 @@
 		34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */; };
 		34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */; };
 		34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50125C2250C00EB0B96 /* AppState.Module.swift */; };
-		34F2E50825C2269E00EB0B96 /* EditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50725C2269E00EB0B96 /* EditorState.swift */; };
-		34F2E50B25C227B200EB0B96 /* EditorState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50A25C227B200EB0B96 /* EditorState.Store+substores.swift */; };
+		34F2E50825C2269E00EB0B96 /* MessageAnimationEditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50725C2269E00EB0B96 /* MessageAnimationEditorState.swift */; };
+		34F2E50B25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50A25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift */; };
 		34F2E50E25C2348F00EB0B96 /* SectionedListState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50D25C2348F00EB0B96 /* SectionedListState+substates.swift */; };
 		34F2E51225C23D2B00EB0B96 /* SmallMessageAnimationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51125C23D2B00EB0B96 /* SmallMessageAnimationConfig.swift */; };
 		34F2E51825C25E1700EB0B96 /* ui.misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51725C25E1700EB0B96 /* ui.misc.swift */; };
-		34F2E51B25C2701D00EB0B96 /* EditorState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51A25C2701D00EB0B96 /* EditorState+substates.swift */; };
+		34F2E51B25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51A25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift */; };
 		34F2E51E25C317DD00EB0B96 /* RowModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51D25C317DD00EB0B96 /* RowModule.swift */; };
 		34F2E52225C364A000EB0B96 /* RowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52125C364A000EB0B96 /* RowState.swift */; };
 		34F2E52525C364AB00EB0B96 /* RowState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52425C364AB00EB0B96 /* RowState+substates.swift */; };
@@ -60,12 +60,12 @@
 /* Begin PBXFileReference section */
 		343E8D9325C0E487000FF0AE /* AnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationState.swift; sourceTree = "<group>"; };
 		343E8D9725C0E746000FF0AE /* ValueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
-		343E8DBC25C0ED65000FF0AE /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationEditorView.swift; sourceTree = "<group>"; };
 		343E8DC225C0F20E000FF0AE /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		343E8DC525C0F218000FF0AE /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingCell.swift; sourceTree = "<group>"; };
 		343E8DCF25C0FD04000FF0AE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		343E8DD225C1B75F000FF0AE /* EditorState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorState.Module.swift; sourceTree = "<group>"; };
+		343E8DD225C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationEditorState.Module.swift; sourceTree = "<group>"; };
 		3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingDottedView.swift; sourceTree = "<group>"; };
 		3449FC3725C470D500EA3477 /* DottedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineView.swift; sourceTree = "<group>"; };
 		3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingPathView.swift; sourceTree = "<group>"; };
@@ -96,12 +96,12 @@
 		34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+substates.swift"; sourceTree = "<group>"; };
 		34F2E50125C2250C00EB0B96 /* AppState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.Module.swift; sourceTree = "<group>"; };
-		34F2E50725C2269E00EB0B96 /* EditorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorState.swift; sourceTree = "<group>"; };
-		34F2E50A25C227B200EB0B96 /* EditorState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditorState.Store+substores.swift"; sourceTree = "<group>"; };
+		34F2E50725C2269E00EB0B96 /* MessageAnimationEditorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationEditorState.swift; sourceTree = "<group>"; };
+		34F2E50A25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageAnimationEditorState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E50D25C2348F00EB0B96 /* SectionedListState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionedListState+substates.swift"; sourceTree = "<group>"; };
 		34F2E51125C23D2B00EB0B96 /* SmallMessageAnimationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallMessageAnimationConfig.swift; sourceTree = "<group>"; };
 		34F2E51725C25E1700EB0B96 /* ui.misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ui.misc.swift; sourceTree = "<group>"; };
-		34F2E51A25C2701D00EB0B96 /* EditorState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditorState+substates.swift"; sourceTree = "<group>"; };
+		34F2E51A25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageAnimationEditorState+substates.swift"; sourceTree = "<group>"; };
 		34F2E51D25C317DD00EB0B96 /* RowModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowModule.swift; sourceTree = "<group>"; };
 		34F2E52125C364A000EB0B96 /* RowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowState.swift; sourceTree = "<group>"; };
 		34F2E52425C364AB00EB0B96 /* RowState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowState+substates.swift"; sourceTree = "<group>"; };
@@ -146,13 +146,13 @@
 				34F2E50125C2250C00EB0B96 /* AppState.Module.swift */,
 				34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */,
 				34F2E51D25C317DD00EB0B96 /* RowModule.swift */,
-				34F2E50725C2269E00EB0B96 /* EditorState.swift */,
-				34F2E51A25C2701D00EB0B96 /* EditorState+substates.swift */,
-				34F2E50A25C227B200EB0B96 /* EditorState.Store+substores.swift */,
-				343E8DD225C1B75F000FF0AE /* EditorState.Module.swift */,
+				34F2E50725C2269E00EB0B96 /* MessageAnimationEditorState.swift */,
+				34F2E51A25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift */,
+				34F2E50A25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift */,
+				343E8DD225C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift */,
 				343E8D9325C0E487000FF0AE /* AnimationState.swift */,
 				34F2E51125C23D2B00EB0B96 /* SmallMessageAnimationConfig.swift */,
-				343E8DBC25C0ED65000FF0AE /* EditorView.swift */,
+				343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */,
 				348953AF25C1EF1500192DC8 /* SectionedListView.swift */,
 				348953B525C210EE00192DC8 /* SectionedListState.swift */,
 				34F2E50D25C2348F00EB0B96 /* SectionedListState+substates.swift */,
@@ -324,9 +324,9 @@
 				34F2E51225C23D2B00EB0B96 /* SmallMessageAnimationConfig.swift in Sources */,
 				34CC95E725BF6DF80081E93B /* RDXKit.Store.swift in Sources */,
 				34CC95E025BF6DF80081E93B /* Observable.swift in Sources */,
-				34F2E50B25C227B200EB0B96 /* EditorState.Store+substores.swift in Sources */,
+				34F2E50B25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift in Sources */,
 				343E8DC625C0F218000FF0AE /* ButtonCell.swift in Sources */,
-				343E8DD325C1B75F000FF0AE /* EditorState.Module.swift in Sources */,
+				343E8DD325C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift in Sources */,
 				34CC95E525BF6DF80081E93B /* RDXKit.AnyAction.swift in Sources */,
 				34CC95DE25BF6DF80081E93B /* fatalError.swift in Sources */,
 				34F2E52925C3777700EB0B96 /* SectionedListState.Store+substores.swift in Sources */,
@@ -337,7 +337,7 @@
 				34CC95EB25BF6DF80081E93B /* RDXKit.Thunk.swift in Sources */,
 				34CC95EC25BF6DF80081E93B /* RDXKit.swift in Sources */,
 				348953B625C210EE00192DC8 /* SectionedListState.swift in Sources */,
-				343E8DBD25C0ED65000FF0AE /* EditorView.swift in Sources */,
+				343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */,
 				34CC95DF25BF6DF80081E93B /* falllback.swift in Sources */,
 				3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */,
 				34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */,
@@ -351,9 +351,9 @@
 				343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */,
 				343E8D9425C0E487000FF0AE /* AnimationState.swift in Sources */,
 				348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */,
-				34F2E51B25C2701D00EB0B96 /* EditorState+substates.swift in Sources */,
+				34F2E51B25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift in Sources */,
 				34F2E50E25C2348F00EB0B96 /* SectionedListState+substates.swift in Sources */,
-				34F2E50825C2269E00EB0B96 /* EditorState.swift in Sources */,
+				34F2E50825C2269E00EB0B96 /* MessageAnimationEditorState.swift in Sources */,
 				343E8DD025C0FD04000FF0AE /* AppState.swift in Sources */,
 				34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */,
 				34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */,

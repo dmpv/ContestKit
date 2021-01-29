@@ -6,20 +6,3 @@
 //
 
 import Foundation
-
-protocol StateType: ValueType, Equatable {}
-
-protocol IDType: ValueType, Hashable {}
-
-class L10n: Namespace {
-    static func stub(_ string: String) -> String {
-        NSLocalizedString(string, comment: "")
-    }
-}
-
-class Stub: Namespace {
-    static func make<ValueT>(_ value: ValueT) -> ValueT {
-        value
-    }
-}
-

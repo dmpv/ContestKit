@@ -127,7 +127,7 @@ extension MessageAnimationTimingState {
 }
 
 extension MessageAnimationConfigState {
-    var editor: EditorState {
+    var editor: MessageAnimationEditorState {
         get {
             .init(messageAnimationConfig: self)
         }
