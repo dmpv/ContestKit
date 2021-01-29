@@ -16,3 +16,10 @@ class L10n: Namespace {
         NSLocalizedString(string, comment: "")
     }
 }
+
+class Stub: Namespace {
+    static func make<ValueT>(_ value: ValueT) -> ValueT {
+        value
+    }
+}
+

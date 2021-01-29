@@ -39,10 +39,10 @@ class RowModule {
                     onSlideTopSlider: { [self, weak store] fraction in
                         store?.dispatch((updateAnimationTimingC2Fraction(fraction)))
                     },
-                    onSlideTopCentralSlider: { [self, weak store] fraction in
+                    onSlideRightCentralSlider: { [self, weak store] fraction in
                         store?.dispatch((updateAnimationTimingEndsAtFraction(fraction)))
                     },
-                    onSlideBottomCentralSlider: { [self, weak store] fraction in
+                    onSlideLeftCentralSlider: { [self, weak store] fraction in
                         store?.dispatch((updateAnimationTimingStartsAtFraction(fraction)))
                     },
                     onSlideBottomSlider: { [self, weak store] fraction in

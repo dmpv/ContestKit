@@ -35,7 +35,7 @@ extension AnimationTimingState {
         .init(
             startsAt: 0,
             c1: .init(x: totalDuration * 0.5),
-            c2: .init(x: totalDuration * -0.5),
+            c2: .init(x: totalDuration * 0.5),
             endsAt: totalDuration,
             totalDuration: totalDuration
         )
@@ -81,6 +81,10 @@ extension AnimationTimingState {
             startsAt = totalDuration * Double(newStartsAtFraction)
             if startsAt > endsAt - minDuration {
                 endsAt = startsAt + minDuration
+                if endsAt > totalDuration {
+                    endsAt = totalDuration
+                    startsAt = totalDuration - minDuration
+                }
             }
             if startsAt > c1.x {
                 c1.x = startsAt
@@ -99,6 +103,10 @@ extension AnimationTimingState {
             endsAt = totalDuration * Double(newEndsAtFraction)
             if endsAt < startsAt + minDuration {
                 startsAt = endsAt - minDuration
+                if startsAt < 0 {
+                    startsAt = 0
+                    endsAt = minDuration
+                }
             }
             if endsAt < c2.x {
                 c2.x = endsAt

@@ -64,10 +64,16 @@ public enum PickerRowState: StateType {
 }
 
 extension TimeInterval {
+    var frameCountFormatted: String {
+        let frameCount = Int(self * 60)
+        return L10n.stub("\(frameCount)f")
+    }
+}
+
+extension TimeInterval {
     var pickerCellOptionTitle: String {
-        let frameCount = Int(60 * self)
         let suffix = self == 1 ? " " + L10n.stub("(1 sec)") : ""
-        return L10n.stub("\(frameCount)f") + suffix
+        return frameCountFormatted + suffix
     }
 }
 

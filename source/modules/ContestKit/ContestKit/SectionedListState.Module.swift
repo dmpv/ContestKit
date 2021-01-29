@@ -61,7 +61,7 @@ extension SectionedListModule {
              .button:
             return 44
         case .animationTiming:
-            return 150
+            return 212
         }
     }
 
