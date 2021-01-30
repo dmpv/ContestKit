@@ -76,15 +76,30 @@ extension AppModule {
                 app.config.stableMessageAnimationConfigs = app.config.draftMessageAnimationConfigs
             }
             AppUICoordinator.shared.hideEditor()
+
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let jsonData = try! encoder.encode(appStore.state.config.stableMessageAnimationConfigs)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+
+            let pasteBoard = UIPasteboard.general
+            pasteBoard.string = jsonString
         }.boxed()
     }
-
-//    public func fetchDefaultAnimationConfig() -> RDXKit.AnyAction<AppState> {
-//        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-//            appStore.dispatchCustom { app in
-//                app.config.defaultMessageAnimationConfigs = AppConfigState.initialMessageAnimationConfigs
-//                app.config.messageAnimationConfigs = app.config.defaultMessageAnimationConfigs
-//            }
-//        }.boxed()
-//    }
 }
+
+//import Foundation // Needed for JSONEncoder/JSONDecoder
+//
+//let encoder = JSONEncoder()
+//encoder.outputFormatting = .prettyPrinted
+//let decoder = JSONDecoder()
+//
+//let count = PostType.count(number: 42)
+//let countData = try encoder.encode(count)
+//let countJSON = String.init(data: countData, encoding: .utf8)!
+//print(countJSON)
+////    {
+////      "count" : 42
+////    }
+//
+//let decodedCount = try decoder.decode(PostType.self, from: countData)

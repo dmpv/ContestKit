@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AnimationTimingState: StateType {
+public struct AnimationTimingState: StateType, Codable {
     var startsAt: TimeInterval = 0
     var c1: TimePoint = .init()
     var c2: TimePoint = .init()
@@ -132,7 +132,7 @@ extension AnimationTimingState {
     }
 }
 
-public struct TimePoint: StateType {
+public struct TimePoint: StateType, Codable {
     var x: TimeInterval = 0
     var y: TimeInterval = 0
 
