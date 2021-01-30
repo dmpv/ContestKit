@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class AppModule {
     private let store: RDXKit.Store<AppState>
@@ -17,9 +18,21 @@ public class AppModule {
 
     private func setup() {}
 
-    public func messageAnimationEditorView(for id: MessageAnimationConfigID) -> MessageAnimationEditorView {
-        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore(for: id))
-        return editorModule.view
+    public func messageAnimationEditorVC() -> UIViewController {
+        let messageAnimationConfigID: MessageAnimationConfigID = store.state.config.messageAnimationConfigs[0].id
+        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore(for: messageAnimationConfigID))
+        return editorModule.vc
+    }
+
+    public func messageAnimationPickerVC() -> UIViewController {
+        let sectionedListModule = SectionedListModule(store: store.sectionedListStore)
+        let view = sectionedListModule.view
+        let vc = ViewController(view: view)
+        _ = store.stateObservable
+            .addObserver { [weak vc] app in
+                vc?.state = app.pickerVC
+            }
+        return vc
     }
 }
 

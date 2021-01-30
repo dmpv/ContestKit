@@ -56,7 +56,16 @@ class RowModule {
 
 extension RowModule {
     func selectRow() -> RDXKit.AnyAction<RowState> {
-        SelectRow().boxed()
+        RDXKit.Thunk<RDXKit.Store<RowState>> { rowStore in
+            switch rowStore.state {
+            case .picker(.messageAnimationID(let id)):
+                AppUICoordinator.shared.showIDPicker()
+            case .button(.messageAnimation(let id)):
+                AppUICoordinator.shared.hideIDPicker()
+            default:
+                return
+            }
+        }.boxed()
     }
 
     func updateAnimationTimingC1Fraction(_ c1Fraction: Float) -> RDXKit.AnyAction<RowState> {

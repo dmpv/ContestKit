@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var showingEditor = true
+import ContestKit
 
+struct ContentView: View {
     var body: some View {
         Button("Edit") {
-           self.showingEditor = true
-        }
-        .sheet(isPresented: $showingEditor) {
-            Editor()
+            AppUICoordinator.shared.showEditor()
         }
     }
 }

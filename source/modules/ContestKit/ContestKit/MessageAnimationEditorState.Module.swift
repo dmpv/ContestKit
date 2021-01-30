@@ -18,13 +18,48 @@ class MessageAnimationEditorModule {
 
     private func setup() {}
 
-    var view: MessageAnimationEditorView {
+    var view: UIView {
         let sectionedListModule = SectionedListModule(store: store.sectionedListStore)
         let view = MessageAnimationEditorView(module: sectionedListModule)
         _ = store.stateObservable
-            .addObserver { [weak view] state in
+            .addObserver { [weak view] sectionedList in
                 view?.state = .init()
             }
         return view
+    }
+
+    var vc: UIViewController {
+        let vc = ViewController(view: view)
+        _ = store.stateObservable
+            .addObserver { [weak vc] messageAnimationEditor in
+                vc?.state = messageAnimationEditor.vc
+            }
+        vc.handlers = .init(
+            leftBarButton: .init(
+                onPress: { [self, weak store] in
+                    store?.dispatch(cancel())
+                }
+            ),
+            rightBarButton: .init(
+                onPress: { [self, weak store] in
+                    store?.dispatch(apply())
+                }
+            )
+        )
+        return vc
+    }
+}
+
+extension MessageAnimationEditorModule {
+    func cancel() -> RDXKit.AnyAction<MessageAnimationEditorState> {
+        RDXKit.Thunk<RDXKit.Store<MessageAnimationEditorState>> { messageAnimationEditorStore in
+            AppUICoordinator.shared.hideEditor()
+        }.boxed()
+    }
+
+    func apply() -> RDXKit.AnyAction<MessageAnimationEditorState> {
+        RDXKit.Thunk<RDXKit.Store<MessageAnimationEditorState>> { messageAnimationEditorStore in
+            AppUICoordinator.shared.hideEditor()
+        }.boxed()
     }
 }

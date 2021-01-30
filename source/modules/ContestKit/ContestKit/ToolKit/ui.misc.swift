@@ -27,3 +27,44 @@ let noAutoresize: Style<UIView> = {
 }
 
 extension UIEdgeInsets: ValueType {}
+
+
+func perform(animated: Bool, execute: @escaping () -> Void) {
+    perform(with: animated ? AnimationConfig() : nil, execute: execute)
+}
+
+func perform(with animationConfig: AnimationConfig?, execute: @escaping () -> Void) {
+    if let animationConfig = animationConfig {
+        UIView.animate(with: animationConfig) { execute() }
+    } else {
+        execute()
+    }
+}
+
+struct AnimationConfig {
+    var options: UIView.AnimationOptions = [
+        .curveEaseInOut,
+        .beginFromCurrentState,
+        .allowUserInteraction,
+    ]
+    var duration: Duration = .medium
+    var delay: TimeInterval = 0
+}
+
+extension AnimationConfig {
+    enum Duration: TimeInterval {
+        case short = 0.2
+        case medium = 0.4
+        case long = 0.6
+    }
+}
+
+extension UIView {
+    static func animate(with config: AnimationConfig, animations: @escaping () -> Void) {
+        animate(withDuration: config.duration.rawValue, delay: config.delay, options: config.options, animations: animations, completion: nil)
+    }
+
+    static func animate(with animations: @escaping () -> Void) {
+        animate(with: AnimationConfig(), animations: animations)
+    }
+}

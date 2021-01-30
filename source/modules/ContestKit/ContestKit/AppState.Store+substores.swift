@@ -16,3 +16,13 @@ extension RDXKit.Store where StateT == AppState {
         )
     }
 }
+
+extension RDXKit.Store where StateT == AppState {
+    var sectionedListStore: RDXKit.Store<SectionedListState> {
+        makeProxy(
+            config: .init(
+                lens: Lens(\.config.messageAnimationIDPickerSectionedList)
+            )
+        )
+    }
+}

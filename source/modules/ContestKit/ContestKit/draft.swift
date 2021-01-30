@@ -16,6 +16,9 @@ extension AppConfigState {
                         rows: messageAnimationConfigs.map { messageAnimationConfig in
                             .button(.messageAnimation(id: messageAnimationConfig.id))
                         }
+                    ),
+                    .backgroundAnimation(
+                        rows: []
                     )
                 ]
             )
@@ -23,15 +26,5 @@ extension AppConfigState {
         set {
             fatalError(.shouldNeverBeCalled(nil))
         }
-    }
-}
-
-extension RDXKit.Store where StateT == AppState {
-    var sectionedListStore: RDXKit.Store<SectionedListState> {
-        makeProxy(
-            config: .init(
-                lens: Lens(\.config.messageAnimationIDPickerSectionedList)
-            )
-        )
     }
 }

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension AppState {
+    var pickerVC: ViewController.State {
+        .init(
+            title: L10n.stub("Animation Type")
+        )
+    }
+}
