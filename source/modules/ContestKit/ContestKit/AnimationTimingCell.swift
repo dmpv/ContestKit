@@ -160,10 +160,18 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     private func stateDidChange(from oldState: State?) {
         guard state != oldState || !activated else { return }
 
-        topSlider.fraction = state?.timing.c2Fraction ?? 0
-        rightCentralSlider.fraction = state?.timing.endsAtFraction ?? 0
-        leftCentralSlider.fraction = state?.timing.startsAtFraction ?? 0
-        bottomSlider.fraction = state?.timing.c1Fraction ?? 0
+        let timing = state?.timing ?? .init(
+            startsAt: 0,
+            c1: .init(x: 0.5, y: 0),
+            c2: .init(x: 0.5, y: 0),
+            endsAt: 1,
+            totalDuration: 1
+        )
+
+        topSlider.fraction = timing.c2Fraction
+        rightCentralSlider.fraction = timing.endsAtFraction
+        leftCentralSlider.fraction = timing.startsAtFraction
+        bottomSlider.fraction = timing.c1Fraction
 
         rightDottedView.state = .init(circleRadius: 5)
         leftDottedView.state = .init(circleRadius: 5)
@@ -171,26 +179,22 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         topSliderFakeThumb.state = .iOSSystemPreferences
         bottomSliderFakeThumb.state = .iOSSystemPreferences
 
-        if let timing = state?.timing {
-            let relativeC1Fraction = Float(timing.c1.x - timing.startsAt) / Float(timing.endsAt - timing.startsAt)
-            let relativeC2Fraction = Float(timing.c2.x - timing.startsAt) / Float(timing.endsAt - timing.startsAt)
-            pathView.state = .init(
-                c1Fraction: relativeC1Fraction,
-                c2Fraction: relativeC2Fraction
-            )
+        pathView.state = .init(
+            c1Fraction: timing.c1RelativeFraction,
+            c2Fraction: timing.c2RelativeFraction
+        )
 
-            topTooltipLabel.text = (1 - relativeC2Fraction).percentageTooltip
-            topTooltipLabel.sizeToFit()
+        topTooltipLabel.text = (1 - timing.c2RelativeFraction).percentageTooltip
+        topTooltipLabel.sizeToFit()
 
-            bottomTooltipLabel.text = relativeC1Fraction.percentageTooltip
-            bottomTooltipLabel.sizeToFit()
+        bottomTooltipLabel.text = timing.c1RelativeFraction.percentageTooltip
+        bottomTooltipLabel.sizeToFit()
 
-            rightCentralTooltipLabel.text = timing.endsAt.frameCountFormatted
-            rightCentralTooltipLabel.sizeToFit()
+        rightCentralTooltipLabel.text = timing.endsAt.frameCountFormatted
+        rightCentralTooltipLabel.sizeToFit()
 
-            leftCentralTooltipLabel.text = timing.startsAt.frameCountFormatted
-            leftCentralTooltipLabel.sizeToFit()
-        }
+        leftCentralTooltipLabel.text = timing.startsAt.frameCountFormatted
+        leftCentralTooltipLabel.sizeToFit()
 
         layoutDidChange(from: oldState?.layout)
         appearanceDidChange(from: oldState?.appearance)
@@ -297,11 +301,16 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
             frame.size.height = bottomThumbFrame.center.y - topThumbFrame.center.y + frame.size.width
         }
 
+        let pathViewOldFrame = pathView.frame
         pathView.frame.adjust { frame in
             frame.origin.x = leftCentralThumbFrame.center.x
             frame.origin.y = topThumbFrame.center.y
             frame.size.width = rightCentralThumbFrame.center.x - leftCentralThumbFrame.center.x
             frame.size.height = bottomThumbFrame.center.y - topThumbFrame.center.y
+        }
+
+        if (pathViewOldFrame.size != pathView.frame.size) {
+            pathView.setNeedsDisplay()
         }
 
         topSliderFakeThumb.frame.adjust { frame in

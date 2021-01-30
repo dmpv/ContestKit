@@ -78,6 +78,8 @@ extension AnimationTimingState {
             Float(startsAt / totalDuration)
         }
         set(newStartsAtFraction) {
+            let oldC1RelativeFraction = c1RelativeFraction
+            let oldC2RelativeFraction = c2RelativeFraction
             startsAt = totalDuration * Double(newStartsAtFraction)
             if startsAt > endsAt - minDuration {
                 endsAt = startsAt + minDuration
@@ -86,12 +88,8 @@ extension AnimationTimingState {
                     startsAt = totalDuration - minDuration
                 }
             }
-            if startsAt > c1.x {
-                c1.x = startsAt
-            }
-            if startsAt > c2.x {
-                c2.x = startsAt
-            }
+            c1RelativeFraction = oldC1RelativeFraction
+            c2RelativeFraction = oldC2RelativeFraction
         }
     }
 
@@ -100,6 +98,8 @@ extension AnimationTimingState {
             Float(endsAt / totalDuration)
         }
         set(newEndsAtFraction) {
+            let oldC1RelativeFraction = c1RelativeFraction
+            let oldC2RelativeFraction = c2RelativeFraction
             endsAt = totalDuration * Double(newEndsAtFraction)
             if endsAt < startsAt + minDuration {
                 startsAt = endsAt - minDuration
@@ -108,12 +108,26 @@ extension AnimationTimingState {
                     endsAt = minDuration
                 }
             }
-            if endsAt < c2.x {
-                c2.x = endsAt
-            }
-            if endsAt < c1.x {
-                c1.x = endsAt
-            }
+            c1RelativeFraction = oldC1RelativeFraction
+            c2RelativeFraction = oldC2RelativeFraction
+        }
+    }
+
+    var c1RelativeFraction: Float {
+        get {
+            Float((c1.x - startsAt) / (endsAt - startsAt))
+        }
+        set(newC1RelativeFraction) {
+            c1.x = startsAt + (endsAt - startsAt) * Double(newC1RelativeFraction)
+        }
+    }
+
+    var c2RelativeFraction: Float {
+        get {
+            Float((c2.x - startsAt) / (endsAt - startsAt))
+        }
+        set(newC2RelativeFraction) {
+            c2.x = startsAt + (endsAt - startsAt) * Double(newC2RelativeFraction)
         }
     }
 }
