@@ -17,7 +17,7 @@ extension MessageAnimationEditorState {
                             .picker(.messageAnimationID(messageAnimationConfig.id)),
                             .picker(.messageAnimationDuration(messageAnimationConfig.duration)),
                             .button(.share),
-                            .button(.fetch),
+                            .button(.import),
                             .button(.restore)
                         ]
                     )

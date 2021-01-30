@@ -22,7 +22,7 @@ extension RowState {
             )
         case .button(.share):
             return ButtonCell.State(name: L10n.stub("Share Parameters"))
-        case .button(.fetch):
+        case .button(.import):
             return ButtonCell.State(name: L10n.stub("Import Parameters"))
         case .button(.restore):
             return ButtonCell.State(

@@ -216,21 +216,25 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     @objc
     private func didSlideTopSlider() {
         handlers.onSlideTopSlider?(topSlider.fraction)
+        topSlider.fraction = state?.timing.c2Fraction ?? 0
     }
 
     @objc
     private func didSlideRightCentralSlider() {
         handlers.onSlideRightCentralSlider?(rightCentralSlider.fraction)
+        rightCentralSlider.fraction = state?.timing.endsAtFraction ?? 0
     }
 
     @objc
     private func didSlideLeftCentralSlider() {
         handlers.onSlideLeftCentralSlider?(leftCentralSlider.fraction)
+        leftCentralSlider.fraction = state?.timing.startsAtFraction ?? 0
     }
 
     @objc
     private func didSlideBottomSlider() {
         handlers.onSlideBottomSlider?(bottomSlider.fraction)
+        bottomSlider.fraction = state?.timing.c1Fraction ?? 0
     }
 
     override func updateConstraints() {

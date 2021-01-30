@@ -59,62 +59,19 @@ public class AppUICoordinator {
     }
 }
 
-
 extension AppUICoordinator {
-    public func commonAlertActions() -> [UIAlertAction] {
-        [
-            .init(
-                title: L10n.stub("Cancel"),
-                style: .cancel
-            ) { [self] _ in
-                hideActionSheet()
-            }
-        ]
-    }
-//    private
-    func showActionSheet(withTitle title: String, actions: [UIAlertAction]) {
-        guard alertController == nil else { return fallback() }
-        alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        for action in actions {
-            alertController!.addAction(action)
-        }
-        navigationController?.present(alertController!, animated: true)
+    func showDurationActionSheet() {
+        let alertController = module.durationPickerAlertConroller()
+        navigationController?.present(alertController, animated: true)
     }
 
-    private func hideActionSheet() {
-        guard alertController != nil else { return fallback() }
-        alertController?.dismiss(animated: true)
+    func showShareActionSheet() {
+        let alertController = module.shareAlertConroller()
+        navigationController?.present(alertController, animated: true)
     }
 
-//    private func showDurationActionSheet() {
-//        showActionSheet(withTitle: L10n.stub("Duration"), actions: )
-//    }
-//
-//    public func durationAlertActions() {
-//        alertController.addAction(
-//            UIAlertAction(
-//                title: "Cancel",
-//                style: .cancel
-//            ) { _ in
-//
-//            }
-//        )
-//        alertController.addAction(
-//            UIAlertAction(
-//                title: "Stub",
-//                style: .default
-//            ) { _ in
-//
-//            }
-//        )
-//        alertController.addAction(
-//            UIAlertAction(
-//                title: "Destructive",
-//                style: .destructive
-//            ) { _ in
-//
-//            }
-//        )
-//        navigationController?.present(alertController, animated: true)
-//    }
+    func showImportActionSheet() {
+        let alertController = module.importAlertConroller()
+        navigationController?.present(alertController, animated: true)
+    }
 }

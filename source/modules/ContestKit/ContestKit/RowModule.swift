@@ -61,13 +61,13 @@ extension RowModule {
             case .picker(.messageAnimationID):
                 AppComponents.shared.uiCoordinator.showIDPicker()
             case .picker(.messageAnimationDuration):
-                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "Duration", actions: [])
+                AppComponents.shared.uiCoordinator.showDurationActionSheet()
             case .button(.share):
-                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
-            case .button(.fetch):
-                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
-            case .button(.restore):
-                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
+                AppComponents.shared.uiCoordinator.showShareActionSheet()
+            case .button(.import):
+                AppComponents.shared.uiCoordinator.showImportActionSheet()
+//            case .button(.restore):
+//                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
             case .button(.messageAnimation(let id)):
                 AppComponents.shared.store.dispatchCustom { app in
                     app.selectedConfigID = id

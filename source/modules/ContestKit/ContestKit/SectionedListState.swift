@@ -105,14 +105,14 @@ extension PickerRowState: CKIdentifiable {
 
 public enum ButtonRowID: IDType {
     case share
-    case fetch
+    case `import`
     case restore
     case messageAnimation(id: MessageAnimationConfigID)
 }
 
 public enum ButtonRowState: StateType {
     case share
-    case fetch
+    case `import`
     case restore
     case messageAnimation(id: MessageAnimationConfigID)
 }
@@ -122,8 +122,8 @@ extension ButtonRowState: CKIdentifiable {
         switch self {
         case .share:
             return .share
-        case .fetch:
-            return .fetch
+        case .import:
+            return .import
         case .restore:
             return .restore
         case .messageAnimation(let id):

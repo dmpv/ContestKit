@@ -11,12 +11,16 @@ public struct AppConfigState: StateType {
     var stableMessageAnimationConfigs: [MessageAnimationConfigState] {
         didSet { assert(stableMessageAnimationConfigs != []) }
     }
+
     var draftMessageAnimationConfigs: [MessageAnimationConfigState] {
         didSet { assert(draftMessageAnimationConfigs != []) }
     }
-    var fetchedMessageAnimationConfigs: [MessageAnimationConfigState]? {
-        didSet { assert(fetchedMessageAnimationConfigs != []) }
+
+    var importedMessageAnimationConfigs: [MessageAnimationConfigState]? {
+        didSet { assert(importedMessageAnimationConfigs != []) }
     }
+
+    var durations: [TimeInterval]
 }
 
 extension AppConfigState {
@@ -24,8 +28,27 @@ extension AppConfigState {
         self.init(
             stableMessageAnimationConfigs: Self.defaultMessageAnimationConfigs,
             draftMessageAnimationConfigs: Self.defaultMessageAnimationConfigs,
-            fetchedMessageAnimationConfigs: nil
+            importedMessageAnimationConfigs: nil,
+            durations: Self.defaultDurations
         )
+    }
+}
+
+extension AppConfigState {
+    var durationSelection: SelectionState<TimeInterval> {
+        get {
+            assert(draftMessageAnimationConfigs.map(\.duration).unique.count == 1)
+            return .init(
+                values: durations,
+                selectedValue: draftMessageAnimationConfigs[0].duration
+            )
+        }
+        set(newDurationSelection) {
+            assert(newDurationSelection.values == durationSelection.values)
+            for index in draftMessageAnimationConfigs.indices {
+                draftMessageAnimationConfigs[index].duration = newDurationSelection.selectedValue
+            }
+        }
     }
 }
 
@@ -60,4 +83,6 @@ extension AppConfigState {
             .positionY(.makeDefault())
         ]),
     ]
+
+    static let defaultDurations: [TimeInterval] = [0.5, 0.75, 1]
 }

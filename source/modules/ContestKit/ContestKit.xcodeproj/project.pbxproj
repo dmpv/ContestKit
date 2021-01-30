@@ -47,6 +47,7 @@
 		34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */; };
 		34CE81B425C5C2FC001A4EB0 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */; };
 		34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B725C5C714001A4EB0 /* AppComponents.swift */; };
+		34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */; };
 		34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */; };
 		34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */; };
 		34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50125C2250C00EB0B96 /* AppState.Module.swift */; };
@@ -107,6 +108,7 @@
 		34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationTimingState.swift; sourceTree = "<group>"; };
 		34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
 		34CE81B725C5C714001A4EB0 /* AppComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponents.swift; sourceTree = "<group>"; };
+		34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+component.swift"; sourceTree = "<group>"; };
 		34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+substates.swift"; sourceTree = "<group>"; };
 		34F2E50125C2250C00EB0B96 /* AppState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.Module.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				34817DEA25C4C33E005733DD /* AppConfigState.swift */,
 				343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */,
 				34817DED25C4D0F2005733DD /* ViewController.swift */,
+				34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */,
 				348953AF25C1EF1500192DC8 /* SectionedListView.swift */,
 				348953B525C210EE00192DC8 /* SectionedListState.swift */,
 				34F2E50D25C2348F00EB0B96 /* SectionedListState+substates.swift */,
@@ -374,6 +377,7 @@
 				34CC95DD25BF6DF80081E93B /* Namespace.swift in Sources */,
 				34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */,
 				343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */,
+				34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */,
 				343E8D9425C0E487000FF0AE /* AnimationState.swift in Sources */,
 				348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */,
 				34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */,

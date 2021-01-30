@@ -51,6 +51,45 @@ public class AppModule {
         )
         return vc
     }
+
+    func durationPickerAlertConroller() -> UIAlertController {
+        UIAlertController(
+            state: store.state.durationActionSheet,
+            handlers: .init(
+                actions: store.state.durationActionSheet.actions.indices.map { [self] index in
+                    .init { [self, weak store] in
+                        store?.dispatch(pickDuration(at: index))
+                    }
+                }
+            )
+        )
+    }
+
+    func shareAlertConroller() -> UIAlertController {
+        UIAlertController(
+            state: store.state.shareActionSheet,
+            handlers: .init(
+                actions: store.state.shareActionSheet.actions.indices.map { [self] index in
+                    .init { [self, weak store] in
+                        store?.dispatch(pickShare(at: index))
+                    }
+                }
+            )
+        )
+    }
+
+    func importAlertConroller() -> UIAlertController {
+        UIAlertController(
+            state: store.state.importActionSheet,
+            handlers: .init(
+                actions: store.state.importActionSheet.actions.indices.map { [self] index in
+                    .init { [self, weak store] in
+                        store?.dispatch(pickImport(at: index))
+                    }
+                }
+            )
+        )
+    }
 }
 
 extension AppModule {
@@ -75,30 +114,67 @@ extension AppModule {
                 app.config.stableMessageAnimationConfigs = app.config.draftMessageAnimationConfigs
             }
             AppComponents.shared.uiCoordinator.hideEditor()
+        }.boxed()
+    }
 
-            let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
-            let jsonData = try! encoder.encode(appStore.state.config.stableMessageAnimationConfigs)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
+    func pickDuration(at index: Int) -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+            let cancelIndex = appStore.state.durationActionSheet.actions.count
+            switch index {
+            case cancelIndex:
+                break
+            default:
+                appStore.dispatchCustom { app in
+                    app.config.durationSelection.selectedIndex = index
+                }
+            }
+        }.boxed()
+    }
 
-            let pasteBoard = UIPasteboard.general
-            pasteBoard.string = jsonString
+    func pickShare(at index: Int) -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+            let shareIndex = 0
+            let cancelIndex = appStore.state.shareActionSheet.actions.count
+            switch index {
+            case cancelIndex:
+                break
+            case shareIndex:
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = .prettyPrinted
+                let jsonData = try! encoder.encode(appStore.state.config.stableMessageAnimationConfigs)
+                let jsonString = String(data: jsonData, encoding: .utf8)!
+
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = jsonString
+            default:
+                fatalError(.shouldNeverBeCalled())
+            }
+        }.boxed()
+    }
+
+    func pickImport(at index: Int) -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+            let importIndex = 0
+            let cancelIndex = appStore.state.importActionSheet.actions.count
+            switch index {
+            case cancelIndex:
+                break
+            case importIndex:
+                guard let stringData = UIPasteboard.general.string?.data(using: .utf8) else {
+                    return
+                }
+
+                let decoder = JSONDecoder()
+                if let messageAnimationConfigs = try? decoder.decode([MessageAnimationConfigState].self, from: stringData) {
+                    appStore.dispatchCustom { app in
+                        app.config.importedMessageAnimationConfigs = messageAnimationConfigs
+                        app.config.draftMessageAnimationConfigs = messageAnimationConfigs
+                        app.config.stableMessageAnimationConfigs = messageAnimationConfigs
+                    }
+                }
+            default:
+                fatalError(.shouldNeverBeCalled())
+            }
         }.boxed()
     }
 }
-
-//import Foundation // Needed for JSONEncoder/JSONDecoder
-//
-//let encoder = JSONEncoder()
-//encoder.outputFormatting = .prettyPrinted
-//let decoder = JSONDecoder()
-//
-//let count = PostType.count(number: 42)
-//let countData = try encoder.encode(count)
-//let countJSON = String.init(data: countData, encoding: .utf8)!
-//print(countJSON)
-////    {
-////      "count" : 42
-////    }
-//
-//let decodedCount = try decoder.decode(PostType.self, from: countData)

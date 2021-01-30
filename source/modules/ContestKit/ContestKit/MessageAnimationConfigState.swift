@@ -105,8 +105,15 @@ extension MessageAnimationConfigState {
     }
 
     var duration: TimeInterval {
-        assert(timings.areUnique)
-        return timings[0].timing.totalDuration
+        get {
+            assert(timings.map(\.timing.totalDuration).unique.count == 1)
+            return timings[0].timing.totalDuration
+        }
+        set(newDuration) {
+            for index in timings.indices {
+                timings[index].timing.totalDuration = newDuration
+            }
+        }
     }
 }
 
