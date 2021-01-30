@@ -30,8 +30,7 @@ public class AppModule {
     }
 
     func editorVC() -> UIViewController {
-        let messageAnimationConfigID: MessageAnimationConfigID = store.state.config.stableMessageAnimationConfigs[0].id
-        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore(for: messageAnimationConfigID))
+        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore())
         let view = editorModule.view
         let vc = ViewController(view: view)
         _ = store.stateObservable
@@ -62,7 +61,7 @@ extension AppModule {
 
     func cancelEditing() -> RDXKit.AnyAction<AppState> {
         RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            AppUICoordinator.shared.hideEditor {
+            AppComponents.shared.uiCoordinator.hideEditor {
                 appStore.dispatchCustom { app in
                     app.config.draftMessageAnimationConfigs = app.config.stableMessageAnimationConfigs
                 }
@@ -75,7 +74,7 @@ extension AppModule {
             appStore.dispatchCustom { app in
                 app.config.stableMessageAnimationConfigs = app.config.draftMessageAnimationConfigs
             }
-            AppUICoordinator.shared.hideEditor()
+            AppComponents.shared.uiCoordinator.hideEditor()
 
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted

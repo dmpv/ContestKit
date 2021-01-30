@@ -28,4 +28,27 @@ extension AppState {
             )
         )
     }
+
+    var configIDSelection: SelectionState<MessageAnimationConfigID> {
+        get {
+            .init(
+                values: config.draftMessageAnimationConfigs.map(\.id),
+                selectedValue: config.draftMessageAnimationConfigs[selectedConfigID].id
+            )
+        }
+        set(newConfigIDSelection) {
+            assert(newConfigIDSelection.values == configIDSelection.values)
+            selectedConfigID = newConfigIDSelection.selectedValue
+        }
+    }
+
+    var selectedConfig: MessageAnimationConfigState {
+        get {
+            config.draftMessageAnimationConfigs[selectedConfigID]
+        }
+        set(newSelectedConfig) {
+            assert(newSelectedConfig.id == selectedConfig.id)
+            config.draftMessageAnimationConfigs[newSelectedConfig.id] = newSelectedConfig
+        }
+    }
 }

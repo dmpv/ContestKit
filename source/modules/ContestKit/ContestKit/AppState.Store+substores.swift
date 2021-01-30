@@ -8,10 +8,10 @@
 import Foundation
 
 extension RDXKit.Store where StateT == AppState {
-    func messageAnimationEditorStore(for id: MessageAnimationConfigID) -> RDXKit.Store<MessageAnimationEditorState> {
+    func messageAnimationEditorStore() -> RDXKit.Store<MessageAnimationEditorState> {
         makeProxy(
             config: .init(
-                lens: Lens(\.config.draftMessageAnimationConfigs[id].editor)
+                lens: Lens(\.selectedConfig.editor)
             )
         )
     }

@@ -14,27 +14,24 @@ public class AppUICoordinator {
     private var pickerVC: UIViewController?
     private var alertController: UIAlertController?
 
-    private var appModule: AppModule!
-    private var appStore: RDXKit.Store<AppState>!
-
     private let rootVC: UIViewController
+    private let store: RDXKit.Store<AppState>
+    private var module: AppModule
 
-    init(rootVC: UIViewController) {
+    init(rootVC: UIViewController, store: RDXKit.Store<AppState>, module: AppModule) {
         self.rootVC = rootVC
+        self.store = store
+        self.module = module
         setup()
     }
 
     private func setup() {
-        appStore = RDXKit.Store<AppState>(state: .init())
-        appStore.apply(middleware: RDXKit.makeThunkMiddleware())
-
-        appModule = AppModule(store: appStore)
     }
 
     public func showEditor() {
         guard editorVC == nil else { return fallback() }
-        appStore.dispatch(appModule.startEditing())
-        editorVC = appModule.editorVC()
+        store.dispatch(module.startEditing())
+        editorVC = module.editorVC()
         navigationController = UINavigationController(rootViewController: editorVC!)
         rootVC.present(navigationController!, animated: true)
     }
@@ -50,7 +47,7 @@ public class AppUICoordinator {
     public func showIDPicker() {
         guard pickerVC == nil else { return fallback() }
         guard navigationController != nil else { return fallback() }
-        pickerVC = appModule.messageAnimationPickerVC()
+        pickerVC = module.messageAnimationPickerVC()
         navigationController!.pushViewController(pickerVC!, animated: true)
     }
 
@@ -120,8 +117,4 @@ extension AppUICoordinator {
 //        )
 //        navigationController?.present(alertController, animated: true)
 //    }
-}
-
-extension AppUICoordinator {
-    public static let shared = AppUICoordinator(rootVC: UIApplication.shared.keyWindow!.rootViewController!)
 }

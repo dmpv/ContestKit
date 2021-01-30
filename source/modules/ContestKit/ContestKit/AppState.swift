@@ -9,8 +9,10 @@ import Foundation
 
 public struct AppState: StateType {
     var config: AppConfigState = .init()
+    var selectedConfigID: MessageAnimationConfigID
 
     public init(config: AppConfigState = .init()) {
         self.config = config
+        selectedConfigID = config.draftMessageAnimationConfigs[0].id
     }
 }

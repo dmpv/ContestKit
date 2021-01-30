@@ -12,7 +12,7 @@ import ContestKit
 struct ContentView: View {
     var body: some View {
         Button("Edit") {
-            AppUICoordinator.shared.showEditor()
+            AppComponents.shared.uiCoordinator.showEditor()
         }
     }
 }

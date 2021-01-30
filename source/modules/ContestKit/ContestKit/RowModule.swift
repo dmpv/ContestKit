@@ -58,12 +58,21 @@ extension RowModule {
     func selectRow() -> RDXKit.AnyAction<RowState> {
         RDXKit.Thunk<RDXKit.Store<RowState>> { rowStore in
             switch rowStore.state {
-            case .picker(.messageAnimationID(let id)):
-                AppUICoordinator.shared.showIDPicker()
+            case .picker(.messageAnimationID):
+                AppComponents.shared.uiCoordinator.showIDPicker()
             case .picker(.messageAnimationDuration):
-                AppUICoordinator.shared.showActionSheet(withTitle: "Duration", actions: [])
+                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "Duration", actions: [])
+            case .button(.share):
+                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
+            case .button(.fetch):
+                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
+            case .button(.restore):
+                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
             case .button(.messageAnimation(let id)):
-                AppUICoordinator.shared.hideIDPicker()
+                AppComponents.shared.store.dispatchCustom { app in
+                    app.selectedConfigID = id
+                }
+                AppComponents.shared.uiCoordinator.hideIDPicker()
             default:
                 return
             }
