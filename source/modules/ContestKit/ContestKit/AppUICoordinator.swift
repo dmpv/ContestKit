@@ -8,10 +8,9 @@
 import Foundation
 import UIKit
 
-public class AppUICoordinator {
+class AppUICoordinator {
     private var navigationController: UINavigationController?
     private var editorVC: UIViewController?
-    private var pickerVC: UIViewController?
     private var alertController: UIAlertController?
 
     private let rootVC: UIViewController
@@ -28,15 +27,14 @@ public class AppUICoordinator {
     private func setup() {
     }
 
-    public func showEditor() {
+    func showEditor() {
         guard editorVC == nil else { return fallback() }
-        store.dispatch(module.startEditing())
         editorVC = module.editorVC()
         navigationController = UINavigationController(rootViewController: editorVC!)
         rootVC.present(navigationController!, animated: true)
     }
 
-    public func hideEditor(then completion: (() -> Void)? = nil) {
+    func hideEditor(then completion: (() -> Void)? = nil) {
         guard editorVC != nil else { return fallback() }
         guard navigationController != nil else { return fallback() }
         navigationController?.dismiss(animated: true, completion: completion)
@@ -44,22 +42,17 @@ public class AppUICoordinator {
         navigationController = nil
     }
 
-    public func showIDPicker() {
-        guard pickerVC == nil else { return fallback() }
+    func showIDPicker() {
         guard navigationController != nil else { return fallback() }
-        pickerVC = module.messageAnimationPickerVC()
-        navigationController!.pushViewController(pickerVC!, animated: true)
+        let pickerVC = module.messageAnimationPickerVC()
+        navigationController!.pushViewController(pickerVC, animated: true)
     }
 
-    public func hideIDPicker() {
-        guard pickerVC != nil else { return fallback() }
+    func hideIDPicker() {
         guard navigationController != nil else { return fallback() }
         navigationController!.popViewController(animated: true)
-        pickerVC = nil
     }
-}
 
-extension AppUICoordinator {
     func showDurationActionSheet() {
         let alertController = module.durationPickerAlertConroller()
         navigationController?.present(alertController, animated: true)
@@ -72,6 +65,11 @@ extension AppUICoordinator {
 
     func showImportActionSheet() {
         let alertController = module.importAlertConroller()
+        navigationController?.present(alertController, animated: true)
+    }
+
+    func showRestoreActionSheet() {
+        let alertController = module.restoreAlertConroller()
         navigationController?.present(alertController, animated: true)
     }
 }

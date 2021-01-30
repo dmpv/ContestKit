@@ -45,7 +45,7 @@ public class AppModule {
             ),
             rightBarButton: .init(
                 onPress: { [self, weak store] in
-                    store?.dispatch(applyEditing())
+                    store?.dispatch(endEditing())
                 }
             )
         )
@@ -58,7 +58,7 @@ public class AppModule {
             handlers: .init(
                 actions: store.state.durationActionSheet.actions.indices.map { [self] index in
                     .init { [self, weak store] in
-                        store?.dispatch(pickDuration(at: index))
+                        store?.dispatch(finishPickingDuration(with: index))
                     }
                 }
             )
@@ -71,7 +71,7 @@ public class AppModule {
             handlers: .init(
                 actions: store.state.shareActionSheet.actions.indices.map { [self] index in
                     .init { [self, weak store] in
-                        store?.dispatch(pickShare(at: index))
+                        store?.dispatch(finishSharing(with: index))
                     }
                 }
             )
@@ -84,97 +84,23 @@ public class AppModule {
             handlers: .init(
                 actions: store.state.importActionSheet.actions.indices.map { [self] index in
                     .init { [self, weak store] in
-                        store?.dispatch(pickImport(at: index))
+                        store?.dispatch(finishImporting(with: index))
                     }
                 }
             )
         )
     }
-}
 
-extension AppModule {
-    func startEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-        }.boxed()
-    }
-
-    func cancelEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            AppComponents.shared.uiCoordinator.hideEditor {
-                appStore.dispatchCustom { app in
-                    app.config.draftMessageAnimationConfigs = app.config.stableMessageAnimationConfigs
-                }
-            }
-        }.boxed()
-    }
-
-    func applyEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            appStore.dispatchCustom { app in
-                app.config.stableMessageAnimationConfigs = app.config.draftMessageAnimationConfigs
-            }
-            AppComponents.shared.uiCoordinator.hideEditor()
-        }.boxed()
-    }
-
-    func pickDuration(at index: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            let cancelIndex = appStore.state.durationActionSheet.actions.count
-            switch index {
-            case cancelIndex:
-                break
-            default:
-                appStore.dispatchCustom { app in
-                    app.config.durationSelection.selectedIndex = index
-                }
-            }
-        }.boxed()
-    }
-
-    func pickShare(at index: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            let shareIndex = 0
-            let cancelIndex = appStore.state.shareActionSheet.actions.count
-            switch index {
-            case cancelIndex:
-                break
-            case shareIndex:
-                let encoder = JSONEncoder()
-                encoder.outputFormatting = .prettyPrinted
-                let jsonData = try! encoder.encode(appStore.state.config.stableMessageAnimationConfigs)
-                let jsonString = String(data: jsonData, encoding: .utf8)!
-
-                let pasteboard = UIPasteboard.general
-                pasteboard.string = jsonString
-            default:
-                fatalError(.shouldNeverBeCalled())
-            }
-        }.boxed()
-    }
-
-    func pickImport(at index: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            let importIndex = 0
-            let cancelIndex = appStore.state.importActionSheet.actions.count
-            switch index {
-            case cancelIndex:
-                break
-            case importIndex:
-                guard let stringData = UIPasteboard.general.string?.data(using: .utf8) else {
-                    return
-                }
-
-                let decoder = JSONDecoder()
-                if let messageAnimationConfigs = try? decoder.decode([MessageAnimationConfigState].self, from: stringData) {
-                    appStore.dispatchCustom { app in
-                        app.config.importedMessageAnimationConfigs = messageAnimationConfigs
-                        app.config.draftMessageAnimationConfigs = messageAnimationConfigs
-                        app.config.stableMessageAnimationConfigs = messageAnimationConfigs
+    func restoreAlertConroller() -> UIAlertController {
+        UIAlertController(
+            state: store.state.restoreActionSheet,
+            handlers: .init(
+                actions: store.state.restoreActionSheet.actions.indices.map { [self] index in
+                    .init { [self, weak store] in
+                        store?.dispatch(finishRestoring(with: index))
                     }
                 }
-            default:
-                fatalError(.shouldNeverBeCalled())
-            }
-        }.boxed()
+            )
+        )
     }
 }

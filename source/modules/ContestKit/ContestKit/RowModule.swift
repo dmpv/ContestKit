@@ -59,20 +59,29 @@ extension RowModule {
         RDXKit.Thunk<RDXKit.Store<RowState>> { rowStore in
             switch rowStore.state {
             case .picker(.messageAnimationID):
-                AppComponents.shared.uiCoordinator.showIDPicker()
+                AppComponents.shared.store.dispatch(
+                    AppComponents.shared.module.startPickingAnimationType()
+                )
             case .picker(.messageAnimationDuration):
-                AppComponents.shared.uiCoordinator.showDurationActionSheet()
+                AppComponents.shared.store.dispatch(
+                    AppComponents.shared.module.startPickingDuration()
+                )
             case .button(.share):
-                AppComponents.shared.uiCoordinator.showShareActionSheet()
+                AppComponents.shared.store.dispatch(
+                    AppComponents.shared.module.startSharing()
+                )
             case .button(.import):
-                AppComponents.shared.uiCoordinator.showImportActionSheet()
-//            case .button(.restore):
-//                AppComponents.shared.uiCoordinator.showActionSheet(withTitle: "", actions: [])
+                AppComponents.shared.store.dispatch(
+                    AppComponents.shared.module.startImporting()
+                )
+            case .button(.restore):
+                AppComponents.shared.store.dispatch(
+                    AppComponents.shared.module.startRestoring()
+                )
             case .button(.messageAnimation(let id)):
-                AppComponents.shared.store.dispatchCustom { app in
-                    app.selectedConfigID = id
-                }
-                AppComponents.shared.uiCoordinator.hideIDPicker()
+                AppComponents.shared.store.dispatch(
+                    AppComponents.shared.module.finishPickingAnimationType(with: id)
+                )
             default:
                 return
             }
@@ -109,13 +118,5 @@ extension RowModule {
             messageAnimationTiming.timing.endsAtFraction = endsAtFraction
             row = .animationTiming(messageAnimationTiming)
         }.boxed()
-    }
-}
-
-private struct SelectRow: RDXKit.Action {
-    typealias State = RowState
-
-    func adjust(_ state: inout RowState) {
-        print("SelectRow")
     }
 }

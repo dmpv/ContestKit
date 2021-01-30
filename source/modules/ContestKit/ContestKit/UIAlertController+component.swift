@@ -38,7 +38,7 @@ extension UIAlertController {
 extension UIAlertAction {
     struct State: Equatable {
         var title: String?
-        var style: UIAlertAction.Style
+        var style: UIAlertAction.Style = .default
     }
 
     struct Handlers {

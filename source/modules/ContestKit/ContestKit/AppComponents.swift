@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 public class AppComponents {
-    public private(set) var uiCoordinator: AppUICoordinator!
-    private(set) var store: RDXKit.Store<AppState>!
+    public private(set) var store: RDXKit.Store<AppState>!
+    public private(set) var module: AppModule!
 
-    private var module: AppModule!
+    private(set) var uiCoordinator: AppUICoordinator!
 
     init() {
         setup()

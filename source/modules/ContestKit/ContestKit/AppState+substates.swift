@@ -104,4 +104,18 @@ extension AppState {
             ]
         )
     }
+
+    var restoreActionSheet: UIAlertController.State {
+        .init(
+            title: L10n.stub("Restore"),
+            style: .actionSheet,
+            actions: [
+                .init(title: L10n.stub("Restore to Defaults")),
+                config.importedMessageAnimationConfigs == nil
+                    ? nil
+                    : .init(title: "Restore to Imported"),
+                .init(title: "Cancel", style: .cancel)
+            ].compactMap { $0 }
+        )
+    }
 }

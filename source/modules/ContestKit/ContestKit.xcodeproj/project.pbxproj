@@ -48,6 +48,7 @@
 		34CE81B425C5C2FC001A4EB0 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */; };
 		34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B725C5C714001A4EB0 /* AppComponents.swift */; };
 		34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */; };
+		34E0565925C6229B0083F001 /* AppState.Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565825C6229B0083F001 /* AppState.Actions.swift */; };
 		34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */; };
 		34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */; };
 		34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50125C2250C00EB0B96 /* AppState.Module.swift */; };
@@ -109,6 +110,7 @@
 		34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
 		34CE81B725C5C714001A4EB0 /* AppComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponents.swift; sourceTree = "<group>"; };
 		34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+component.swift"; sourceTree = "<group>"; };
+		34E0565825C6229B0083F001 /* AppState.Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.Actions.swift; sourceTree = "<group>"; };
 		34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+substates.swift"; sourceTree = "<group>"; };
 		34F2E50125C2250C00EB0B96 /* AppState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.Module.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */,
 				34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */,
 				34F2E50125C2250C00EB0B96 /* AppState.Module.swift */,
+				34E0565825C6229B0083F001 /* AppState.Actions.swift */,
 				34F2E51D25C317DD00EB0B96 /* RowModule.swift */,
 				34F2E50725C2269E00EB0B96 /* MessageAnimationEditorState.swift */,
 				34F2E51A25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift */,
@@ -338,6 +341,7 @@
 			files = (
 				3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */,
 				34F2E51E25C317DD00EB0B96 /* RowModule.swift in Sources */,
+				34E0565925C6229B0083F001 /* AppState.Actions.swift in Sources */,
 				34F2E52525C364AB00EB0B96 /* RowState+substates.swift in Sources */,
 				34CC95DC25BF6DF80081E93B /* misc.swift in Sources */,
 				34CC95EA25BF6DF80081E93B /* RDXKit.Hook.swift in Sources */,
