@@ -26,8 +26,29 @@ extension AppConfigState {
             .positionX(.makeDefault(totalDuration: 1)),
             .positionY(.makeDefault(totalDuration: 1))
         ]),
-        .bubble([
-            .bubbleShape(.makeDefault(totalDuration: 1))
+        .bigText([
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
+        ]),
+        .linkWithPreview([
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
+        ]),
+        .singleEmoji([
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
+        ]),
+        .sticker([
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
+        ]),
+        .voiceMessage([
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
+        ]),
+        .videoMessage([
+            .positionX(.makeDefault(totalDuration: 1)),
+            .positionY(.makeDefault(totalDuration: 1))
         ]),
     ]
 }

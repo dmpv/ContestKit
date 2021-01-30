@@ -9,23 +9,22 @@ import Foundation
 
 public enum MessageAnimationConfigID: IDType {
     case smallText
-    case bubble
-}
-
-extension MessageAnimationConfigID {
-    var titleFormatted: String {
-        switch self {
-        case .smallText:
-            return L10n.stub("Small Text")
-        case .bubble:
-            return L10n.stub("Bubble")
-        }
-    }
+    case bigText
+    case linkWithPreview
+    case singleEmoji
+    case sticker
+    case voiceMessage
+    case videoMessage
 }
 
 public enum MessageAnimationConfigState: Equatable {
     case smallText([MessageAnimationTimingState])
-    case bubble([MessageAnimationTimingState])
+    case bigText([MessageAnimationTimingState])
+    case linkWithPreview([MessageAnimationTimingState])
+    case singleEmoji([MessageAnimationTimingState])
+    case sticker([MessageAnimationTimingState])
+    case voiceMessage([MessageAnimationTimingState])
+    case videoMessage([MessageAnimationTimingState])
 }
 
 extension MessageAnimationConfigState: CKIdentifiable {
@@ -33,8 +32,18 @@ extension MessageAnimationConfigState: CKIdentifiable {
         switch self {
         case .smallText:
             return .smallText
-        case .bubble:
-            return .bubble
+        case .bigText:
+            return .bigText
+        case .linkWithPreview:
+            return .linkWithPreview
+        case .singleEmoji:
+            return .singleEmoji
+        case .sticker:
+            return .sticker
+        case .voiceMessage:
+            return .voiceMessage
+        case .videoMessage:
+            return .videoMessage
         }
     }
 }
@@ -44,7 +53,12 @@ extension MessageAnimationConfigState {
         get {
             switch self {
             case .smallText(let timings),
-                    .bubble(let timings):
+                 .bigText(let timings),
+                 .linkWithPreview(let timings),
+                 .singleEmoji(let timings),
+                 .sticker(let timings),
+                 .voiceMessage(let timings),
+                 .videoMessage(let timings):
                 return timings
             }
         }
@@ -52,8 +66,18 @@ extension MessageAnimationConfigState {
             switch self {
             case .smallText:
                 self = .smallText(newTimings)
-            case .bubble:
-                self = .bubble(newTimings)
+            case .bigText:
+                self = .bigText(newTimings)
+            case .linkWithPreview:
+                self = .linkWithPreview(newTimings)
+            case .singleEmoji:
+                self = .singleEmoji(newTimings)
+            case .sticker:
+                self = .sticker(newTimings)
+            case .voiceMessage:
+                self = .voiceMessage(newTimings)
+            case .videoMessage:
+                self = .videoMessage(newTimings)
             }
         }
     }
@@ -173,6 +197,27 @@ extension MessageAnimationTimingID {
             return L10n.stub("Color Change")
         case .emojiScale:
             return L10n.stub("Emoji Scale")
+        }
+    }
+}
+
+extension MessageAnimationConfigID {
+    var titleFormatted: String {
+        switch self {
+        case .smallText:
+            return L10n.stub("Small Message (fits in the input field)")
+        case .bigText:
+            return L10n.stub("Big Message (doesn't fit into the input field)")
+        case .linkWithPreview:
+            return L10n.stub("Link with Preview")
+        case .singleEmoji:
+            return L10n.stub("Single Emoji")
+        case .sticker:
+            return L10n.stub("Sticker")
+        case .voiceMessage:
+            return L10n.stub("Voice Message")
+        case .videoMessage:
+            return L10n.stub("Video Message")
         }
     }
 }
