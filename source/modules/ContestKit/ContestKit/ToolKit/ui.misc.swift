@@ -28,6 +28,16 @@ let noAutoresize: Style<UIView> = {
 
 extension UIEdgeInsets: ValueType {}
 
+extension UIEdgeInsets {
+    init(uniform inset: CGFloat) {
+        self.init(top: inset, left: inset, bottom: inset, right: inset)
+    }
+
+    static prefix func - (insets: Self) -> Self {
+        .init(top: -insets.top, left: -insets.left, bottom: -insets.bottom, right: -insets.right)
+    }
+}
+
 
 func perform(animated: Bool, execute: @escaping () -> Void) {
     perform(with: animated ? AnimationConfig() : nil, execute: execute)

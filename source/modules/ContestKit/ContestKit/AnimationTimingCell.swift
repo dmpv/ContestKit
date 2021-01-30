@@ -23,8 +23,8 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     private var currentLayout: Layout?
 
     private var topSlider: CKSlider!
-    private var topSliderThumb: UIView!
     private var topSliderOverlayView: UIView!
+    private var topSliderFakeThumb: SliderThumbView!
     private var topTooltipLabel: UILabel!
 
     private var rightDottedView: AnimationTimingDottedView!
@@ -38,7 +38,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     private var leftCentralTooltipLabel: UILabel!
 
     private var bottomSlider: CKSlider!
-    private var bottomSliderThumb: UIView!
+    private var bottomSliderFakeThumb: SliderThumbView!
     private var bottomSliderOverlayView: UIView!
     private var bottomTooltipLabel: UILabel!
 
@@ -64,10 +64,24 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         selectionStyle = .none
         contentView.layoutMargins = .init(top: 40, left: 40, bottom: 40, right: 40)
 
+        let cpSliderStyle: Style<UISlider> = {
+            let thumbImageSize = SliderThumbView.State().layout.size
+            let transparentImage = UIView.State(layout: .init(frame: .init(origin: .zero, size: thumbImageSize))).image
+            $0.setThumbImage(transparentImage, for: .normal)
+        }
+
+        let durationSliderStyle: Style<UISlider> = {
+            $0.minimumTrackTintColor = .clear
+            $0.maximumTrackTintColor = .clear
+            let size = CGSize(width: 10, height: 20)
+            let image = SliderThumbView.State(layout: .init(size: size)).image
+            $0.setThumbImage(image, for: .normal)
+        }
+
         pathView = AnimationTimingPathView()
         contentView.addSubview(pathView)
 
-        topSlider = CKSlider().applying {
+        topSlider = CKSlider().applying(cpSliderStyle).applying {
             $0.minimumTrackTintColor = UISlider.defaultMaxTrackTintColor
             $0.maximumTrackTintColor = UISlider.defaultMinTrackTintColor
         }
@@ -80,7 +94,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
         contentView.addSubview(topSliderOverlayView)
 
-        bottomSlider = CKSlider()
+        bottomSlider = CKSlider().applying(cpSliderStyle)
         contentView.addSubview(bottomSlider)
         bottomSlider.addTarget(self, action: #selector(didSlideBottomSlider), for: .primaryActionTriggered)
 
@@ -100,17 +114,21 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
         contentView.addSubview(leftDottedView)
 
-        rightCentralSlider = CKSlider().applying {
-            $0.minimumTrackTintColor = .clear
-            $0.maximumTrackTintColor = .clear
+        topSliderFakeThumb = SliderThumbView().applying {
+            $0.isUserInteractionEnabled = false
         }
+        contentView.addSubview(topSliderFakeThumb)
+
+        bottomSliderFakeThumb = SliderThumbView().applying {
+            $0.isUserInteractionEnabled = false
+        }
+        contentView.addSubview(bottomSliderFakeThumb)
+
+        rightCentralSlider = CKSlider().applying(durationSliderStyle)
         contentView.addSubview(rightCentralSlider)
         rightCentralSlider.addTarget(self, action: #selector(didSlideRightCentralSlider), for: .primaryActionTriggered)
 
-        leftCentralSlider = CKSlider().applying {
-            $0.minimumTrackTintColor = .clear
-            $0.maximumTrackTintColor = .clear
-        }
+        leftCentralSlider = CKSlider().applying(durationSliderStyle)
         contentView.addSubview(leftCentralSlider)
         leftCentralSlider.addTarget(self, action: #selector(didSlideLeftCentralSlider), for: .primaryActionTriggered)
 
@@ -149,6 +167,9 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         rightDottedView.state = .init(circleRadius: 5)
         leftDottedView.state = .init(circleRadius: 5)
+
+        topSliderFakeThumb.state = .iOSSystemPreferences
+        bottomSliderFakeThumb.state = .iOSSystemPreferences
 
         if let timing = state?.timing {
             let relativeC1Fraction = Float(timing.c1.x - timing.startsAt) / Float(timing.endsAt - timing.startsAt)
@@ -219,6 +240,8 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        let layout = state?.layout ?? .init(timingStartsAtFraction: 0, timingEndsAtFraction: 1, timingC1Fraction: 0.5, timingC2Fraction: 0.5)
+
 //        let containerFrame = contentView.bounds
 
         topSlider.frame.adjust { frame in
@@ -229,7 +252,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         topSliderOverlayView.frame.adjust { frame in
             frame = topSlider.convert(topSlider.trackFrame, to: contentView)
-            let insetLeft = frame.size.width * CGFloat(state?.layout.timingEndsAtFraction ?? 0)
+            let insetLeft = frame.size.width * CGFloat(layout.timingEndsAtFraction)
             frame.size.width -= insetLeft
             frame.origin.x += insetLeft
         }
@@ -252,7 +275,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         bottomSliderOverlayView.frame.adjust { frame in
             frame = bottomSlider.convert(bottomSlider.trackFrame, to: contentView)
-            frame.size.width *= CGFloat(state?.layout.timingStartsAtFraction ?? 0)
+            frame.size.width *= CGFloat(layout.timingStartsAtFraction)
         }
 
         let topThumbFrame = topSlider.convert(topSlider.thumbFrame, to: contentView)
@@ -281,28 +304,38 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
             frame.size.height = bottomThumbFrame.center.y - topThumbFrame.center.y
         }
 
+        topSliderFakeThumb.frame.adjust { frame in
+            frame.center = topThumbFrame.center
+            frame.size = topSliderFakeThumb.intrinsicContentSize
+        }
+
+        bottomSliderFakeThumb.frame.adjust { frame in
+            frame.center = bottomThumbFrame.center
+            frame.size = bottomSliderFakeThumb.intrinsicContentSize
+        }
+
         topTooltipLabel.frame.adjust { frame in
-            frame.origin.y = topThumbFrame.minY - 4 - frame.size.height
+            frame.origin.y = topThumbFrame.minY - layout.tooltipOffset - frame.size.height
             frame.center.x = topThumbFrame.center.x
         }
 
         bottomTooltipLabel.frame.adjust { frame in
-            frame.origin.y = bottomThumbFrame.maxY + 4
+            frame.origin.y = bottomThumbFrame.maxY + layout.tooltipOffset
             frame.center.x = bottomThumbFrame.center.x
         }
 
         rightCentralTooltipLabel.frame.adjust { frame in
             let rightSpace = contentView.frame.width - rightCentralThumbFrame.maxX
-            if rightSpace < frame.width + 4 {
-                frame.origin.x = rightCentralThumbFrame.minX - frame.width - 4
+            if rightSpace < frame.width + layout.tooltipOffset {
+                frame.origin.x = rightCentralThumbFrame.minX - frame.width - layout.tooltipOffset
             } else {
-                frame.origin.x = rightCentralThumbFrame.maxX + 4
+                frame.origin.x = rightCentralThumbFrame.maxX + layout.tooltipOffset
             }
             frame.center.y = rightCentralThumbFrame.center.y
         }
 
         leftCentralTooltipLabel.frame.adjust { frame in
-            frame.origin.x = leftCentralThumbFrame.maxX + 4
+            frame.origin.x = leftCentralThumbFrame.maxX + layout.tooltipOffset
             frame.center.y = leftCentralThumbFrame.center.y
         }
     }
@@ -346,6 +379,7 @@ extension AnimationTimingCell {
         var timingEndsAtFraction: Float
         var timingC1Fraction: Float
         var timingC2Fraction: Float
+        var tooltipOffset: CGFloat = 4
     }
 
     struct Appearance: Equatable {

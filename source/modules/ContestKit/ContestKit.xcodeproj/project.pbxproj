@@ -43,6 +43,7 @@
 		34CC95EB25BF6DF80081E93B /* RDXKit.Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D925BF6DF80081E93B /* RDXKit.Thunk.swift */; };
 		34CC95EC25BF6DF80081E93B /* RDXKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95DA25BF6DF80081E93B /* RDXKit.swift */; };
 		34CC95ED25BF6DF80081E93B /* draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95DB25BF6DF80081E93B /* draft.swift */; };
+		34CE81AE25C57D46001A4EB0 /* SliderThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */; };
 		34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */; };
 		34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */; };
 		34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50125C2250C00EB0B96 /* AppState.Module.swift */; };
@@ -99,6 +100,7 @@
 		34CC95D925BF6DF80081E93B /* RDXKit.Thunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Thunk.swift; sourceTree = "<group>"; };
 		34CC95DA25BF6DF80081E93B /* RDXKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.swift; sourceTree = "<group>"; };
 		34CC95DB25BF6DF80081E93B /* draft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = draft.swift; sourceTree = "<group>"; };
+		34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderThumbView.swift; sourceTree = "<group>"; };
 		34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+substates.swift"; sourceTree = "<group>"; };
 		34F2E50125C2250C00EB0B96 /* AppState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.Module.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */,
 				3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */,
 				3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */,
+				34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */,
 				3449FC3725C470D500EA3477 /* DottedLineView.swift */,
 				343E8DC525C0F218000FF0AE /* ButtonCell.swift */,
 				343E8DC225C0F20E000FF0AE /* PickerCell.swift */,
@@ -367,6 +370,7 @@
 				34F2E50E25C2348F00EB0B96 /* SectionedListState+substates.swift in Sources */,
 				34F2E50825C2269E00EB0B96 /* MessageAnimationEditorState.swift in Sources */,
 				343E8DD025C0FD04000FF0AE /* AppState.swift in Sources */,
+				34CE81AE25C57D46001A4EB0 /* SliderThumbView.swift in Sources */,
 				34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */,
 				34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */,
 				34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */,
