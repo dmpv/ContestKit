@@ -13,7 +13,7 @@ extension AppConfigState {
             .init(
                 sections: [
                     .messageAnimations(
-                        rows: messageAnimationConfigs.map { messageAnimationConfig in
+                        rows: draftMessageAnimationConfigs.map { messageAnimationConfig in
                             .button(.messageAnimation(id: messageAnimationConfig.id))
                         }
                     ),

@@ -45,18 +45,4 @@ extension MessageAnimationEditorState {
             }
         }
     }
-
-    var vc: ViewController.State {
-        .init(
-            title: L10n.stub("Animation Settings"),
-            leftBarButton: .init(
-                title: L10n.stub("Cancel"),
-                style: .plain
-            ),
-            rightBarButton: .init(
-                title: L10n.stub("Apply"),
-                style: .done
-            )
-        )
-    }
 }

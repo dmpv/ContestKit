@@ -60,6 +60,8 @@ extension RowModule {
             switch rowStore.state {
             case .picker(.messageAnimationID(let id)):
                 AppUICoordinator.shared.showIDPicker()
+            case .picker(.messageAnimationDuration):
+                AppUICoordinator.shared.showActionSheet(withTitle: "Duration", actions: [])
             case .button(.messageAnimation(let id)):
                 AppUICoordinator.shared.hideIDPicker()
             default:

@@ -8,47 +8,56 @@
 import Foundation
 
 public struct AppConfigState: StateType {
-    var messageAnimationConfigs: [MessageAnimationConfigState] = []
-    var defaultMessageAnimationConfigs: [MessageAnimationConfigState] = []
-
-    public init(
-        messageAnimationConfigs: [MessageAnimationConfigState] = [],
-        defaultMessageAnimationConfigs: [MessageAnimationConfigState] = []
-    ) {
-        self.messageAnimationConfigs = messageAnimationConfigs
-        self.defaultMessageAnimationConfigs = defaultMessageAnimationConfigs
+    var stableMessageAnimationConfigs: [MessageAnimationConfigState] {
+        didSet { assert(stableMessageAnimationConfigs != []) }
+    }
+    var draftMessageAnimationConfigs: [MessageAnimationConfigState] {
+        didSet { assert(draftMessageAnimationConfigs != []) }
+    }
+    var fetchedMessageAnimationConfigs: [MessageAnimationConfigState]? {
+        didSet { assert(fetchedMessageAnimationConfigs != []) }
     }
 }
 
 extension AppConfigState {
-    static let initialMessageAnimationConfigs: [MessageAnimationConfigState] = [
+    public init() {
+        self.init(
+            stableMessageAnimationConfigs: Self.defaultMessageAnimationConfigs,
+            draftMessageAnimationConfigs: Self.defaultMessageAnimationConfigs,
+            fetchedMessageAnimationConfigs: nil
+        )
+    }
+}
+
+extension AppConfigState {
+    static let defaultMessageAnimationConfigs: [MessageAnimationConfigState] = [
         .smallText([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
         .bigText([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
         .linkWithPreview([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
         .singleEmoji([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
         .sticker([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
         .voiceMessage([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
         .videoMessage([
-            .positionX(.makeDefault(totalDuration: 1)),
-            .positionY(.makeDefault(totalDuration: 1))
+            .positionX(.makeDefault()),
+            .positionY(.makeDefault())
         ]),
     ]
 }

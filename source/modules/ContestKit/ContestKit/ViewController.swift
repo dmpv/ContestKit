@@ -48,21 +48,19 @@ class ViewController: UIViewController {
         title = state?.title
 
         if let rightBarButton = state?.rightBarButton {
-            navigationItem.rightBarButtonItem = .init(
-                title: rightBarButton.title,
-                style: rightBarButton.style,
-                target: self,
-                action: #selector(didPressRightBarButton)
-            )
+            navigationItem.rightBarButtonItem = UIBarButtonItem().applying {
+                $0.state = rightBarButton
+                $0.target = self
+                $0.action = #selector(didPressRightBarButton)
+            }
         }
 
         if let leftBarButton = state?.leftBarButton {
-            navigationItem.leftBarButtonItem = .init(
-                title: leftBarButton.title,
-                style: leftBarButton.style,
-                target: self,
-                action: #selector(didPressLeftBarButton)
-            )
+            navigationItem.leftBarButtonItem = UIBarButtonItem().applying {
+                $0.state = leftBarButton
+                $0.target = self
+                $0.action = #selector(didPressLeftBarButton)
+            }
         }
 
         if state?.statusBarStyle != oldState?.statusBarStyle {
@@ -97,26 +95,38 @@ class ViewController: UIViewController {
 extension ViewController {
     struct State: Equatable {
         var title: String?
-        var leftBarButton: BarButtonView.State?
-        var rightBarButton: BarButtonView.State?
+        var leftBarButton: UIBarButtonItem.State?
+        var rightBarButton: UIBarButtonItem.State?
         var statusBarStyle: UIStatusBarStyle = .default
     }
 
     struct Handlers {
-        var leftBarButton: BarButtonView.Handlers = .init()
-        var rightBarButton: BarButtonView.Handlers = .init()
+        var leftBarButton: UIBarButtonItem.Handlers = .init()
+        var rightBarButton: UIBarButtonItem.Handlers = .init()
     }
 }
 
-class BarButtonView: Namespace {}
-
-extension BarButtonView {
+extension UIBarButtonItem {
     struct State: StateType {
         var title: String
         var style: UIBarButtonItem.Style = .plain
+        var isEnabled = true
     }
 
     struct Handlers {
         var onPress: (() -> Void)?
+    }
+}
+
+extension UIBarButtonItem {
+    var state: State? {
+        get {
+            fatalError(.notImplementedYet)
+        }
+        set(newState) {
+            title = newState?.title
+            style = newState?.style ?? .plain
+            isEnabled = newState?.isEnabled ?? true
+        }
     }
 }

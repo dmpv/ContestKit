@@ -18,13 +18,7 @@ public class AppModule {
 
     private func setup() {}
 
-    public func messageAnimationEditorVC() -> UIViewController {
-        let messageAnimationConfigID: MessageAnimationConfigID = store.state.config.messageAnimationConfigs[0].id
-        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore(for: messageAnimationConfigID))
-        return editorModule.vc
-    }
-
-    public func messageAnimationPickerVC() -> UIViewController {
+    func messageAnimationPickerVC() -> UIViewController {
         let sectionedListModule = SectionedListModule(store: store.sectionedListStore)
         let view = sectionedListModule.view
         let vc = ViewController(view: view)
@@ -34,15 +28,63 @@ public class AppModule {
             }
         return vc
     }
+
+    func editorVC() -> UIViewController {
+        let messageAnimationConfigID: MessageAnimationConfigID = store.state.config.stableMessageAnimationConfigs[0].id
+        let editorModule = MessageAnimationEditorModule(store: store.messageAnimationEditorStore(for: messageAnimationConfigID))
+        let view = editorModule.view
+        let vc = ViewController(view: view)
+        _ = store.stateObservable
+            .addObserver { [weak vc] app in
+                vc?.state = app.editorVC
+            }
+        vc.handlers = .init(
+            leftBarButton: .init(
+                onPress: { [self, weak store] in
+                    store?.dispatch(cancelEditing())
+                }
+            ),
+            rightBarButton: .init(
+                onPress: { [self, weak store] in
+                    store?.dispatch(applyEditing())
+                }
+            )
+        )
+        return vc
+    }
 }
 
 extension AppModule {
-    public func fetchDefaultAnimationConfig() -> RDXKit.AnyAction<AppState> {
+    func startEditing() -> RDXKit.AnyAction<AppState> {
         RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
-            appStore.dispatchCustom { app in
-                app.config.defaultMessageAnimationConfigs = AppConfigState.initialMessageAnimationConfigs
-                app.config.messageAnimationConfigs = app.config.defaultMessageAnimationConfigs
+        }.boxed()
+    }
+
+    func cancelEditing() -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+            AppUICoordinator.shared.hideEditor {
+                appStore.dispatchCustom { app in
+                    app.config.draftMessageAnimationConfigs = app.config.stableMessageAnimationConfigs
+                }
             }
         }.boxed()
     }
+
+    func applyEditing() -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+            appStore.dispatchCustom { app in
+                app.config.stableMessageAnimationConfigs = app.config.draftMessageAnimationConfigs
+            }
+            AppUICoordinator.shared.hideEditor()
+        }.boxed()
+    }
+
+//    public func fetchDefaultAnimationConfig() -> RDXKit.AnyAction<AppState> {
+//        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+//            appStore.dispatchCustom { app in
+//                app.config.defaultMessageAnimationConfigs = AppConfigState.initialMessageAnimationConfigs
+//                app.config.messageAnimationConfigs = app.config.defaultMessageAnimationConfigs
+//            }
+//        }.boxed()
+//    }
 }

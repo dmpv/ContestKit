@@ -31,7 +31,7 @@ public struct AnimationTimingState: StateType {
 }
 
 extension AnimationTimingState {
-    static func makeDefault(totalDuration: TimeInterval) -> Self {
+    static func makeDefault(totalDuration: TimeInterval = 1) -> Self {
         .init(
             startsAt: 0,
             c1: .init(x: totalDuration * 0.5),
