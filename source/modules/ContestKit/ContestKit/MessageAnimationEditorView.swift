@@ -85,9 +85,10 @@ public final class MessageAnimationEditorView: UIView {
 
         testbedView.frame.adjust { frame in
             frame = bounds
-            frame.size.height = 200
+            frame.origin.y += 44
+            frame.size.height = 400
         }
-        sectionedListView.frame = bounds.inset(by: .init(top: testbedView.frame.height, left: 0, bottom: 0, right: 0))
+        sectionedListView.frame = bounds.inset(by: .init(top: testbedView.frame.maxY, left: 0, bottom: 0, right: 0))
     }
 }
 

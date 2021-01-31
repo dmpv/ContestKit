@@ -34,8 +34,8 @@ extension AnimationTimingState {
     static func makeDefault(totalDuration: TimeInterval = 1) -> Self {
         .init(
             startsAt: 0,
-            c1: .init(x: totalDuration * 0.5),
-            c2: .init(x: totalDuration * 0.5),
+            c1: .init(x: totalDuration * 0.5, y: 0),
+            c2: .init(x: totalDuration * 0.5, y: 1),
             endsAt: totalDuration,
             totalDuration: totalDuration
         )
