@@ -71,9 +71,11 @@ extension AppState {
     var shareActionSheet: UIAlertController.State {
         .init(
             title: L10n.stub("Share"),
+            message: L10n.stub("Copy to Clipboard"),
             style: .actionSheet,
             actions: [
-                .init(title: L10n.stub("Copy to Clipboard")),
+                .init(title: L10n.stub("Current Only")),
+                .init(title: L10n.stub("All")),
                 .init(
                     title: L10n.stub("Cancel"),
                     style: .cancel

@@ -204,14 +204,18 @@ extension AppModule {
 
     func finishSharing(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
         RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
-            let shareIndex = 0
+            let shareSelectedIndex = 0
+            let shareAllIndex = 1
             let cancelIndex = appStore.state.shareActionSheet.actions.count - 1
             switch buttonIndex {
             case cancelIndex:
                 break
-            case shareIndex:
+            case shareSelectedIndex:
                 appStore.dispatch(applyEditing())
-                appStore.dispatch(exportStableConfigs())
+                appStore.dispatch(shareSelectedStableConfig())
+            case shareAllIndex:
+                appStore.dispatch(applyEditing())
+                appStore.dispatch(shareStableConfigs())
             default:
                 fatalError(.shouldNeverBeCalled())
             }
@@ -298,14 +302,26 @@ extension AppModule {
 
     func checkForImportableConfigs() -> RDXKit.AnyAction<AppState> {
         RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
-            let importableMessageAnimationConfigs = pasteboardService.fetchMessageAnimationConfigs()
+            var importableMessageAnimationConfigs = pasteboardService.fetchMessageAnimationConfigs()
+            if importableMessageAnimationConfigs?.count == 1 {
+                let config = importableMessageAnimationConfigs![0]
+                var draftConfigs = appStore.state.config.draftMessageAnimationConfigs
+                draftConfigs[safe: config.id] = config
+                importableMessageAnimationConfigs = draftConfigs
+            }
             appStore.dispatchCustom { app in
                 app.config.importableMessageAnimationConfigs = importableMessageAnimationConfigs
             }
         }.boxed()
     }
 
-    func exportStableConfigs() -> RDXKit.AnyAction<AppState> {
+    func shareSelectedStableConfig() -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+            pasteboardService.sendMessageAnimationConfig(messageAnimationConfig: appStore.state.selectedConfig)
+        }.boxed()
+    }
+
+    func shareStableConfigs() -> RDXKit.AnyAction<AppState> {
         RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
             pasteboardService.sendMessageAnimationConfigs(
                 appStore.state.config.stableMessageAnimationConfigs
