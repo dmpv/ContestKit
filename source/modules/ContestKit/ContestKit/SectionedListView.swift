@@ -51,6 +51,24 @@ public final class SectionedListView: UIView {
     private func stateDidChange(from oldState: State?) {
         guard state != oldState || !activated else { return }
 
+        let sections = state?.sectionedList.sections ?? []
+        let oldSections = oldState?.sectionedList.sections ?? []
+        if sections.map(\.id) != oldSections.map(\.id) {
+            tableView.reloadData()
+        } else {
+            var sectionsToReload: IndexSet = []
+            for sectionIndex in sections.indices {
+                let rows = sections[sectionIndex].rows
+                let oldRows = oldSections[sectionIndex].rows
+                if rows.map(\.id) != oldRows.map(\.id) {
+                    sectionsToReload.insert(sectionIndex)
+                }
+            }
+            if sectionsToReload.count > 0 {
+                tableView.reloadSections(sectionsToReload, with: .automatic)
+            }
+        }
+
         layoutDidChange(from: oldState?.layout)
         appearanceDidChange(from: oldState?.appearance)
     }

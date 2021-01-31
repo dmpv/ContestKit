@@ -26,17 +26,17 @@ extension RowCell {
             case let pickerCell as PickerCell:
                 pickerCell.state = {
                     guard let newState = newState else { return nil }
-                    return (newState as! PickerCell.State)
+                    return (newState as? PickerCell.State)
                 }()
             case let buttonCell as ButtonCell:
                 buttonCell.state = {
                     guard let newState = newState else { return nil }
-                    return (newState as! ButtonCell.State)
+                    return (newState as? ButtonCell.State)
                 }()
             case let timingCell as AnimationTimingCell:
                 timingCell.state = {
                     guard let newState = newState else { return nil }
-                    return (newState as! AnimationTimingCell.State)
+                    return (newState as? AnimationTimingCell.State)
                 }()
             default:
                 fatalError(.shouldNeverBeCalled())

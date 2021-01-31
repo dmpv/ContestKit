@@ -11,7 +11,7 @@ extension RDXKit.Store where StateT == SectionedListState {
     func rowStore(for id: RowID) -> RDXKit.Store<RowState> {
         makeProxy(
             config: .init(
-                lens: Lens(\.rows[id])
+                lens: Lens(\.rows[safe: id]).unwrapped(with: .button(.import))
             )
         )
     }

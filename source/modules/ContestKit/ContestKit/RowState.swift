@@ -31,3 +31,53 @@ extension RowState: CKIdentifiable {
         }
     }
 }
+
+public enum PickerRowID: StateType {
+    case messageAnimationID
+    case messageAnimationDuration
+}
+
+public enum PickerRowState: StateType {
+    case messageAnimationID(MessageAnimationConfigID)
+    case messageAnimationDuration(TimeInterval)
+}
+
+extension PickerRowState: CKIdentifiable {
+    var id: PickerRowID {
+        switch self {
+        case .messageAnimationID:
+            return .messageAnimationID
+        case .messageAnimationDuration:
+            return .messageAnimationDuration
+        }
+    }
+}
+
+public enum ButtonRowID: IDType {
+    case share
+    case `import`
+    case restore
+    case messageAnimation(id: MessageAnimationConfigID)
+}
+
+public enum ButtonRowState: StateType {
+    case share
+    case `import`
+    case restore
+    case messageAnimation(id: MessageAnimationConfigID)
+}
+
+extension ButtonRowState: CKIdentifiable {
+    var id: ButtonRowID {
+        switch self {
+        case .share:
+            return .share
+        case .import:
+            return .import
+        case .restore:
+            return .restore
+        case .messageAnimation(let id):
+            return .messageAnimation(id: id)
+        }
+    }
+}

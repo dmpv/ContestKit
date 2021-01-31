@@ -71,32 +71,38 @@ extension AppConfigState {
 extension AppConfigState {
     static let defaultMessageAnimationConfigs: [MessageAnimationConfigState] = [
         .smallText([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
+            .bubbleShape(.makeDefault()),
+            .textPosition(.makeDefault()),
+            .colorChange(.makeDefault()),
+            .timeAppears(.makeDefault()),
         ]),
         .bigText([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
         ]),
         .linkWithPreview([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
         ]),
         .singleEmoji([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
+            .emojiScale(.makeDefault()),
+            .timeAppears(.makeDefault()),
         ]),
         .sticker([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
         ]),
         .voiceMessage([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
         ]),
         .videoMessage([
+            .positionY(.makeDefault()),
             .positionX(.makeDefault()),
-            .positionY(.makeDefault())
         ]),
     ]
 
