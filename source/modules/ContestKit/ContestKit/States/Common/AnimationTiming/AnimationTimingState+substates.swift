@@ -1,46 +1,11 @@
 //
-//  AnimationState.swift
+//  AnimationTimingState+substates.swift
 //  ContestKit
 //
-//  Created by Dmitry Purtov on 27.01.2021.
+//  Created by Dmitry Purtov on 31.01.2021.
 //
 
 import Foundation
-
-public struct AnimationTimingState: StateType, Codable {
-    var startsAt: TimeInterval = 0
-    var c1: TimePoint = .init()
-    var c2: TimePoint = .init()
-    var endsAt: TimeInterval = 0
-    var minDuration: TimeInterval = 0.2
-    var totalDuration: TimeInterval = 0
-
-    public init(
-        startsAt: TimeInterval = 0,
-        c1: TimePoint = .init(),
-        c2: TimePoint = .init(),
-        endsAt: TimeInterval = 0,
-        totalDuration: TimeInterval = 0
-    ) {
-        self.startsAt = startsAt
-        self.c1 = c1
-        self.c2 = c2
-        self.endsAt = endsAt
-        self.totalDuration = totalDuration
-    }
-}
-
-extension AnimationTimingState {
-    static func makeDefault(totalDuration: TimeInterval = 1) -> Self {
-        .init(
-            startsAt: 0,
-            c1: .init(x: totalDuration * 0.5, y: 0),
-            c2: .init(x: totalDuration * 0.5, y: 1),
-            endsAt: totalDuration,
-            totalDuration: totalDuration
-        )
-    }
-}
 
 extension AnimationTimingState {
     var c1Fraction: Float {
@@ -129,18 +94,5 @@ extension AnimationTimingState {
         set(newC2RelativeFraction) {
             c2.x = startsAt + (endsAt - startsAt) * Double(newC2RelativeFraction)
         }
-    }
-}
-
-public struct TimePoint: StateType, Codable {
-    var x: TimeInterval = 0
-    var y: TimeInterval = 0
-
-    public init(
-        x: TimeInterval = 0,
-        y: TimeInterval = 0
-    ) {
-        self.x = x
-        self.y = y
     }
 }

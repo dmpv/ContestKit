@@ -36,18 +36,6 @@ extension UIAlertController {
 }
 
 extension UIAlertAction {
-    struct State: Equatable {
-        var title: String?
-        var style: UIAlertAction.Style = .default
-        var isEnabled = true
-    }
-
-    struct Handlers {
-        var onPress: (() -> Void)?
-    }
-}
-
-extension UIAlertAction {
     convenience init(state: State, handlers: Handlers) {
         self.init(
             title: state.title,
@@ -56,5 +44,17 @@ extension UIAlertAction {
             handlers.onPress?()
         }
         isEnabled = state.isEnabled
+    }
+}
+
+extension UIAlertAction {
+    struct State: Equatable {
+        var title: String?
+        var style: UIAlertAction.Style = .default
+        var isEnabled = true
+    }
+
+    struct Handlers {
+        var onPress: (() -> Void)?
     }
 }

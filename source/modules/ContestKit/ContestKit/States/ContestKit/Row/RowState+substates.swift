@@ -13,12 +13,12 @@ extension RowState {
         case .picker(.messageAnimationID(let id)):
             return PickerCell.State(
                 name: L10n.stub("Animation Type"),
-                selectedOption: id.titleFormatted
+                selectedOption: id.titleFormatted(verbose: false)
             )
         case .picker(.messageAnimationDuration(let timeInterval)):
             return PickerCell.State(
                 name: L10n.stub("Duration"),
-                selectedOption: timeInterval.pickerCellOptionTitle
+                selectedOption: timeInterval.frameCountFormatted(verbose: true)
             )
         case .button(.share):
             return ButtonCell.State(name: L10n.stub("Share Parameters"))
@@ -31,7 +31,7 @@ extension RowState {
             )
         case .button(.messageAnimation(let id)):
             return ButtonCell.State(
-                name: id.titleFormatted
+                name: id.titleFormatted(verbose: true)
             )
         case .animationTiming(let messageAnimationTiming):
             return AnimationTimingCell.State(timing: messageAnimationTiming.timing)

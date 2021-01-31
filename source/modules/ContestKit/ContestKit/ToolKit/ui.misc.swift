@@ -38,19 +38,6 @@ extension UIEdgeInsets {
     }
 }
 
-//func perform(animatedTransition: Bool, with view: UIView, execute: @escaping () -> Void) {
-//    UIView.transition(
-//        with: topTooltipLabel,
-//        duration: 0.2,
-//        options: .transitionFlipFromLeft,
-//        animations: { [self] in
-//
-//        },
-//        completion: nil
-//    )
-//    perform(with: animated ? AnimationConfig() : nil, execute: execute)
-//}
-
 func perform(animated: Bool, execute: @escaping () -> Void) {
     perform(with: animated ? AnimationConfig() : nil, execute: execute)
 }
@@ -90,3 +77,16 @@ extension UIView {
         animate(with: AnimationConfig(), animations: animations)
     }
 }
+
+//func perform(animatedTransition: Bool, with view: UIView, execute: @escaping () -> Void) {
+//    UIView.transition(
+//        with: topTooltipLabel,
+//        duration: 0.2,
+//        options: .transitionFlipFromLeft,
+//        animations: { [self] in
+//
+//        },
+//        completion: nil
+//    )
+//    perform(with: animated ? AnimationConfig() : nil, execute: execute)
+//}

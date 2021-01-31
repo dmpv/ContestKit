@@ -160,13 +160,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
     private func stateDidChange(from oldState: State?) {
         guard state != oldState || !activated else { return }
 
-        let timing = state?.timing ?? .init(
-            startsAt: 0,
-            c1: .init(x: 0.5, y: 0),
-            c2: .init(x: 0.5, y: 0),
-            endsAt: 1,
-            totalDuration: 1
-        )
+        let timing = state?.timing ?? .makeDefault()
 
         topSlider.fraction = timing.c2Fraction
         rightCentralSlider.fraction = timing.endsAtFraction
@@ -190,17 +184,13 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         bottomTooltipLabel.text = timing.c1RelativeFraction.percentageTooltip
         bottomTooltipLabel.sizeToFit()
 
-        rightCentralTooltipLabel.text = timing.endsAt.frameCountFormatted
+        rightCentralTooltipLabel.text = timing.endsAt.frameCountFormatted(verbose: false)
         rightCentralTooltipLabel.sizeToFit()
 
-        leftCentralTooltipLabel.text = timing.startsAt.frameCountFormatted
+        leftCentralTooltipLabel.text = timing.startsAt.frameCountFormatted(verbose: false)
         leftCentralTooltipLabel.sizeToFit()
 
-//        ContestKit.perform(animated: true) { [self] in
-            layoutDidChange(from: oldState?.layout)
-//            layoutIfNeeded()
-//        }
-
+        layoutDidChange(from: oldState?.layout)
         appearanceDidChange(from: oldState?.appearance)
     }
 

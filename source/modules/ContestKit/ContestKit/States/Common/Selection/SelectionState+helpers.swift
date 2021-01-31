@@ -1,37 +1,11 @@
 //
-//  SelectionState.swift
+//  SelectionState+helpers.swift
 //  ContestKit
 //
-//  Created by Dmitry Purtov on 30.01.2021.
+//  Created by Dmitry Purtov on 31.01.2021.
 //
 
 import Foundation
-
-struct SelectionState<ValueT: Equatable>: Equatable {
-    var values: [ValueT] { didSet { validate() } }
-    var selectedValue: ValueT { didSet { validate() } }
-
-    init(values: [ValueT], selectedValue: ValueT) {
-        self.values = values
-        self.selectedValue = selectedValue
-        validate()
-    }
-
-    private func validate() {
-        assert(values != [])
-        assert(values.areUnique)
-        assert(values.contains(selectedValue))
-    }
-}
-
-extension SelectionState {
-    var selectedIndex: Int {
-        get { values.firstIndex(of: selectedValue)! }
-        set { selectedValue = values[newValue] }
-    }
-}
-
-extension SelectionState: Hashable where ValueT: Hashable {}
 
 extension SelectionState {
     init(values: [ValueT], selectedIndex: Int = 0) {

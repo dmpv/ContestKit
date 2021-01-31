@@ -69,15 +69,9 @@ extension SectionState: StateType, CKIdentifiable {
 }
 
 extension TimeInterval {
-    var frameCountFormatted: String {
+    func frameCountFormatted(verbose: Bool) -> String {
         let frameCount = Int(self * 60)
         return L10n.stub("\(frameCount)f")
-    }
-}
-
-extension TimeInterval {
-    var pickerCellOptionTitle: String {
-        let suffix = self == 1 ? " " + L10n.stub("(1 sec)") : ""
-        return frameCountFormatted + suffix
+            + (verbose && (self == 1) ? L10n.stub(" (1 sec)") : "")
     }
 }

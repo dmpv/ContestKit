@@ -58,7 +58,7 @@ extension AppState {
             title: L10n.stub("Duration"),
             style: .actionSheet,
             actions: config.durationSelection.values.map { duration in
-                .init(title: duration.pickerCellOptionTitle)
+                .init(title: duration.frameCountFormatted(verbose: true))
             } + [
                 .init(
                     title: L10n.stub("Cancel"),

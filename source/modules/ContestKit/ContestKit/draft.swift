@@ -6,25 +6,3 @@
 //
 
 import Foundation
-
-extension AppConfigState {
-    var messageAnimationIDPickerSectionedList: SectionedListState {
-        get {
-            .init(
-                sections: [
-                    .messageAnimations(
-                        rows: draftMessageAnimationConfigs.map { messageAnimationConfig in
-                            .button(.messageAnimation(id: messageAnimationConfig.id))
-                        }
-                    ),
-                    .backgroundAnimation(
-                        rows: []
-                    )
-                ]
-            )
-        }
-        set {
-            fatalError(.shouldNeverBeCalled(nil))
-        }
-    }
-}
