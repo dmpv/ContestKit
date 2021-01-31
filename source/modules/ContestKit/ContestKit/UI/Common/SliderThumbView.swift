@@ -85,18 +85,18 @@ final class SliderThumbView: UIView {
 }
 
 extension SliderThumbView {
-    struct State: Equatable {
-        var layout: Layout = .init()
-        var appearance: Appearance = .init()
+    struct State: StateType {
+        var layout: Layout
+        var appearance: Appearance
     }
 
     struct Layout: Equatable {
-        var size: CGSize = .init(width: 28, height: 28)
+        var size: CGSize
     }
 
     struct Appearance: Equatable {
-        let mainShadow: ShadowState = .systemSliderThumbMain
-        let ambientShadow: ShadowState = .systemSliderThumbAmbient
+        let mainShadow: ShadowState
+        let ambientShadow: ShadowState
     }
 }
 
@@ -126,7 +126,32 @@ extension SliderThumbView.State {
         layout: .init(
             size: .init(width: 16, height: 16)
         ),
-        appearance: .init())
+        appearance: system.appearance
+    )
+
+    static let telegram: Self = .init(
+        layout: .init(
+            size: .init(width: 18, height: 18)
+        ),
+        appearance: system.appearance
+    )
+
+    static let telegramVertical: Self = .init(
+        layout: .init(
+            size: .init(width: 12, height: 24)
+        ),
+        appearance: system.appearance
+    )
+
+    static let system: Self = .init(
+        layout: .init(
+            size: .init(width: 28, height: 28)
+        ),
+        appearance: .init(
+            mainShadow: .systemSliderThumbMain,
+            ambientShadow: .systemSliderThumbAmbient
+        )
+    )
 }
 
 extension UIView {

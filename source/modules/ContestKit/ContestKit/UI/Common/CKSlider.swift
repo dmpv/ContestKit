@@ -40,15 +40,18 @@ extension UISlider {
 class CKSlider: UISlider {
     override func trackRect(forBounds bounds: CGRect) -> CGRect {
         var trackFrame = super.trackRect(forBounds: bounds)
-        let thumbFrame = thumbRect(forBounds: bounds, trackRect: trackFrame, value: value)
-        trackFrame.origin.x = thumbFrame.width * 0.5
-        trackFrame.size.width = bounds.width - thumbFrame.width
+//        let thumbFrame = thumbRect(forBounds: bounds, trackRect: trackFrame, value: value)
+//        trackFrame.origin.x = thumbFrame.width * 0.5
+        trackFrame.origin.x = 8.5
+        trackFrame.size.width = bounds.width - trackFrame.origin.x * 2
         return trackFrame
     }
 
     override func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
         var thumbFrame = super.thumbRect(forBounds: bounds, trackRect: rect, value: value)
-        thumbFrame.origin.x = CGFloat(fraction) * (bounds.width - thumbFrame.width)
+//        thumbFrame.origin.x = CGFloat(fraction) * (bounds.width - thumbFrame.width)
+        let trackFrame = trackRect(forBounds: bounds)
+        thumbFrame.origin.x = trackFrame.origin.x - thumbFrame.width * 0.5 + trackFrame.width * CGFloat(fraction)
         return thumbFrame
     }
 

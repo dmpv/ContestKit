@@ -314,10 +314,9 @@
 				34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */,
 				343E8DC525C0F218000FF0AE /* ButtonCell.swift */,
 				343E8DC225C0F20E000FF0AE /* PickerCell.swift */,
-				343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */,
-				34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */,
 				3449FC3725C470D500EA3477 /* DottedLineView.swift */,
 				34E056A725C6D62C0083F001 /* CKSlider.swift */,
+				34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -327,6 +326,7 @@
 			children = (
 				348953AF25C1EF1500192DC8 /* SectionedListView.swift */,
 				343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */,
+				343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */,
 				3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */,
 				3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */,
 			);

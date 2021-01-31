@@ -62,10 +62,13 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
     private func setup() {
         selectionStyle = .none
-        contentView.layoutMargins = .init(top: 40, left: 40, bottom: 40, right: 40)
+        contentView.layoutMargins.adjust { layoutMargins in
+            layoutMargins.top = 17
+            layoutMargins.bottom = 17
+        }
 
         let cpSliderStyle: Style<UISlider> = {
-            let thumbImageSize = SliderThumbView.State().layout.size
+            let thumbImageSize = SliderThumbView.State.telegram.layout.size
             let transparentImage = UIView.State(layout: .init(frame: .init(origin: .zero, size: thumbImageSize))).image
             $0.setThumbImage(transparentImage, for: .normal)
         }
@@ -73,8 +76,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         let durationSliderStyle: Style<UISlider> = {
             $0.minimumTrackTintColor = .clear
             $0.maximumTrackTintColor = .clear
-            let size = CGSize(width: 10, height: 20)
-            let image = SliderThumbView.State(layout: .init(size: size)).image
+            let image = SliderThumbView.State.telegramVertical.image
             $0.setThumbImage(image, for: .normal)
         }
 
@@ -132,28 +134,26 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         contentView.addSubview(leftCentralSlider)
         leftCentralSlider.addTarget(self, action: #selector(didSlideLeftCentralSlider), for: .primaryActionTriggered)
 
-        topTooltipLabel = UILabel().applying {
-            $0.font = .systemFont(ofSize: 18, weight: .light)
+        let cpTooltipLabelStyle: Style<UILabel> = {
+            $0.font = .systemFont(ofSize: 12, weight: .regular)
             $0.textColor = .systemBlue
         }
+
+        let durationTooltipLabelStyle: Style<UILabel> = {
+            $0.font = .systemFont(ofSize: 12, weight: .regular)
+            $0.textColor = .systemYellow
+        }
+
+        topTooltipLabel = UILabel().applying(cpTooltipLabelStyle)
         contentView.addSubview(topTooltipLabel)
 
-        bottomTooltipLabel = UILabel().applying {
-            $0.font = .systemFont(ofSize: 18, weight: .light)
-            $0.textColor = .systemBlue
-        }
+        bottomTooltipLabel = UILabel().applying(cpTooltipLabelStyle)
         contentView.addSubview(bottomTooltipLabel)
 
-        rightCentralTooltipLabel = UILabel().applying {
-            $0.font = .systemFont(ofSize: 18, weight: .light)
-            $0.textColor = .systemYellow
-        }
+        rightCentralTooltipLabel = UILabel().applying(durationTooltipLabelStyle)
         contentView.addSubview(rightCentralTooltipLabel)
 
-        leftCentralTooltipLabel = UILabel().applying {
-            $0.font = .systemFont(ofSize: 18, weight: .light)
-            $0.textColor = .systemYellow
-        }
+        leftCentralTooltipLabel = UILabel().applying(durationTooltipLabelStyle)
         contentView.addSubview(leftCentralTooltipLabel)
     }
 
@@ -170,8 +170,8 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         rightDottedView.state = .init(circleRadius: 5)
         leftDottedView.state = .init(circleRadius: 5)
 
-        topSliderFakeThumb.state = .iOSSystemPreferences
-        bottomSliderFakeThumb.state = .iOSSystemPreferences
+        topSliderFakeThumb.state = .telegram
+        bottomSliderFakeThumb.state = .telegram
 
         pathView.state = .init(
             c1Fraction: timing.c1RelativeFraction,
@@ -322,27 +322,27 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
 
         topTooltipLabel.frame.adjust { frame in
-            frame.origin.y = topThumbFrame.minY - layout.tooltipOffset - frame.size.height
+            frame.origin.y = topThumbFrame.minY - layout.cpTooltipOffset - frame.size.height
             frame.center.x = topThumbFrame.center.x
         }
 
         bottomTooltipLabel.frame.adjust { frame in
-            frame.origin.y = bottomThumbFrame.maxY + layout.tooltipOffset
+            frame.origin.y = bottomThumbFrame.maxY + layout.cpTooltipOffset
             frame.center.x = bottomThumbFrame.center.x
         }
 
         rightCentralTooltipLabel.frame.adjust { frame in
             let rightSpace = containerFrame.width - rightCentralThumbFrame.maxX
-            if rightSpace < frame.width + layout.tooltipOffset {
-                frame.origin.x = rightCentralThumbFrame.minX - frame.width - layout.tooltipOffset
+            if rightSpace < frame.width + layout.durationTooltipOffset {
+                frame.origin.x = rightCentralThumbFrame.minX - frame.width - layout.durationTooltipOffset
             } else {
-                frame.origin.x = rightCentralThumbFrame.maxX + layout.tooltipOffset
+                frame.origin.x = rightCentralThumbFrame.maxX + layout.durationTooltipOffset
             }
             frame.center.y = rightCentralThumbFrame.center.y
         }
 
         leftCentralTooltipLabel.frame.adjust { frame in
-            frame.origin.x = leftCentralThumbFrame.maxX + layout.tooltipOffset
+            frame.origin.x = leftCentralThumbFrame.maxX + layout.durationTooltipOffset
             frame.center.y = leftCentralThumbFrame.center.y
         }
     }
@@ -386,7 +386,8 @@ extension AnimationTimingCell {
         var timingEndsAtFraction: Float
         var timingC1Fraction: Float
         var timingC2Fraction: Float
-        var tooltipOffset: CGFloat = 4
+        var cpTooltipOffset: CGFloat = 3.5
+        var durationTooltipOffset: CGFloat = -6
     }
 
     struct Appearance: Equatable {
