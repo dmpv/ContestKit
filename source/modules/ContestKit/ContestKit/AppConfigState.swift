@@ -20,6 +20,10 @@ public struct AppConfigState: StateType {
         didSet { assert(importedMessageAnimationConfigs != []) }
     }
 
+    var importableMessageAnimationConfigs: [MessageAnimationConfigState]? {
+        didSet { assert(importedMessageAnimationConfigs != []) }
+    }
+
     var durations: [TimeInterval]
 }
 
@@ -49,6 +53,14 @@ extension AppConfigState {
                 draftMessageAnimationConfigs[index].duration = newDurationSelection.selectedValue
             }
         }
+    }
+}
+
+extension AppConfigState {
+    var allConfigsAreEqual: Bool {
+        draftMessageAnimationConfigs == stableMessageAnimationConfigs
+            && draftMessageAnimationConfigs == importedMessageAnimationConfigs
+            && draftMessageAnimationConfigs == importableMessageAnimationConfigs
     }
 }
 

@@ -58,10 +58,7 @@ extension AppState {
             title: L10n.stub("Duration"),
             style: .actionSheet,
             actions: config.durationSelection.values.map { duration in
-                .init(
-                    title: duration.pickerCellOptionTitle,
-                    style: .default
-                )
+                .init(title: duration.pickerCellOptionTitle)
             } + [
                 .init(
                     title: L10n.stub("Cancel"),
@@ -76,10 +73,7 @@ extension AppState {
             title: L10n.stub("Share"),
             style: .actionSheet,
             actions: [
-                .init(
-                    title: L10n.stub("Copy to Clipboard"),
-                    style: .default
-                ),
+                .init(title: L10n.stub("Copy to Clipboard")),
                 .init(
                     title: "Cancel",
                     style: .cancel
@@ -89,20 +83,53 @@ extension AppState {
     }
 
     var importActionSheet: UIAlertController.State {
-        .init(
-            title: L10n.stub("Import"),
-            style: .actionSheet,
-            actions: [
-                .init(
-                    title: L10n.stub("Import from Clipboard"),
-                    style: .default
-                ),
-                .init(
-                    title: "Cancel",
-                    style: .cancel
-                )
-            ]
-        )
+        switch config.importableMessageAnimationConfigs {
+        case nil:
+            return .init(
+                title: L10n.stub("There is nothing to import"),
+                message: L10n.stub("Your clipboard is empty"),
+                style: .actionSheet,
+                actions: [
+                    .init(
+                        title: L10n.stub("Import from Clipboard"),
+                        isEnabled: false
+                    ),
+                    .init(
+                        title: "Cancel",
+                        style: .cancel
+                    )
+                ]
+            )
+        case _ where config.allConfigsAreEqual:
+            return .init(
+                title: L10n.stub("Just imported"),
+                style: .actionSheet,
+                actions: [
+                    .init(
+                        title: L10n.stub("Import from Clipboard"),
+                        isEnabled: false
+                    ),
+                    .init(
+                        title: "Cancel",
+                        style: .cancel
+                    )
+                ]
+            )
+        default:
+            return .init(
+                title: L10n.stub("Import"),
+                style: .actionSheet,
+                actions: [
+                    .init(
+                        title: L10n.stub("Import from Clipboard")
+                    ),
+                    .init(
+                        title: "Cancel",
+                        style: .cancel
+                    )
+                ]
+            )
+        }
     }
 
     var restoreActionSheet: UIAlertController.State {

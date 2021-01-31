@@ -39,6 +39,7 @@ extension UIAlertAction {
     struct State: Equatable {
         var title: String?
         var style: UIAlertAction.Style = .default
+        var isEnabled = true
     }
 
     struct Handlers {
@@ -54,5 +55,6 @@ extension UIAlertAction {
         ) { _ in
             handlers.onPress?()
         }
+        isEnabled = state.isEnabled
     }
 }
