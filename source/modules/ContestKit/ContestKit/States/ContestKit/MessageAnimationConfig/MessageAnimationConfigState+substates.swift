@@ -80,7 +80,7 @@ extension MessageAnimationConfigState {
         }
         set(newDuration) {
             for index in timings.indices {
-                timings[index].timing.totalDuration = newDuration
+                timings[index].timing.updateTotalDuration(newDuration)
             }
         }
     }

@@ -8,6 +8,16 @@
 import Foundation
 
 extension AnimationTimingState {
+    mutating func updateTotalDuration(_ newTotalDuration: TimeInterval) {
+        startsAt *= (newTotalDuration / totalDuration)
+        endsAt *= (newTotalDuration / totalDuration)
+        c1.x *= (newTotalDuration / totalDuration)
+        c2.x *= (newTotalDuration / totalDuration)
+        totalDuration = newTotalDuration
+    }
+}
+
+extension AnimationTimingState {
     static func makeDefault(totalDuration: TimeInterval = 1) -> Self {
         .init(
             startsAt: 0,
