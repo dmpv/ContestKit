@@ -244,11 +244,11 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         let layout = state?.layout ?? .init(timingStartsAtFraction: 0, timingEndsAtFraction: 1, timingC1Fraction: 0.5, timingC2Fraction: 0.5)
 
-//        let containerFrame = contentView.bounds
+        let containerFrame = contentView.layoutMarginsGuide.layoutFrame
 
         topSlider.frame.adjust { frame in
             let frameHeight = frame.height
-            frame = contentView.frame.inset(by: contentView.layoutMargins)
+            frame = containerFrame
             frame.size.height = frameHeight
         }
 
@@ -261,7 +261,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         rightCentralSlider.frame.adjust { frame in
             let frameHeight = frame.height
-            frame = contentView.frame.inset(by: contentView.layoutMargins)
+            frame = containerFrame
             frame.origin.y += (frame.height - frameHeight) * 0.5
             frame.size.height = frameHeight
         }
@@ -270,7 +270,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         bottomSlider.frame.adjust { frame in
             let frameHeight = frame.height
-            frame = contentView.frame.inset(by: contentView.layoutMargins)
+            frame = containerFrame
             frame.origin.y += frame.height - frameHeight
             frame.size.height = frameHeight
         }
@@ -332,7 +332,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
 
         rightCentralTooltipLabel.frame.adjust { frame in
-            let rightSpace = contentView.frame.width - rightCentralThumbFrame.maxX
+            let rightSpace = containerFrame.width - rightCentralThumbFrame.maxX
             if rightSpace < frame.width + layout.tooltipOffset {
                 frame.origin.x = rightCentralThumbFrame.minX - frame.width - layout.tooltipOffset
             } else {
