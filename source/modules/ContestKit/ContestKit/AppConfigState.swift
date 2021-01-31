@@ -62,6 +62,10 @@ extension AppConfigState {
             && draftMessageAnimationConfigs == importedMessageAnimationConfigs
             && draftMessageAnimationConfigs == importableMessageAnimationConfigs
     }
+
+    var hasUnappliedChanges: Bool {
+        draftMessageAnimationConfigs != stableMessageAnimationConfigs
+    }
 }
 
 extension AppConfigState {

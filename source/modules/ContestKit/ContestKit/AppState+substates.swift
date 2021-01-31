@@ -48,7 +48,7 @@ extension AppState {
             rightBarButton: .init(
                 title: L10n.stub("Apply"),
                 style: .done,
-                isEnabled: config.draftMessageAnimationConfigs != config.stableMessageAnimationConfigs
+                isEnabled: config.hasUnappliedChanges
             )
         )
     }
@@ -75,7 +75,7 @@ extension AppState {
             actions: [
                 .init(title: L10n.stub("Copy to Clipboard")),
                 .init(
-                    title: "Cancel",
+                    title: L10n.stub("Cancel"),
                     style: .cancel
                 )
             ]
@@ -95,7 +95,7 @@ extension AppState {
                         isEnabled: false
                     ),
                     .init(
-                        title: "Cancel",
+                        title: L10n.stub("Cancel"),
                         style: .cancel
                     )
                 ]
@@ -110,7 +110,7 @@ extension AppState {
                         isEnabled: false
                     ),
                     .init(
-                        title: "Cancel",
+                        title: L10n.stub("Cancel"),
                         style: .cancel
                     )
                 ]
@@ -124,7 +124,7 @@ extension AppState {
                         title: L10n.stub("Import from Clipboard")
                     ),
                     .init(
-                        title: "Cancel",
+                        title: L10n.stub("Cancel"),
                         style: .cancel
                     )
                 ]
@@ -141,7 +141,19 @@ extension AppState {
                 config.importedMessageAnimationConfigs == nil
                     ? nil
                     : .init(title: "Restore to Imported"),
-                .init(title: "Cancel", style: .cancel)
+                .init(title: L10n.stub("Cancel"), style: .cancel)
+            ].compactMap { $0 }
+        )
+    }
+
+    var dismissalWarningActionSheet: UIAlertController.State {
+        .init(
+            title: L10n.stub("You have unapplied changes"),
+            style: .actionSheet,
+            actions: [
+                .init(title: L10n.stub("Apply")),
+                .init(title: L10n.stub("Discard"), style: .destructive),
+                .init(title: L10n.stub("Stay in Editor"), style: .cancel)
             ].compactMap { $0 }
         )
     }

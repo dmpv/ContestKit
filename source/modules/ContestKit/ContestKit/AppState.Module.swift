@@ -107,6 +107,19 @@ public class AppModule {
             )
         )
     }
+
+    func dismissalWarningAlertConroller() -> UIAlertController {
+        UIAlertController(
+            state: store.state.dismissalWarningActionSheet,
+            handlers: .init(
+                actions: store.state.dismissalWarningActionSheet.actions.indices.map { [self] index in
+                    .init { [self, weak store] in
+                        store?.dispatch(finishDismissal(with: index))
+                    }
+                }
+            )
+        )
+    }
 }
 
 extension AppModule {
@@ -259,6 +272,24 @@ extension AppModule {
                     app.config.draftMessageAnimationConfigs = importedMessageAnimationConfigs
                     app.config.stableMessageAnimationConfigs = importedMessageAnimationConfigs
                 }
+            default:
+                fatalError(.shouldNeverBeCalled())
+            }
+        }.boxed()
+    }
+
+    func finishDismissal(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
+        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+            let applyAndDismissIndex = 0
+            let dismissIndex = 1
+            let cancelIndex = appStore.state.dismissalWarningActionSheet.actions.count - 1
+            switch buttonIndex {
+            case cancelIndex:
+                break
+            case applyAndDismissIndex:
+                appStore.dispatch(endEditing())
+            case dismissIndex:
+                appStore.dispatch(cancelEditing())
             default:
                 fatalError(.shouldNeverBeCalled())
             }

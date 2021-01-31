@@ -74,13 +74,12 @@ public final class SectionedListView: UIView {
             super.updateConstraints()
         }
         guard state?.layout != currentLayout || !activated else { return }
+    }
 
-        [
-            tableView.topAnchor.constraint(equalTo: topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ].forEach { $0.isActive = true }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+
+        tableView.frame = bounds
     }
 }
 

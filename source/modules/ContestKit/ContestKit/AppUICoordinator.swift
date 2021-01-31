@@ -8,19 +8,19 @@
 import Foundation
 import UIKit
 
-class AppUICoordinator {
+class AppUICoordinator: NSObject {
     private var navigationController: UINavigationController?
     private var editorVC: UIViewController?
-    private var alertController: UIAlertController?
 
     private let rootVC: UIViewController
     private let store: RDXKit.Store<AppState>
-    private var module: AppModule
+    private let module: AppModule
 
     init(rootVC: UIViewController, store: RDXKit.Store<AppState>, module: AppModule) {
         self.rootVC = rootVC
         self.store = store
         self.module = module
+        super.init()
         setup()
     }
 
@@ -29,8 +29,10 @@ class AppUICoordinator {
 
     func showEditor() {
         guard editorVC == nil else { return fallback() }
+        guard navigationController == nil else { return fallback() }
         editorVC = module.editorVC()
         navigationController = UINavigationController(rootViewController: editorVC!)
+        navigationController!.presentationController?.delegate = self
         rootVC.present(navigationController!, animated: true)
     }
 
@@ -71,5 +73,31 @@ class AppUICoordinator {
     func showRestoreActionSheet() {
         let alertController = module.restoreAlertConroller()
         navigationController?.present(alertController, animated: true)
+    }
+}
+
+extension AppUICoordinator: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        guard presentationController.presentedViewController == navigationController else {
+            return fallback()
+        }
+        store.dispatch(module.cancelEditing())
+        editorVC = nil
+        navigationController = nil
+    }
+
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        guard presentationController.presentedViewController == navigationController else {
+            return fallback()
+        }
+        let alertController = module.dismissalWarningAlertConroller()
+        navigationController?.present(alertController, animated: true)
+    }
+
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        guard presentationController.presentedViewController == navigationController else {
+            return fallback(true)
+        }
+        return !store.state.config.hasUnappliedChanges
     }
 }

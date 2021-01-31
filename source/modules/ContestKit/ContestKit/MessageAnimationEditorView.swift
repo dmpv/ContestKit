@@ -74,13 +74,12 @@ public final class MessageAnimationEditorView: UIView {
             super.updateConstraints()
         }
         guard state?.layout != currentLayout || !activated else { return }
+    }
 
-        [
-            sectionedListView.topAnchor.constraint(equalTo: topAnchor),
-            sectionedListView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            sectionedListView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            sectionedListView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ].forEach { $0.isActive = true }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+
+        sectionedListView.frame = bounds
     }
 }
 
