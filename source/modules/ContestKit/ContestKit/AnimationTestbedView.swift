@@ -43,6 +43,17 @@ class AnimationTestbedView: UIView {
         }
     }
 
+    func setupForFinish() {
+        boxView.frame.adjust {
+            $0.origin = .init(x: 200, y: 50)
+            $0.size = .init(width: 200, height: 50)
+        }
+        boxView.applying {
+            $0.alpha = 0.5
+            $0.backgroundColor = .black
+        }
+    }
+
     func run(with config: MessageAnimationConfigState) {
         switch config {
         case .smallText(let timings):
@@ -73,7 +84,9 @@ class AnimationTestbedView: UIView {
         fadeAnim.toValue = NSNumber(floatLiteral: 0.0)
         fadeAnim.duration = 1.0
         boxView.layer.add(fadeAnim, forKey: "opacity")
-        boxView.layer.opacity = 0.0
+
+
+        setupForFinish()
 
         //        boxView.layer.add(, forKey: "frame.origin.x")
 

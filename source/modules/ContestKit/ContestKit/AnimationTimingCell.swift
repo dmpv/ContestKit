@@ -196,7 +196,11 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         leftCentralTooltipLabel.text = timing.startsAt.frameCountFormatted
         leftCentralTooltipLabel.sizeToFit()
 
-        layoutDidChange(from: oldState?.layout)
+//        ContestKit.perform(animated: true) { [self] in
+            layoutDidChange(from: oldState?.layout)
+//            layoutIfNeeded()
+//        }
+
         appearanceDidChange(from: oldState?.appearance)
     }
 
@@ -403,51 +407,6 @@ extension AnimationTimingCell {
         var onSlideRightCentralSlider: ((_ fraction: Float) -> Void)?
         var onSlideLeftCentralSlider: ((_ fraction: Float) -> Void)?
         var onSlideBottomSlider: ((_ fraction: Float) -> Void)?
-    }
-}
-
-extension UISlider {
-    var fraction: Float {
-        get {
-            value / (maximumValue - minimumValue)
-        }
-        set {
-            value = newValue * (maximumValue - minimumValue)
-        }
-    }
-
-    var thumbFrame: CGRect {
-        thumbRect(
-            forBounds: bounds,
-            trackRect: trackRect(forBounds: bounds),
-            value: value
-        )
-    }
-
-    var trackFrame: CGRect {
-        trackRect(forBounds: bounds)
-    }
-
-    static let defaultMinTrackTintColor: UIColor = .systemBlue
-
-    static let defaultMaxTrackTintColor: UIColor = .init(red: 228 / 255, green: 228 / 255, blue: 230 / 255, alpha: 1)
-
-    static let defaultTrackCornerRadius: CGFloat = 2
-}
-
-class CKSlider: UISlider {
-    override func trackRect(forBounds bounds: CGRect) -> CGRect {
-        var trackFrame = super.trackRect(forBounds: bounds)
-        let thumbFrame = thumbRect(forBounds: bounds, trackRect: trackFrame, value: value)
-        trackFrame.origin.x = thumbFrame.width * 0.5
-        trackFrame.size.width = bounds.width - thumbFrame.width
-        return trackFrame
-    }
-
-    override func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
-        var thumbFrame = super.thumbRect(forBounds: bounds, trackRect: rect, value: value)
-        thumbFrame.origin.x = CGFloat(fraction) * (bounds.width - thumbFrame.width)
-        return thumbFrame
     }
 }
 

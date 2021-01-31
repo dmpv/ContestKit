@@ -50,6 +50,7 @@
 		34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */; };
 		34E0565D25C635880083F001 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565C25C635880083F001 /* PasteboardService.swift */; };
 		34E0566025C63F8A0083F001 /* AnimationTestbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565F25C63F8A0083F001 /* AnimationTestbedView.swift */; };
+		34E056A825C6D62C0083F001 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056A725C6D62C0083F001 /* Slider.swift */; };
 		34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */; };
 		34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */; };
 		34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50125C2250C00EB0B96 /* AppState.Module.swift */; };
@@ -113,6 +114,7 @@
 		34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+component.swift"; sourceTree = "<group>"; };
 		34E0565C25C635880083F001 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		34E0565F25C63F8A0083F001 /* AnimationTestbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTestbedView.swift; sourceTree = "<group>"; };
+		34E056A725C6D62C0083F001 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		34F2E4FB25C224E300EB0B96 /* AppState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E4FE25C224F300EB0B96 /* AppState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+substates.swift"; sourceTree = "<group>"; };
 		34F2E50125C2250C00EB0B96 /* AppState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.Module.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				34F2E52125C364A000EB0B96 /* RowState.swift */,
 				34F2E52425C364AB00EB0B96 /* RowState+substates.swift */,
 				34F2E52E25C37A3600EB0B96 /* RowCell.swift */,
+				34E056A725C6D62C0083F001 /* Slider.swift */,
 				343E8DC925C0F236000FF0AE /* AnimationTimingCell.swift */,
 				3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */,
 				3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */,
@@ -374,6 +377,7 @@
 				34CC95DF25BF6DF80081E93B /* falllback.swift in Sources */,
 				3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */,
 				34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */,
+				34E056A825C6D62C0083F001 /* Slider.swift in Sources */,
 				34CC95E425BF6DF80081E93B /* RDXKit.Store+Proxy.swift in Sources */,
 				343E8DCA25C0F236000FF0AE /* AnimationTimingCell.swift in Sources */,
 				34CE81B425C5C2FC001A4EB0 /* SelectionState.swift in Sources */,
