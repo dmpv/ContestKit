@@ -20,7 +20,6 @@ public final class MessageAnimationEditorView: UIView {
     private var activated = false
     private var currentLayout: Layout?
 
-    private var testbedView: AnimationTestbedView!
     private var sectionedListView: SectionedListView!
 
     private let module: SectionedListModule
@@ -45,9 +44,6 @@ public final class MessageAnimationEditorView: UIView {
     }
 
     private func setup() {
-        testbedView = AnimationTestbedView()
-        addSubview(testbedView)
-
         sectionedListView = module.view.applying(noAutoresize)
         addSubview(sectionedListView)
     }
@@ -83,12 +79,7 @@ public final class MessageAnimationEditorView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
 
-        testbedView.frame.adjust { frame in
-            frame = bounds
-            frame.origin.y += 44
-            frame.size.height = 400
-        }
-        sectionedListView.frame = bounds.inset(by: .init(top: testbedView.frame.maxY, left: 0, bottom: 0, right: 0))
+        sectionedListView.frame = bounds
     }
 }
 

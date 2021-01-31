@@ -49,7 +49,6 @@
 		34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B725C5C714001A4EB0 /* AppComponents.swift */; };
 		34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */; };
 		34E0565D25C635880083F001 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565C25C635880083F001 /* PasteboardService.swift */; };
-		34E0566025C63F8A0083F001 /* AnimationTestbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565F25C63F8A0083F001 /* AnimationTestbedView.swift */; };
 		34E056A825C6D62C0083F001 /* CKSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056A725C6D62C0083F001 /* CKSlider.swift */; };
 		34E056BE25C707BA0083F001 /* AnimationTimingState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056BD25C707BA0083F001 /* AnimationTimingState+substates.swift */; };
 		34E056C125C707CB0083F001 /* AnimationTimingState+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056C025C707CB0083F001 /* AnimationTimingState+helpers.swift */; };
@@ -123,7 +122,6 @@
 		34CE81B725C5C714001A4EB0 /* AppComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponents.swift; sourceTree = "<group>"; };
 		34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+component.swift"; sourceTree = "<group>"; };
 		34E0565C25C635880083F001 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
-		34E0565F25C63F8A0083F001 /* AnimationTestbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTestbedView.swift; sourceTree = "<group>"; };
 		34E056A725C6D62C0083F001 /* CKSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKSlider.swift; sourceTree = "<group>"; };
 		34E056BD25C707BA0083F001 /* AnimationTimingState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimationTimingState+substates.swift"; sourceTree = "<group>"; };
 		34E056C025C707CB0083F001 /* AnimationTimingState+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimationTimingState+helpers.swift"; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				34CC95DB25BF6DF80081E93B /* draft.swift */,
-				34E0565F25C63F8A0083F001 /* AnimationTestbedView.swift */,
 				34CE81B725C5C714001A4EB0 /* AppComponents.swift */,
 				34E056E825C711990083F001 /* Services */,
 				34E056DE25C710E10083F001 /* States */,
@@ -585,7 +582,6 @@
 				34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */,
 				34E056C125C707CB0083F001 /* AnimationTimingState+helpers.swift in Sources */,
 				34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */,
-				34E0566025C63F8A0083F001 /* AnimationTestbedView.swift in Sources */,
 				34CC95E325BF6DF80081E93B /* Lens.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
