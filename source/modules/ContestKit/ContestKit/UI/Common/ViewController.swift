@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import ToolKit
+
 class ViewController: UIViewController {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }

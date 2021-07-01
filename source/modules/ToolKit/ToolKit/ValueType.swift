@@ -7,19 +7,19 @@
 
 import Foundation
 
-protocol ValueType {
+public protocol ValueType {
     typealias Reducer = (Self) -> Self
     typealias Adjuster = (inout Self) -> Void
 }
 
 extension ValueType {
-    func reduce(with adjuster: Adjuster) -> Self {
+    public func reduce(with adjuster: Adjuster) -> Self {
         var value = self
         adjuster(&value)
         return value
     }
 
-    mutating func adjust(with adjuster: Adjuster) {
+    public mutating func adjust(with adjuster: Adjuster) {
         adjuster(&self)
     }
 }

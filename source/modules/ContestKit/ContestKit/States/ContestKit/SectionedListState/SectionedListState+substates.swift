@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 extension SectionedListState {
     var view: SectionedListView.State {
         .init(sectionedList: self)

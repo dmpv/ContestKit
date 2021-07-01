@@ -22,18 +22,18 @@ public extension Styleable {
 
 extension NSObject: Styleable {}
 
-let noAutoresize: Style<UIView> = {
+public let noAutoresize: Style<UIView> = {
     $0.translatesAutoresizingMaskIntoConstraints = false
 }
 
 extension UIEdgeInsets: ValueType {}
 
 extension UIEdgeInsets {
-    init(uniform inset: CGFloat) {
+    public init(uniform inset: CGFloat) {
         self.init(top: inset, left: inset, bottom: inset, right: inset)
     }
 
-    static prefix func - (insets: Self) -> Self {
+    public static prefix func - (insets: Self) -> Self {
         .init(top: -insets.top, left: -insets.left, bottom: -insets.bottom, right: -insets.right)
     }
 }
@@ -73,7 +73,7 @@ extension UIView {
         animate(withDuration: config.duration.rawValue, delay: config.delay, options: config.options, animations: animations, completion: nil)
     }
 
-    static func animate(with animations: @escaping () -> Void) {
+    public static func animate(with animations: @escaping () -> Void) {
         animate(with: AnimationConfig(), animations: animations)
     }
 }

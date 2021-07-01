@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public enum MessageAnimationConfigID: String, IDType {
     case smallText
     case bigText
@@ -28,7 +30,7 @@ public enum MessageAnimationConfigState: StateType {
 }
 
 extension MessageAnimationConfigState: CKIdentifiable {
-    var id: MessageAnimationConfigID {
+    public var id: MessageAnimationConfigID {
         switch self {
         case .smallText:
             return .smallText

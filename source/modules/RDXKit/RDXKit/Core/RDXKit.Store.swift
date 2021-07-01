@@ -8,6 +8,8 @@
 
 import Foundation
 
+import ToolKit
+
 extension RDXKit {
     public typealias Dispatch<ActionT: Action> = (ActionT) -> Void
 
@@ -30,7 +32,7 @@ extension RDXKit {
             }
         }
 
-        private(set) lazy var stateObservable = Observable(value: state)
+        public private(set) lazy var stateObservable = Observable(value: state)
 
         var broadcasting: AnyAction<StateT>?
 

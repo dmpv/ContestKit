@@ -11,14 +11,16 @@ import Foundation
 import LensKit
 
 extension RDXKit {
-    struct Thunk<StoreT: StoreType>: Action {
-        typealias Body = (StoreT) -> Void
+    public struct Thunk<StoreT: StoreType>: Action {
+        public typealias Body = (StoreT) -> Void
+
         let body: Body
-        init(body: @escaping Body) {
+
+        public init(body: @escaping Body) {
             self.body = body
         }
 
-        func adjust(_ state: inout StoreT.State) {
+        public func adjust(_ state: inout StoreT.State) {
             assertionFailure("No ThunkMiddleware applied to the Store<\(StoreT.State.self)>")
         }
     }

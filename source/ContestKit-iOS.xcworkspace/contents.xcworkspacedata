@@ -15,6 +15,12 @@
       location = "group:modules/ContestKit/ContestKit.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:modules/RDXKit/RDXKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:modules/LensKit/LensKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:modules/ToolKit/ToolKit.xcodeproj">
    </FileRef>
 </Workspace>

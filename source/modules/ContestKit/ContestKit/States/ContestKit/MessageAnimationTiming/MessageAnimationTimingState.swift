@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public enum MessageAnimationTimingID: String, IDType {
     case positionX
     case positionY
@@ -32,7 +34,7 @@ public enum MessageAnimationTimingState: StateType {
 }
 
 extension MessageAnimationTimingState: CKIdentifiable {
-    var id: MessageAnimationTimingID {
+    public var id: MessageAnimationTimingID {
         switch self {
         case .positionX:
             return .positionX

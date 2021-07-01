@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import ToolKit
+
 protocol RowCell: UITableViewCell {
     var module: RowModule? { get set }
 

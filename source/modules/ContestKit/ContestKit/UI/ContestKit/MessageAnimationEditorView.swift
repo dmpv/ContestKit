@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import ToolKit
+
 public final class MessageAnimationEditorView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }

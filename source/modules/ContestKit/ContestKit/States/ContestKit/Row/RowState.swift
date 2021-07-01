@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public enum RowID: IDType {
     case picker(PickerRowID)
     case button(ButtonRowID)
@@ -20,7 +22,7 @@ public enum RowState: StateType {
 }
 
 extension RowState: CKIdentifiable {
-    var id: RowID {
+    public var id: RowID {
         switch self {
         case .picker(let pickerRow):
             return .picker(pickerRow.id)
@@ -43,7 +45,7 @@ public enum PickerRowState: StateType {
 }
 
 extension PickerRowState: CKIdentifiable {
-    var id: PickerRowID {
+    public var id: PickerRowID {
         switch self {
         case .messageAnimationID:
             return .messageAnimationID
@@ -68,7 +70,7 @@ public enum ButtonRowState: StateType {
 }
 
 extension ButtonRowState: CKIdentifiable {
-    var id: ButtonRowID {
+    public var id: ButtonRowID {
         switch self {
         case .share:
             return .share

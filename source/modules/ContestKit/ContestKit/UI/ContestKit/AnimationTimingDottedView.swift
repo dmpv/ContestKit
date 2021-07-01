@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import ToolKit
+
 final class AnimationTimingDottedView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }

@@ -8,4 +8,6 @@
 
 import Foundation
 
+import ToolKit
+
 public class RDXKit: Namespace {}

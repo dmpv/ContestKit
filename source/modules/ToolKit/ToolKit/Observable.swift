@@ -7,13 +7,10 @@
 
 import Foundation
 
-final class Observable<ValueT> {
+public final class Observable<ValueT> {
     typealias ObserverID = UUID
 
-    private var observations: [Observation<ValueT>] = []
-    private var isBroadcasting = false
-
-    var value: ValueT {
+    public var value: ValueT {
         willSet {
             assert(!isBroadcasting)
         }
@@ -26,11 +23,14 @@ final class Observable<ValueT> {
         }
     }
 
-    init(value: ValueT) {
+    private var observations: [Observation<ValueT>] = []
+    private var isBroadcasting = false
+
+    public init(value: ValueT) {
         self.value = value
     }
 
-    func addObserver(_ observer: @escaping (ValueT) -> Void) -> Disposable {
+    public func addObserver(_ observer: @escaping (ValueT) -> Void) -> Disposable {
         guard !isBroadcasting else { return fallback(Disposable()) }
         let observation = Observation(observer: observer)
         observations[observation.id] = observation
@@ -44,10 +44,10 @@ struct Observation<ValueT>: CKIdentifiable {
     var observer: (ValueT) -> Void
 }
 
-class Disposable {
+public class Disposable {
     var dispose: () -> Void
 
-    init(dispose: @escaping () -> Void = {}) {
+    public init(dispose: @escaping () -> Void = {}) {
         self.dispose = dispose
     }
 
@@ -57,16 +57,15 @@ class Disposable {
 }
 
 extension Disposable {
+    public func disposed(by otherDisposable: Disposable) {
+        otherDisposable.add(self)
+    }
+
     func add(_ otherDisposable: Disposable) {
         let dispose = self.dispose
         self.dispose = {
             otherDisposable.dispose()
             dispose()
         }
-    }
-
-
-    func disposed(by otherDisposable: Disposable) {
-        otherDisposable.add(self)
     }
 }

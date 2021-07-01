@@ -8,6 +8,7 @@
 import Foundation
 
 import LensKit
+import RDXKit
 
 extension RDXKit.Store where StateT == AppState {
     func messageAnimationEditorStore() -> RDXKit.Store<MessageAnimationEditorState> {

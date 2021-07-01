@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import ToolKit
+
 final class AnimationTimingPathView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }

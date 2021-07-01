@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+import ToolKit
+
+protocol StateType: Equatable, ToolKit.StateType {}

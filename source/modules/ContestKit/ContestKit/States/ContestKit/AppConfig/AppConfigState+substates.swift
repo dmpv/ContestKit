@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 extension AppConfigState {
     var durationSelection: SelectionState<TimeInterval> {
         get {

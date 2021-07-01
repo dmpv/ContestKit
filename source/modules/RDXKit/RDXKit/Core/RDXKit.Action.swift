@@ -22,12 +22,16 @@ extension RDXKit {
 }
 
 extension RDXKit.Action {
-    var id: String {
+    public var id: String {
         "\(Self.self)"
     }
 
-    func boxed() -> RDXKit.AnyAction<State> {
+    public func boxed() -> RDXKit.AnyAction<State> {
         .init(self)
+    }
+
+    public var debugDescription: String {
+        "\(type(of: self))"
     }
 
     func reduce(_ state: State) -> State {
@@ -48,31 +52,31 @@ extension RDXKit.Action {
             lens.set(&superstate, reduce(state))
         }.boxed()
     }
-
-    public var debugDescription: String {
-        "\(type(of: self))"
-    }
 }
 
 extension RDXKit {
-    struct Custom<StateT>: Action {
-        let id: String
+    public struct Custom<StateT>: Action {
+        public let id: String
+        
         let adjustBody: (inout StateT) -> Void
 
-        func adjust(_ state: inout StateT) {
+        public init(id: String, adjustBody: @escaping (inout StateT) -> Void) {
+            self.id = id
+            self.adjustBody = adjustBody
+        }
+
+        public func adjust(_ state: inout StateT) {
             adjustBody(&state)
+        }
+
+        public var debugDescription: String {
+            "Custom/\(id)"
         }
     }
 }
 
 extension RDXKit.StoreType {
-    func dispatchCustom(_ id: String = "", adjustBody: @escaping (inout State) -> Void) {
+    public func dispatchCustom(_ id: String = "", adjustBody: @escaping (inout State) -> Void) {
         dispatch(RDXKit.Custom(id: id, adjustBody: adjustBody))
-    }
-}
-
-extension RDXKit.Custom {
-    var debugDescription: String {
-        "Custom/\(id)"
     }
 }

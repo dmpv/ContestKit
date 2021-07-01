@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 extension RowState {
     var cell: Any {
         switch self {

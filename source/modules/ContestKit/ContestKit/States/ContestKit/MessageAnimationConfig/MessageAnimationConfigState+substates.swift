@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 extension MessageAnimationConfigID {
     func titleFormatted(verbose: Bool) -> String {
         switch self {

@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public struct SectionedListState: StateType {
     var sections: [SectionState] = []
 }

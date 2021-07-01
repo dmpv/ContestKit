@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import RDXKit
+
 public class AppComponents {
     public private(set) var store: RDXKit.Store<AppState>!
     public private(set) var module: AppModule!

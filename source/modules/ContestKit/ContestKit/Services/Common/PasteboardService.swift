@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import ToolKit
+
 class PasteboardService {
     func fetchMessageAnimationConfigs() -> [MessageAnimationConfigState]? {
         guard let utf8StringData = UIPasteboard.general.string?.data(using: .utf8) else {

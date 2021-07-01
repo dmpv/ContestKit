@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 extension MessageAnimationTimingID {
     var editorSectionTitle: String {
         switch self {

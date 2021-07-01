@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; };
 		341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; };
+		341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		341BD340268E4BFA00B3C53D /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD33F268E4BFA00B3C53D /* ToolKit.framework */; };
+		341BD341268E4BFA00B3C53D /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD33F268E4BFA00B3C53D /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		343E8D9425C0E487000FF0AE /* AnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9325C0E487000FF0AE /* AnimationTimingState.swift */; };
-		343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9725C0E746000FF0AE /* ValueType.swift */; };
 		343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */; };
 		343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC225C0F20E000FF0AE /* PickerCell.swift */; };
 		343E8DC625C0F218000FF0AE /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC525C0F218000FF0AE /* ButtonCell.swift */; };
@@ -27,21 +30,6 @@
 		348953B325C20E8500192DC8 /* SectionedListState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953B225C20E8500192DC8 /* SectionedListState.Module.swift */; };
 		348953B625C210EE00192DC8 /* SectionedListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953B525C210EE00192DC8 /* SectionedListState.swift */; };
 		34CC95B925BF6CA80081E93B /* ContestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34CC95B725BF6CA80081E93B /* ContestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34CC95DC25BF6DF80081E93B /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C625BF6DF80081E93B /* misc.swift */; };
-		34CC95DD25BF6DF80081E93B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C725BF6DF80081E93B /* Namespace.swift */; };
-		34CC95DE25BF6DF80081E93B /* fatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C825BF6DF80081E93B /* fatalError.swift */; };
-		34CC95DF25BF6DF80081E93B /* falllback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C925BF6DF80081E93B /* falllback.swift */; };
-		34CC95E025BF6DF80081E93B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CA25BF6DF80081E93B /* Observable.swift */; };
-		34CC95E125BF6DF80081E93B /* RDXKit.Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CC25BF6DF80081E93B /* RDXKit.Proxy.swift */; };
-		34CC95E425BF6DF80081E93B /* RDXKit.Store+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CF25BF6DF80081E93B /* RDXKit.Store+Proxy.swift */; };
-		34CC95E525BF6DF80081E93B /* RDXKit.AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D225BF6DF80081E93B /* RDXKit.AnyAction.swift */; };
-		34CC95E625BF6DF80081E93B /* RDXKit.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D325BF6DF80081E93B /* RDXKit.Action.swift */; };
-		34CC95E725BF6DF80081E93B /* RDXKit.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D425BF6DF80081E93B /* RDXKit.Store.swift */; };
-		34CC95E825BF6DF80081E93B /* RDXKit.Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D525BF6DF80081E93B /* RDXKit.Middleware.swift */; };
-		34CC95E925BF6DF80081E93B /* RDXKit.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D725BF6DF80081E93B /* RDXKit.Log.swift */; };
-		34CC95EA25BF6DF80081E93B /* RDXKit.Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D825BF6DF80081E93B /* RDXKit.Hook.swift */; };
-		34CC95EB25BF6DF80081E93B /* RDXKit.Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D925BF6DF80081E93B /* RDXKit.Thunk.swift */; };
-		34CC95EC25BF6DF80081E93B /* RDXKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95DA25BF6DF80081E93B /* RDXKit.swift */; };
 		34CC95ED25BF6DF80081E93B /* draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95DB25BF6DF80081E93B /* draft.swift */; };
 		34CE81AE25C57D46001A4EB0 /* SliderThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */; };
 		34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */; };
@@ -67,14 +55,12 @@
 		34F2E50B25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50A25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift */; };
 		34F2E50E25C2348F00EB0B96 /* SectionedListState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E50D25C2348F00EB0B96 /* SectionedListState+substates.swift */; };
 		34F2E51225C23D2B00EB0B96 /* MessageAnimationConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51125C23D2B00EB0B96 /* MessageAnimationConfigState.swift */; };
-		34F2E51825C25E1700EB0B96 /* ui.misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51725C25E1700EB0B96 /* ui.misc.swift */; };
 		34F2E51B25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51A25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift */; };
 		34F2E51E25C317DD00EB0B96 /* RowModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E51D25C317DD00EB0B96 /* RowModule.swift */; };
 		34F2E52225C364A000EB0B96 /* RowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52125C364A000EB0B96 /* RowState.swift */; };
 		34F2E52525C364AB00EB0B96 /* RowState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52425C364AB00EB0B96 /* RowState+substates.swift */; };
 		34F2E52925C3777700EB0B96 /* SectionedListState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52825C3777700EB0B96 /* SectionedListState.Store+substores.swift */; };
 		34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52E25C37A3600EB0B96 /* RowCell.swift */; };
-		34F2E53325C3863500EB0B96 /* CG.misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E53225C3863500EB0B96 /* CG.misc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,7 +70,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */,
 				341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */,
+				341BD341268E4BFA00B3C53D /* ToolKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,8 +81,9 @@
 
 /* Begin PBXFileReference section */
 		341BD2E7268E439F00B3C53D /* LensKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LensKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		341BD317268E4A9700B3C53D /* RDXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RDXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		341BD33F268E4BFA00B3C53D /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		343E8D9325C0E487000FF0AE /* AnimationTimingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingState.swift; sourceTree = "<group>"; };
-		343E8D9725C0E746000FF0AE /* ValueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
 		343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationEditorView.swift; sourceTree = "<group>"; };
 		343E8DC225C0F20E000FF0AE /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		343E8DC525C0F218000FF0AE /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -113,21 +102,6 @@
 		34CC95B425BF6CA80081E93B /* ContestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ContestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CC95B725BF6CA80081E93B /* ContestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContestKit.h; sourceTree = "<group>"; };
 		34CC95B825BF6CA80081E93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34CC95C625BF6DF80081E93B /* misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
-		34CC95C725BF6DF80081E93B /* Namespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
-		34CC95C825BF6DF80081E93B /* fatalError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fatalError.swift; sourceTree = "<group>"; };
-		34CC95C925BF6DF80081E93B /* falllback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = falllback.swift; sourceTree = "<group>"; };
-		34CC95CA25BF6DF80081E93B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		34CC95CC25BF6DF80081E93B /* RDXKit.Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Proxy.swift; sourceTree = "<group>"; };
-		34CC95CF25BF6DF80081E93B /* RDXKit.Store+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RDXKit.Store+Proxy.swift"; sourceTree = "<group>"; };
-		34CC95D225BF6DF80081E93B /* RDXKit.AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.AnyAction.swift; sourceTree = "<group>"; };
-		34CC95D325BF6DF80081E93B /* RDXKit.Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Action.swift; sourceTree = "<group>"; };
-		34CC95D425BF6DF80081E93B /* RDXKit.Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Store.swift; sourceTree = "<group>"; };
-		34CC95D525BF6DF80081E93B /* RDXKit.Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Middleware.swift; sourceTree = "<group>"; };
-		34CC95D725BF6DF80081E93B /* RDXKit.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Log.swift; sourceTree = "<group>"; };
-		34CC95D825BF6DF80081E93B /* RDXKit.Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Hook.swift; sourceTree = "<group>"; };
-		34CC95D925BF6DF80081E93B /* RDXKit.Thunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Thunk.swift; sourceTree = "<group>"; };
-		34CC95DA25BF6DF80081E93B /* RDXKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.swift; sourceTree = "<group>"; };
 		34CC95DB25BF6DF80081E93B /* draft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = draft.swift; sourceTree = "<group>"; };
 		34CE81AD25C57D46001A4EB0 /* SliderThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderThumbView.swift; sourceTree = "<group>"; };
 		34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationTimingState.swift; sourceTree = "<group>"; };
@@ -153,14 +127,12 @@
 		34F2E50A25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageAnimationEditorState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E50D25C2348F00EB0B96 /* SectionedListState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionedListState+substates.swift"; sourceTree = "<group>"; };
 		34F2E51125C23D2B00EB0B96 /* MessageAnimationConfigState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationConfigState.swift; sourceTree = "<group>"; };
-		34F2E51725C25E1700EB0B96 /* ui.misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ui.misc.swift; sourceTree = "<group>"; };
 		34F2E51A25C2701D00EB0B96 /* MessageAnimationEditorState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageAnimationEditorState+substates.swift"; sourceTree = "<group>"; };
 		34F2E51D25C317DD00EB0B96 /* RowModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowModule.swift; sourceTree = "<group>"; };
 		34F2E52125C364A000EB0B96 /* RowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowState.swift; sourceTree = "<group>"; };
 		34F2E52425C364AB00EB0B96 /* RowState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowState+substates.swift"; sourceTree = "<group>"; };
 		34F2E52825C3777700EB0B96 /* SectionedListState.Store+substores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionedListState.Store+substores.swift"; sourceTree = "<group>"; };
 		34F2E52E25C37A3600EB0B96 /* RowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCell.swift; sourceTree = "<group>"; };
-		34F2E53225C3863500EB0B96 /* CG.misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CG.misc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +140,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */,
 				341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */,
+				341BD340268E4BFA00B3C53D /* ToolKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +152,8 @@
 		341BD2E6268E439F00B3C53D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				341BD33F268E4BFA00B3C53D /* ToolKit.framework */,
+				341BD317268E4A9700B3C53D /* RDXKit.framework */,
 				341BD2E7268E439F00B3C53D /* LensKit.framework */,
 			);
 			name = Frameworks;
@@ -208,68 +184,10 @@
 				34E056E825C711990083F001 /* Services */,
 				34E056DE25C710E10083F001 /* States */,
 				34E056AF25C7065E0083F001 /* UI */,
-				34CC95D025BF6DF80081E93B /* RDXKit */,
-				34CC95CB25BF6DF80081E93B /* RDXKit+Proxy */,
-				34CC95C525BF6DF80081E93B /* ToolKit */,
 				34CC95B725BF6CA80081E93B /* ContestKit.h */,
 				34CC95B825BF6CA80081E93B /* Info.plist */,
 			);
 			path = ContestKit;
-			sourceTree = "<group>";
-		};
-		34CC95C525BF6DF80081E93B /* ToolKit */ = {
-			isa = PBXGroup;
-			children = (
-				34CC95C625BF6DF80081E93B /* misc.swift */,
-				34F2E51725C25E1700EB0B96 /* ui.misc.swift */,
-				34CC95C725BF6DF80081E93B /* Namespace.swift */,
-				34CC95C825BF6DF80081E93B /* fatalError.swift */,
-				34CC95C925BF6DF80081E93B /* falllback.swift */,
-				34CC95CA25BF6DF80081E93B /* Observable.swift */,
-				343E8D9725C0E746000FF0AE /* ValueType.swift */,
-				34F2E53225C3863500EB0B96 /* CG.misc.swift */,
-			);
-			path = ToolKit;
-			sourceTree = "<group>";
-		};
-		34CC95CB25BF6DF80081E93B /* RDXKit+Proxy */ = {
-			isa = PBXGroup;
-			children = (
-				34CC95CC25BF6DF80081E93B /* RDXKit.Proxy.swift */,
-				34CC95CF25BF6DF80081E93B /* RDXKit.Store+Proxy.swift */,
-			);
-			path = "RDXKit+Proxy";
-			sourceTree = "<group>";
-		};
-		34CC95D025BF6DF80081E93B /* RDXKit */ = {
-			isa = PBXGroup;
-			children = (
-				34CC95D125BF6DF80081E93B /* Core */,
-				34CC95D625BF6DF80081E93B /* Middlewares */,
-				34CC95DA25BF6DF80081E93B /* RDXKit.swift */,
-			);
-			path = RDXKit;
-			sourceTree = "<group>";
-		};
-		34CC95D125BF6DF80081E93B /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				34CC95D225BF6DF80081E93B /* RDXKit.AnyAction.swift */,
-				34CC95D325BF6DF80081E93B /* RDXKit.Action.swift */,
-				34CC95D425BF6DF80081E93B /* RDXKit.Store.swift */,
-				34CC95D525BF6DF80081E93B /* RDXKit.Middleware.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		34CC95D625BF6DF80081E93B /* Middlewares */ = {
-			isa = PBXGroup;
-			children = (
-				34CC95D725BF6DF80081E93B /* RDXKit.Log.swift */,
-				34CC95D825BF6DF80081E93B /* RDXKit.Hook.swift */,
-				34CC95D925BF6DF80081E93B /* RDXKit.Thunk.swift */,
-			);
-			path = Middlewares;
 			sourceTree = "<group>";
 		};
 		34E056AB25C7060F0083F001 /* App */ = {
@@ -541,52 +459,34 @@
 				3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */,
 				34F2E51E25C317DD00EB0B96 /* RowModule.swift in Sources */,
 				34F2E52525C364AB00EB0B96 /* RowState+substates.swift in Sources */,
-				34CC95DC25BF6DF80081E93B /* misc.swift in Sources */,
 				34E056CE25C70F470083F001 /* MessageAnimationConfigState+helpers.swift in Sources */,
-				34CC95EA25BF6DF80081E93B /* RDXKit.Hook.swift in Sources */,
-				34CC95E125BF6DF80081E93B /* RDXKit.Proxy.swift in Sources */,
 				34E056E125C711270083F001 /* SelectionState+helpers.swift in Sources */,
 				34F2E52225C364A000EB0B96 /* RowState.swift in Sources */,
 				348953B325C20E8500192DC8 /* SectionedListState.Module.swift in Sources */,
-				34CC95E825BF6DF80081E93B /* RDXKit.Middleware.swift in Sources */,
 				34F2E51225C23D2B00EB0B96 /* MessageAnimationConfigState.swift in Sources */,
 				34E056D125C70FD30083F001 /* MessageAnimationTimingState+substates.swift in Sources */,
 				34E056D925C710750083F001 /* AppConfigState+substates.swift in Sources */,
-				34CC95E725BF6DF80081E93B /* RDXKit.Store.swift in Sources */,
-				34CC95E025BF6DF80081E93B /* Observable.swift in Sources */,
 				34F2E50B25C227B200EB0B96 /* MessageAnimationEditorState.Store+substores.swift in Sources */,
 				343E8DC625C0F218000FF0AE /* ButtonCell.swift in Sources */,
 				343E8DD325C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift in Sources */,
-				34CC95E525BF6DF80081E93B /* RDXKit.AnyAction.swift in Sources */,
-				34CC95DE25BF6DF80081E93B /* fatalError.swift in Sources */,
 				34F2E52925C3777700EB0B96 /* SectionedListState.Store+substores.swift in Sources */,
-				34CC95E925BF6DF80081E93B /* RDXKit.Log.swift in Sources */,
-				34CC95E625BF6DF80081E93B /* RDXKit.Action.swift in Sources */,
 				34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */,
 				34817DEE25C4D0F2005733DD /* ViewController.swift in Sources */,
 				34E056CB25C70F280083F001 /* MessageAnimationConfigState+substates.swift in Sources */,
 				3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */,
 				34E056E625C7114A0083F001 /* SelectionState+substates.swift in Sources */,
 				34E0565D25C635880083F001 /* PasteboardService.swift in Sources */,
-				34CC95EB25BF6DF80081E93B /* RDXKit.Thunk.swift in Sources */,
-				34CC95EC25BF6DF80081E93B /* RDXKit.swift in Sources */,
 				348953B625C210EE00192DC8 /* SectionedListState.swift in Sources */,
 				343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */,
 				34E056BE25C707BA0083F001 /* AnimationTimingState+substates.swift in Sources */,
-				34CC95DF25BF6DF80081E93B /* falllback.swift in Sources */,
 				3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */,
 				34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */,
 				34E056A825C6D62C0083F001 /* CKSlider.swift in Sources */,
-				34CC95E425BF6DF80081E93B /* RDXKit.Store+Proxy.swift in Sources */,
 				343E8DCA25C0F236000FF0AE /* AnimationTimingCell.swift in Sources */,
 				34CE81B425C5C2FC001A4EB0 /* SelectionState.swift in Sources */,
-				34F2E53325C3863500EB0B96 /* CG.misc.swift in Sources */,
-				34F2E51825C25E1700EB0B96 /* ui.misc.swift in Sources */,
 				343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */,
 				34CC95ED25BF6DF80081E93B /* draft.swift in Sources */,
-				34CC95DD25BF6DF80081E93B /* Namespace.swift in Sources */,
 				34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */,
-				343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */,
 				34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */,
 				34E056DC25C7109A0083F001 /* AppConfigState+helpers.swift in Sources */,
 				34E056D425C70FE80083F001 /* MessageAnimationTimingState+helpers.swift in Sources */,

@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+import RDXKit
+import ToolKit
+
 public class AppModule {
     private let store: RDXKit.Store<AppState>
 

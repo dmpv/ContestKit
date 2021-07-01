@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CKIdentifiable {
+public protocol CKIdentifiable {
     associatedtype ID: Hashable
 
     var id: Self.ID { get }
@@ -15,7 +15,7 @@ protocol CKIdentifiable {
 
 
 extension Array where Element: CKIdentifiable {
-    subscript(safe id: Element.ID) -> Element? {
+    public subscript(safe id: Element.ID) -> Element? {
         get {
             let elements = filter { $0.id == id }
             assert(elements.count <= 1)
@@ -36,10 +36,8 @@ extension Array where Element: CKIdentifiable {
             }
         }
     }
-}
 
-extension Array where Element: CKIdentifiable {
-    subscript(id: Element.ID) -> Element {
+    public subscript(id: Element.ID) -> Element {
         get {
             self[safe: id]!
         }
@@ -50,23 +48,23 @@ extension Array where Element: CKIdentifiable {
 }
 
 extension Array where Element: Equatable {
-    var areUnique: Bool {
+    public var areUnique: Bool {
         unique.count == count
     }
 
-    var unique: Self {
+    public var unique: Self {
         reduce([]) { partialUnique, element in
             partialUnique.contains(element) ? partialUnique : partialUnique + [element]
         }
     }
 }
 
-protocol StateType: ValueType, Equatable {}
+public protocol StateType: ValueType, Equatable {}
 
-protocol IDType: ValueType, Hashable {}
+public protocol IDType: ValueType, Hashable {}
 
-class L10n: Namespace {
-    static func stub(_ string: String) -> String {
+public class L10n: Namespace {
+    public static func stub(_ string: String) -> String {
         NSLocalizedString(string, comment: "")
     }
 }

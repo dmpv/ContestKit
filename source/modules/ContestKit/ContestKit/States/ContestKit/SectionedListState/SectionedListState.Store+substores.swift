@@ -8,6 +8,7 @@
 import Foundation
 
 import LensKit
+import RDXKit
 
 extension RDXKit.Store where StateT == SectionedListState {
     func rowStore(for id: RowID) -> RDXKit.Store<RowState> {

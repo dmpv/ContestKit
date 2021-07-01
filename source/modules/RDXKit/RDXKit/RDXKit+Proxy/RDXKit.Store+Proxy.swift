@@ -11,7 +11,7 @@ import Foundation
 import LensKit
 
 extension RDXKit.Store {
-    func makeProxy<SubstateT>(config: RDXKit.ProxyConfig<StateT, SubstateT>) -> RDXKit.Store<SubstateT> {
+    public func makeProxy<SubstateT>(config: RDXKit.ProxyConfig<StateT, SubstateT>) -> RDXKit.Store<SubstateT> {
         let proxyStore = RDXKit.Store(state: config.lens.get(state))
         proxyStore.apply(
             middleware: RDXKit.makeProxyMiddleware(store: self, actionMap: config.actionMap)
@@ -29,7 +29,7 @@ extension RDXKit.Store {
 }
 
 extension RDXKit {
-    struct ProxyConfig<StateT, SubstateT> {
+    public struct ProxyConfig<StateT, SubstateT> {
         var lens: Lens<StateT, SubstateT>
         // dp-sticky-refactor-TODO: rename to actionTransform
         var actionMap: RDXKit.ActionMap<StateT, SubstateT>
@@ -37,7 +37,7 @@ extension RDXKit {
 }
 
 extension RDXKit.ProxyConfig {
-    init(lens: Lens<StateT, SubstateT>) {
+    public init(lens: Lens<StateT, SubstateT>) {
         self.init(lens: lens) { anySubaction in anySubaction.converted(with: lens) }
     }
 }

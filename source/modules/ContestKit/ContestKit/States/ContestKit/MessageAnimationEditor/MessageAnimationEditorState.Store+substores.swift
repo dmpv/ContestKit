@@ -8,6 +8,7 @@
 import Foundation
 
 import LensKit
+import RDXKit
 
 extension RDXKit.Store where StateT == MessageAnimationEditorState {
     var sectionedListStore: RDXKit.Store<SectionedListState> {
