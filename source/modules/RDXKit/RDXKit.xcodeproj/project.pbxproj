@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,23 +17,8 @@
 		341BD313268E4A5200B3C53D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD309268E4A5200B3C53D /* Action.swift */; };
 		341BD314268E4A5200B3C53D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30A268E4A5200B3C53D /* Store.swift */; };
 		341BD315268E4A5200B3C53D /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30B268E4A5200B3C53D /* Middleware.swift */; };
-		341BD344268E4C1E00B3C53D /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD343268E4C1E00B3C53D /* ToolKit.framework */; };
-		341BD345268E4C1E00B3C53D /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD343268E4C1E00B3C53D /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		341BD348268E856900B3C53D /* ToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 341BD347268E856900B3C53D /* ToolKit */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		341BD346268E4C1F00B3C53D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				341BD345268E4C1E00B3C53D /* ToolKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		341BD2F5268E49B100B3C53D /* RDXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RDXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341BD344268E4C1E00B3C53D /* ToolKit.framework in Frameworks */,
+				341BD348268E856900B3C53D /* ToolKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,13 +137,15 @@
 				341BD2F1268E49B100B3C53D /* Sources */,
 				341BD2F2268E49B100B3C53D /* Frameworks */,
 				341BD2F3268E49B100B3C53D /* Resources */,
-				341BD346268E4C1F00B3C53D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RDXKit;
+			packageProductDependencies = (
+				341BD347268E856900B3C53D /* ToolKit */,
+			);
 			productName = RDXKit;
 			productReference = 341BD2F5268E49B100B3C53D /* RDXKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -422,6 +409,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		341BD347268E856900B3C53D /* ToolKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ToolKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 341BD2EC268E49B100B3C53D /* Project object */;
 }

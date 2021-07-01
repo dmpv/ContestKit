@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,7 @@
 		341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; };
 		341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		341BD340268E4BFA00B3C53D /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD33F268E4BFA00B3C53D /* ToolKit.framework */; };
-		341BD341268E4BFA00B3C53D /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD33F268E4BFA00B3C53D /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		341BD34A268E858B00B3C53D /* ToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 341BD349268E858B00B3C53D /* ToolKit */; };
 		343E8D9425C0E487000FF0AE /* AnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9325C0E487000FF0AE /* AnimationTimingState.swift */; };
 		343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */; };
 		343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DC225C0F20E000FF0AE /* PickerCell.swift */; };
@@ -72,7 +71,6 @@
 			files = (
 				341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */,
 				341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */,
-				341BD341268E4BFA00B3C53D /* ToolKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,9 +138,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341BD34A268E858B00B3C53D /* ToolKit in Frameworks */,
 				341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */,
 				341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */,
-				341BD340268E4BFA00B3C53D /* ToolKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +403,9 @@
 			dependencies = (
 			);
 			name = ContestKit;
+			packageProductDependencies = (
+				341BD349268E858B00B3C53D /* ToolKit */,
+			);
 			productName = ContestKit;
 			productReference = 34CC95B425BF6CA80081E93B /* ContestKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -712,6 +713,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		341BD349268E858B00B3C53D /* ToolKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ToolKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34CC95AB25BF6CA80081E93B /* Project object */;
 }

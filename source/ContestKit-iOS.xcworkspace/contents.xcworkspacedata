@@ -21,6 +21,6 @@
       location = "group:modules/LensKit/LensKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:modules/ToolKit/ToolKit.xcodeproj">
+      location = "group:../../Packages/ToolKit">
    </FileRef>
 </Workspace>
