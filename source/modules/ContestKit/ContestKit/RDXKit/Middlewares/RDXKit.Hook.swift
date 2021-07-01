@@ -11,11 +11,9 @@ import Foundation
 extension RDXKit {
     static func makeHookMiddleware<StateT>(config: DispatchHookConfig<StateT, AnyAction<StateT>>) -> Middleware<Store<StateT>, AnyAction<StateT>> {
         return { store, next in
-            var isProxy = false
             return { action in
                 switch action.unbox {
                 case is ProxyAction<StateT>:
-                    isProxy = true
                     let oldState = store.state
                     config.preHook?(oldState, action)
                     next(action)

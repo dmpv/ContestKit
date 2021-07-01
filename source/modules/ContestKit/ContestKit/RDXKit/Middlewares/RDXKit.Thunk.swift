@@ -35,10 +35,6 @@ extension RDXKit {
     }
 }
 
-extension RDXKit.Store {
-    func getState() -> StateT { state }
-}
-
 extension RDXKit.Thunk {
     // dp-NOTE: "поднимает" действие Thunk на superstate
     // Аналогично converted у обычных экшенов
