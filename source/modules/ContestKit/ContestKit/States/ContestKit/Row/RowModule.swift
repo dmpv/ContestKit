@@ -12,9 +12,9 @@ import RDXKit
 import ToolKit
 
 class RowModule {
-    private let store: RDXKit.Store<RowState>
+    private let store: Store<RowState>
 
-    init(store: RDXKit.Store<RowState>) {
+    init(store: Store<RowState>) {
         self.store = store
         setup()
     }
@@ -58,8 +58,8 @@ class RowModule {
 }
 
 extension RowModule {
-    func selectRow() -> RDXKit.AnyAction<RowState> {
-        RDXKit.Thunk<RDXKit.Store<RowState>> { rowStore in
+    func selectRow() -> AnyAction<RowState> {
+        Thunk<Store<RowState>> { rowStore in
             switch rowStore.state {
             case .picker(.messageAnimationID):
                 AppComponents.shared.store.dispatch(
@@ -91,32 +91,32 @@ extension RowModule {
         }.boxed()
     }
 
-    func updateAnimationTimingC1Fraction(_ c1Fraction: Float) -> RDXKit.AnyAction<RowState> {
-        RDXKit.Custom(id: "") { row in
+    func updateAnimationTimingC1Fraction(_ c1Fraction: Float) -> AnyAction<RowState> {
+        Custom(id: "") { row in
             guard case .animationTiming(var messageAnimationTiming) = row else { return fallback() }
             messageAnimationTiming.timing.c1Fraction = c1Fraction
             row = .animationTiming(messageAnimationTiming)
         }.boxed()
     }
 
-    func updateAnimationTimingC2Fraction(_ c2Fraction: Float) -> RDXKit.AnyAction<RowState> {
-        RDXKit.Custom(id: "") { row in
+    func updateAnimationTimingC2Fraction(_ c2Fraction: Float) -> AnyAction<RowState> {
+        Custom(id: "") { row in
             guard case .animationTiming(var messageAnimationTiming) = row else { return fallback() }
             messageAnimationTiming.timing.c2Fraction = c2Fraction
             row = .animationTiming(messageAnimationTiming)
         }.boxed()
     }
 
-    func updateAnimationTimingStartsAtFraction(_ startsAtFraction: Float) -> RDXKit.AnyAction<RowState> {
-        RDXKit.Custom(id: "") { row in
+    func updateAnimationTimingStartsAtFraction(_ startsAtFraction: Float) -> AnyAction<RowState> {
+        Custom(id: "") { row in
             guard case .animationTiming(var messageAnimationTiming) = row else { return fallback() }
             messageAnimationTiming.timing.startsAtFraction = startsAtFraction
             row = .animationTiming(messageAnimationTiming)
         }.boxed()
     }
 
-    func updateAnimationTimingEndsAtFraction(_ endsAtFraction: Float) -> RDXKit.AnyAction<RowState> {
-        RDXKit.Custom(id: "") { row in
+    func updateAnimationTimingEndsAtFraction(_ endsAtFraction: Float) -> AnyAction<RowState> {
+        Custom(id: "") { row in
             guard case .animationTiming(var messageAnimationTiming) = row else { return fallback() }
             messageAnimationTiming.timing.endsAtFraction = endsAtFraction
             row = .animationTiming(messageAnimationTiming)

@@ -16,10 +16,10 @@ class AppUICoordinator: NSObject {
     private var editorVC: UIViewController?
 
     private let rootVC: UIViewController
-    private let store: RDXKit.Store<AppState>
+    private let store: Store<AppState>
     private let module: AppModule
 
-    init(rootVC: UIViewController, store: RDXKit.Store<AppState>, module: AppModule) {
+    init(rootVC: UIViewController, store: Store<AppState>, module: AppModule) {
         self.rootVC = rootVC
         self.store = store
         self.module = module

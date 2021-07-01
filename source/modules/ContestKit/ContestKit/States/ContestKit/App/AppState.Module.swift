@@ -12,11 +12,11 @@ import RDXKit
 import ToolKit
 
 public class AppModule {
-    private let store: RDXKit.Store<AppState>
+    private let store: Store<AppState>
 
     private var pasteboardService: PasteboardService!
 
-    public init(store: RDXKit.Store<AppState>) {
+    public init(store: Store<AppState>) {
         self.store = store
         setup()
     }
@@ -126,51 +126,51 @@ public class AppModule {
 }
 
 extension AppModule {
-    public func startEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    public func startEditing() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             AppComponents.shared.uiCoordinator.showEditor()
         }.boxed()
     }
 
-    func cancelEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func cancelEditing() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             AppComponents.shared.uiCoordinator.hideEditor {
                 appStore.dispatch(resetEditing())
             }
         }.boxed()
     }
 
-    func resetEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func resetEditing() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             appStore.dispatchCustom { app in
                 app.config.draftMessageAnimationConfigs = app.config.stableMessageAnimationConfigs
             }
         }.boxed()
     }
 
-    func applyEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func applyEditing() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             appStore.dispatchCustom { app in
                 app.config.stableMessageAnimationConfigs = app.config.draftMessageAnimationConfigs
             }
         }.boxed()
     }
 
-    func endEditing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func endEditing() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             appStore.dispatch(applyEditing())
             AppComponents.shared.uiCoordinator.hideEditor()
         }.boxed()
     }
 
-    func startPickingAnimationType() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func startPickingAnimationType() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             AppComponents.shared.uiCoordinator.showIDPicker()
         }.boxed()
     }
 
-    func finishPickingAnimationType(with id: MessageAnimationConfigID) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func finishPickingAnimationType(with id: MessageAnimationConfigID) -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             appStore.dispatch(resetEditing())
             appStore.dispatchCustom { app in
                 app.selectedConfigID = id
@@ -179,14 +179,14 @@ extension AppModule {
         }.boxed()
     }
 
-    func startPickingDuration() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func startPickingDuration() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             AppComponents.shared.uiCoordinator.showDurationActionSheet()
         }.boxed()
     }
 
-    func finishPickingDuration(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func finishPickingDuration(with buttonIndex: Int) -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             let cancelIndex = appStore.state.durationActionSheet.actions.count - 1
             switch buttonIndex {
             case cancelIndex:
@@ -199,14 +199,14 @@ extension AppModule {
         }.boxed()
     }
 
-    func startSharing() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func startSharing() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             AppComponents.shared.uiCoordinator.showShareActionSheet()
         }.boxed()
     }
 
-    func finishSharing(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func finishSharing(with buttonIndex: Int) -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             let shareSelectedIndex = 0
             let shareAllIndex = 1
             let cancelIndex = appStore.state.shareActionSheet.actions.count - 1
@@ -225,15 +225,15 @@ extension AppModule {
         }.boxed()
     }
 
-    func startImporting() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func startImporting() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             appStore.dispatch(checkForImportableConfigs())
             AppComponents.shared.uiCoordinator.showImportActionSheet()
         }.boxed()
     }
 
-    func finishImporting(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func finishImporting(with buttonIndex: Int) -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             let importIndex = 0
             let cancelIndex = appStore.state.importActionSheet.actions.count - 1
             switch buttonIndex {
@@ -253,14 +253,14 @@ extension AppModule {
         }.boxed()
     }
 
-    func startRestoring() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func startRestoring() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             AppComponents.shared.uiCoordinator.showRestoreActionSheet()
         }.boxed()
     }
 
-    func finishRestoring(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { appStore in
+    func finishRestoring(with buttonIndex: Int) -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { appStore in
             let actionCount = appStore.state.restoreActionSheet.actions.count
             let restoreFromDefaultsIndex = 0
             let restoreFromImportedIndex = actionCount > 2 ? 1 : nil
@@ -285,8 +285,8 @@ extension AppModule {
         }.boxed()
     }
 
-    func finishDismissal(with buttonIndex: Int) -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func finishDismissal(with buttonIndex: Int) -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             let applyAndDismissIndex = 0
             let dismissIndex = 1
             let cancelIndex = appStore.state.dismissalWarningActionSheet.actions.count - 1
@@ -303,8 +303,8 @@ extension AppModule {
         }.boxed()
     }
 
-    func checkForImportableConfigs() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func checkForImportableConfigs() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             var importableMessageAnimationConfigs = pasteboardService.fetchMessageAnimationConfigs()
             if importableMessageAnimationConfigs?.count == 1 {
                 let config = importableMessageAnimationConfigs![0]
@@ -318,14 +318,14 @@ extension AppModule {
         }.boxed()
     }
 
-    func shareSelectedStableConfig() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func shareSelectedStableConfig() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             pasteboardService.sendMessageAnimationConfig(messageAnimationConfig: appStore.state.selectedConfig)
         }.boxed()
     }
 
-    func shareStableConfigs() -> RDXKit.AnyAction<AppState> {
-        RDXKit.Thunk<RDXKit.Store<AppState>> { [self] appStore in
+    func shareStableConfigs() -> AnyAction<AppState> {
+        Thunk<Store<AppState>> { [self] appStore in
             pasteboardService.sendMessageAnimationConfigs(
                 appStore.state.config.stableMessageAnimationConfigs
             )

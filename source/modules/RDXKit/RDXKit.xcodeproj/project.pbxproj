@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		341BD2FA268E49B100B3C53D /* RDXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 341BD2F8268E49B100B3C53D /* RDXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		341BD30D268E4A5200B3C53D /* RDXKit.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD301268E4A5100B3C53D /* RDXKit.Log.swift */; };
-		341BD30E268E4A5200B3C53D /* RDXKit.Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD302268E4A5100B3C53D /* RDXKit.Hook.swift */; };
-		341BD30F268E4A5200B3C53D /* RDXKit.Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD303268E4A5100B3C53D /* RDXKit.Thunk.swift */; };
-		341BD310268E4A5200B3C53D /* RDXKit.Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD305268E4A5100B3C53D /* RDXKit.Proxy.swift */; };
-		341BD311268E4A5200B3C53D /* RDXKit.Store+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD306268E4A5100B3C53D /* RDXKit.Store+Proxy.swift */; };
-		341BD312268E4A5200B3C53D /* RDXKit.AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD308268E4A5200B3C53D /* RDXKit.AnyAction.swift */; };
-		341BD313268E4A5200B3C53D /* RDXKit.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD309268E4A5200B3C53D /* RDXKit.Action.swift */; };
-		341BD314268E4A5200B3C53D /* RDXKit.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30A268E4A5200B3C53D /* RDXKit.Store.swift */; };
-		341BD315268E4A5200B3C53D /* RDXKit.Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30B268E4A5200B3C53D /* RDXKit.Middleware.swift */; };
-		341BD316268E4A5200B3C53D /* RDXKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30C268E4A5200B3C53D /* RDXKit.swift */; };
+		341BD30D268E4A5200B3C53D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD301268E4A5100B3C53D /* Log.swift */; };
+		341BD30E268E4A5200B3C53D /* Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD302268E4A5100B3C53D /* Hook.swift */; };
+		341BD30F268E4A5200B3C53D /* Thunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD303268E4A5100B3C53D /* Thunk.swift */; };
+		341BD310268E4A5200B3C53D /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD305268E4A5100B3C53D /* Proxy.swift */; };
+		341BD311268E4A5200B3C53D /* Store+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD306268E4A5100B3C53D /* Store+Proxy.swift */; };
+		341BD312268E4A5200B3C53D /* AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD308268E4A5200B3C53D /* AnyAction.swift */; };
+		341BD313268E4A5200B3C53D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD309268E4A5200B3C53D /* Action.swift */; };
+		341BD314268E4A5200B3C53D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30A268E4A5200B3C53D /* Store.swift */; };
+		341BD315268E4A5200B3C53D /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30B268E4A5200B3C53D /* Middleware.swift */; };
 		341BD344268E4C1E00B3C53D /* ToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD343268E4C1E00B3C53D /* ToolKit.framework */; };
 		341BD345268E4C1E00B3C53D /* ToolKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD343268E4C1E00B3C53D /* ToolKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -40,16 +39,15 @@
 		341BD2F5268E49B100B3C53D /* RDXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RDXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		341BD2F8268E49B100B3C53D /* RDXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDXKit.h; sourceTree = "<group>"; };
 		341BD2F9268E49B100B3C53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		341BD301268E4A5100B3C53D /* RDXKit.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Log.swift; sourceTree = "<group>"; };
-		341BD302268E4A5100B3C53D /* RDXKit.Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Hook.swift; sourceTree = "<group>"; };
-		341BD303268E4A5100B3C53D /* RDXKit.Thunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Thunk.swift; sourceTree = "<group>"; };
-		341BD305268E4A5100B3C53D /* RDXKit.Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Proxy.swift; sourceTree = "<group>"; };
-		341BD306268E4A5100B3C53D /* RDXKit.Store+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RDXKit.Store+Proxy.swift"; sourceTree = "<group>"; };
-		341BD308268E4A5200B3C53D /* RDXKit.AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.AnyAction.swift; sourceTree = "<group>"; };
-		341BD309268E4A5200B3C53D /* RDXKit.Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Action.swift; sourceTree = "<group>"; };
-		341BD30A268E4A5200B3C53D /* RDXKit.Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Store.swift; sourceTree = "<group>"; };
-		341BD30B268E4A5200B3C53D /* RDXKit.Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Middleware.swift; sourceTree = "<group>"; };
-		341BD30C268E4A5200B3C53D /* RDXKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.swift; sourceTree = "<group>"; };
+		341BD301268E4A5100B3C53D /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		341BD302268E4A5100B3C53D /* Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hook.swift; sourceTree = "<group>"; };
+		341BD303268E4A5100B3C53D /* Thunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thunk.swift; sourceTree = "<group>"; };
+		341BD305268E4A5100B3C53D /* Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		341BD306268E4A5100B3C53D /* Store+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+Proxy.swift"; sourceTree = "<group>"; };
+		341BD308268E4A5200B3C53D /* AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyAction.swift; sourceTree = "<group>"; };
+		341BD309268E4A5200B3C53D /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		341BD30A268E4A5200B3C53D /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		341BD30B268E4A5200B3C53D /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		341BD343268E4C1E00B3C53D /* ToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,7 +83,6 @@
 		341BD2F7268E49B100B3C53D /* RDXKit */ = {
 			isa = PBXGroup;
 			children = (
-				341BD30C268E4A5200B3C53D /* RDXKit.swift */,
 				341BD307268E4A5200B3C53D /* Core */,
 				341BD300268E4A5100B3C53D /* Middlewares */,
 				341BD304268E4A5100B3C53D /* RDXKit+Proxy */,
@@ -98,9 +95,9 @@
 		341BD300268E4A5100B3C53D /* Middlewares */ = {
 			isa = PBXGroup;
 			children = (
-				341BD301268E4A5100B3C53D /* RDXKit.Log.swift */,
-				341BD302268E4A5100B3C53D /* RDXKit.Hook.swift */,
-				341BD303268E4A5100B3C53D /* RDXKit.Thunk.swift */,
+				341BD301268E4A5100B3C53D /* Log.swift */,
+				341BD302268E4A5100B3C53D /* Hook.swift */,
+				341BD303268E4A5100B3C53D /* Thunk.swift */,
 			);
 			path = Middlewares;
 			sourceTree = "<group>";
@@ -108,8 +105,8 @@
 		341BD304268E4A5100B3C53D /* RDXKit+Proxy */ = {
 			isa = PBXGroup;
 			children = (
-				341BD305268E4A5100B3C53D /* RDXKit.Proxy.swift */,
-				341BD306268E4A5100B3C53D /* RDXKit.Store+Proxy.swift */,
+				341BD305268E4A5100B3C53D /* Proxy.swift */,
+				341BD306268E4A5100B3C53D /* Store+Proxy.swift */,
 			);
 			path = "RDXKit+Proxy";
 			sourceTree = "<group>";
@@ -117,10 +114,10 @@
 		341BD307268E4A5200B3C53D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				341BD308268E4A5200B3C53D /* RDXKit.AnyAction.swift */,
-				341BD309268E4A5200B3C53D /* RDXKit.Action.swift */,
-				341BD30A268E4A5200B3C53D /* RDXKit.Store.swift */,
-				341BD30B268E4A5200B3C53D /* RDXKit.Middleware.swift */,
+				341BD308268E4A5200B3C53D /* AnyAction.swift */,
+				341BD309268E4A5200B3C53D /* Action.swift */,
+				341BD30A268E4A5200B3C53D /* Store.swift */,
+				341BD30B268E4A5200B3C53D /* Middleware.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -213,16 +210,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341BD30F268E4A5200B3C53D /* RDXKit.Thunk.swift in Sources */,
-				341BD316268E4A5200B3C53D /* RDXKit.swift in Sources */,
-				341BD315268E4A5200B3C53D /* RDXKit.Middleware.swift in Sources */,
-				341BD30D268E4A5200B3C53D /* RDXKit.Log.swift in Sources */,
-				341BD313268E4A5200B3C53D /* RDXKit.Action.swift in Sources */,
-				341BD30E268E4A5200B3C53D /* RDXKit.Hook.swift in Sources */,
-				341BD311268E4A5200B3C53D /* RDXKit.Store+Proxy.swift in Sources */,
-				341BD310268E4A5200B3C53D /* RDXKit.Proxy.swift in Sources */,
-				341BD314268E4A5200B3C53D /* RDXKit.Store.swift in Sources */,
-				341BD312268E4A5200B3C53D /* RDXKit.AnyAction.swift in Sources */,
+				341BD30F268E4A5200B3C53D /* Thunk.swift in Sources */,
+				341BD315268E4A5200B3C53D /* Middleware.swift in Sources */,
+				341BD30D268E4A5200B3C53D /* Log.swift in Sources */,
+				341BD313268E4A5200B3C53D /* Action.swift in Sources */,
+				341BD30E268E4A5200B3C53D /* Hook.swift in Sources */,
+				341BD311268E4A5200B3C53D /* Store+Proxy.swift in Sources */,
+				341BD310268E4A5200B3C53D /* Proxy.swift in Sources */,
+				341BD314268E4A5200B3C53D /* Store.swift in Sources */,
+				341BD312268E4A5200B3C53D /* AnyAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

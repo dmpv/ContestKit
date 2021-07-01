@@ -11,7 +11,7 @@ import UIKit
 import RDXKit
 
 public class AppComponents {
-    public private(set) var store: RDXKit.Store<AppState>!
+    public private(set) var store: Store<AppState>!
     public private(set) var module: AppModule!
 
     private(set) var uiCoordinator: AppUICoordinator!
@@ -22,7 +22,7 @@ public class AppComponents {
 
     private func setup() {
         store = .init(state: .init())
-        store.apply(middleware: RDXKit.makeThunkMiddleware())
+        store.apply(middleware: makeThunkMiddleware())
 
         module = .init(store: store)
 

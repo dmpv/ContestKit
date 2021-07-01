@@ -11,9 +11,9 @@ import UIKit
 import RDXKit
 
 class MessageAnimationEditorModule {
-    private let store: RDXKit.Store<MessageAnimationEditorState>
+    private let store: Store<MessageAnimationEditorState>
 
-    init(store: RDXKit.Store<MessageAnimationEditorState>) {
+    init(store: Store<MessageAnimationEditorState>) {
         self.store = store
         setup()
     }

@@ -12,11 +12,11 @@ import RDXKit
 import ToolKit
 
 public class SectionedListModule: NSObject {
-    private let store: RDXKit.Store<SectionedListState>
+    private let store: Store<SectionedListState>
 
     private(set) var tableView: UITableView!
 
-    public init(store: RDXKit.Store<SectionedListState>) {
+    public init(store: Store<SectionedListState>) {
         self.store = store
         super.init()
         setup()

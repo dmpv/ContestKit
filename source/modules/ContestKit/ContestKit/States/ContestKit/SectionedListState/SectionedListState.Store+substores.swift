@@ -10,8 +10,8 @@ import Foundation
 import LensKit
 import RDXKit
 
-extension RDXKit.Store where StateT == SectionedListState {
-    func rowStore(for id: RowID) -> RDXKit.Store<RowState> {
+extension Store where StateT == SectionedListState {
+    func rowStore(for id: RowID) -> Store<RowState> {
         makeProxy(
             config: .init(
                 lens: Lens(\.rows[safe: id]).unwrapped(with: .button(.import))

@@ -10,8 +10,8 @@ import Foundation
 import LensKit
 import RDXKit
 
-extension RDXKit.Store where StateT == MessageAnimationEditorState {
-    var sectionedListStore: RDXKit.Store<SectionedListState> {
+extension Store where StateT == MessageAnimationEditorState {
+    var sectionedListStore: Store<SectionedListState> {
         makeProxy(
             config: .init(
                 lens: Lens(\.sectionedList)
