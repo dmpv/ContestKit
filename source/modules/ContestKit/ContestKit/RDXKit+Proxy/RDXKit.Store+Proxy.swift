@@ -8,6 +8,8 @@
 
 import Foundation
 
+import LensKit
+
 extension RDXKit.Store {
     func makeProxy<SubstateT>(config: RDXKit.ProxyConfig<StateT, SubstateT>) -> RDXKit.Store<SubstateT> {
         let proxyStore = RDXKit.Store(state: config.lens.get(state))

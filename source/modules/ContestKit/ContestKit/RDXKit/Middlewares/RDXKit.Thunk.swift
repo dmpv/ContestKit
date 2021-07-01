@@ -8,6 +8,8 @@
 
 import Foundation
 
+import LensKit
+
 extension RDXKit {
     struct Thunk<StoreT: StoreType>: Action {
         typealias Body = (StoreT) -> Void

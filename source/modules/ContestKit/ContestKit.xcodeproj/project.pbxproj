@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; };
+		341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		343E8D9425C0E487000FF0AE /* AnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9325C0E487000FF0AE /* AnimationTimingState.swift */; };
 		343E8D9825C0E746000FF0AE /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9725C0E746000FF0AE /* ValueType.swift */; };
 		343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */; };
@@ -31,8 +33,6 @@
 		34CC95DF25BF6DF80081E93B /* falllback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95C925BF6DF80081E93B /* falllback.swift */; };
 		34CC95E025BF6DF80081E93B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CA25BF6DF80081E93B /* Observable.swift */; };
 		34CC95E125BF6DF80081E93B /* RDXKit.Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CC25BF6DF80081E93B /* RDXKit.Proxy.swift */; };
-		34CC95E225BF6DF80081E93B /* Lens+operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CD25BF6DF80081E93B /* Lens+operators.swift */; };
-		34CC95E325BF6DF80081E93B /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CE25BF6DF80081E93B /* Lens.swift */; };
 		34CC95E425BF6DF80081E93B /* RDXKit.Store+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95CF25BF6DF80081E93B /* RDXKit.Store+Proxy.swift */; };
 		34CC95E525BF6DF80081E93B /* RDXKit.AnyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D225BF6DF80081E93B /* RDXKit.AnyAction.swift */; };
 		34CC95E625BF6DF80081E93B /* RDXKit.Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CC95D325BF6DF80081E93B /* RDXKit.Action.swift */; };
@@ -77,7 +77,22 @@
 		34F2E53325C3863500EB0B96 /* CG.misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E53225C3863500EB0B96 /* CG.misc.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		341BD2EA268E439F00B3C53D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		341BD2E7268E439F00B3C53D /* LensKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LensKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		343E8D9325C0E487000FF0AE /* AnimationTimingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingState.swift; sourceTree = "<group>"; };
 		343E8D9725C0E746000FF0AE /* ValueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
 		343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationEditorView.swift; sourceTree = "<group>"; };
@@ -104,8 +119,6 @@
 		34CC95C925BF6DF80081E93B /* falllback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = falllback.swift; sourceTree = "<group>"; };
 		34CC95CA25BF6DF80081E93B /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		34CC95CC25BF6DF80081E93B /* RDXKit.Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Proxy.swift; sourceTree = "<group>"; };
-		34CC95CD25BF6DF80081E93B /* Lens+operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lens+operators.swift"; sourceTree = "<group>"; };
-		34CC95CE25BF6DF80081E93B /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
 		34CC95CF25BF6DF80081E93B /* RDXKit.Store+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RDXKit.Store+Proxy.swift"; sourceTree = "<group>"; };
 		34CC95D225BF6DF80081E93B /* RDXKit.AnyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.AnyAction.swift; sourceTree = "<group>"; };
 		34CC95D325BF6DF80081E93B /* RDXKit.Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDXKit.Action.swift; sourceTree = "<group>"; };
@@ -155,17 +168,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341BD2E6268E439F00B3C53D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				341BD2E7268E439F00B3C53D /* LensKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		34CC95AA25BF6CA80081E93B = {
 			isa = PBXGroup;
 			children = (
 				34CC95B625BF6CA80081E93B /* ContestKit */,
 				34CC95B525BF6CA80081E93B /* Products */,
+				341BD2E6268E439F00B3C53D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,8 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				34CC95CC25BF6DF80081E93B /* RDXKit.Proxy.swift */,
-				34CC95CD25BF6DF80081E93B /* Lens+operators.swift */,
-				34CC95CE25BF6DF80081E93B /* Lens.swift */,
 				34CC95CF25BF6DF80081E93B /* RDXKit.Store+Proxy.swift */,
 			);
 			path = "RDXKit+Proxy";
@@ -459,6 +480,7 @@
 				34CC95B025BF6CA80081E93B /* Sources */,
 				34CC95B125BF6CA80081E93B /* Frameworks */,
 				34CC95B225BF6CA80081E93B /* Resources */,
+				341BD2EA268E439F00B3C53D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -541,7 +563,6 @@
 				34CC95E925BF6DF80081E93B /* RDXKit.Log.swift in Sources */,
 				34CC95E625BF6DF80081E93B /* RDXKit.Action.swift in Sources */,
 				34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */,
-				34CC95E225BF6DF80081E93B /* Lens+operators.swift in Sources */,
 				34817DEE25C4D0F2005733DD /* ViewController.swift in Sources */,
 				34E056CB25C70F280083F001 /* MessageAnimationConfigState+substates.swift in Sources */,
 				3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */,
@@ -582,7 +603,6 @@
 				34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */,
 				34E056C125C707CB0083F001 /* AnimationTimingState+helpers.swift in Sources */,
 				34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */,
-				34CC95E325BF6DF80081E93B /* Lens.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

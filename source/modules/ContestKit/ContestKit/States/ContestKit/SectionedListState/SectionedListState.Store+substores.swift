@@ -7,6 +7,8 @@
 
 import Foundation
 
+import LensKit
+
 extension RDXKit.Store where StateT == SectionedListState {
     func rowStore(for id: RowID) -> RDXKit.Store<RowState> {
         makeProxy(

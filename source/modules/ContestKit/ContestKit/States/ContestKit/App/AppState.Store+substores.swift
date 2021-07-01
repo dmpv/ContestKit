@@ -7,6 +7,8 @@
 
 import Foundation
 
+import LensKit
+
 extension RDXKit.Store where StateT == AppState {
     func messageAnimationEditorStore() -> RDXKit.Store<MessageAnimationEditorState> {
         makeProxy(

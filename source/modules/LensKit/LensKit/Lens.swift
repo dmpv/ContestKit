@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Lens<StateT, SubstateT> {
-    typealias Get = (StateT) -> SubstateT
-    typealias Set = (inout StateT, SubstateT) -> Void
+public struct Lens<StateT, SubstateT> {
+    public typealias Get = (StateT) -> SubstateT
+    public typealias Set = (inout StateT, SubstateT) -> Void
 
-    let get: Get
-    let set: Set
+    public let get: Get
+    public let set: Set
 }
 
 extension Lens {
@@ -25,7 +25,7 @@ extension Lens {
         }
     }
 
-    init(get: @escaping Get, setting: @escaping (StateT, SubstateT) -> StateT) {
+    public init(get: @escaping Get, setting: @escaping (StateT, SubstateT) -> StateT) {
         self.init(
             get: get,
             set: { state, substate in
@@ -68,6 +68,15 @@ extension Lens {
 }
 
 extension Lens {
+    public func unwrapped<UnwrappedSubstateT>(with defaultState: UnwrappedSubstateT) -> Lens<StateT, UnwrappedSubstateT>
+    where SubstateT == UnwrappedSubstateT? {
+        then(.makeUnwrap(with: defaultState))
+    }
+
+    func wrapped() -> Lens<StateT, SubstateT?> {
+        then(.makeWrap())
+    }
+
     static func makeUnwrap(with defaultState: SubstateT) -> Self where StateT == SubstateT? {
         .init(
             get: { optionalState in optionalState ?? defaultState },
@@ -76,11 +85,6 @@ extension Lens {
                 optionalState = state
             }
         )
-    }
-
-    func unwrapped<UnwrappedSubstateT>(with defaultState: UnwrappedSubstateT) -> Lens<StateT, UnwrappedSubstateT>
-    where SubstateT == UnwrappedSubstateT? {
-        then(.makeUnwrap(with: defaultState))
     }
 
     static func makeWrap() -> Lens<StateT, StateT?> {
@@ -92,20 +96,16 @@ extension Lens {
             }
         )
     }
-
-    func wrapped() -> Lens<StateT, SubstateT?> {
-        then(.makeWrap())
-    }
 }
 
 extension Lens {
-    init(_ keyPath: WritableKeyPath<StateT, SubstateT>) {
+    public init(_ keyPath: WritableKeyPath<StateT, SubstateT>) {
         get = { $0[keyPath: keyPath] }
         set = { $0[keyPath: keyPath] = $1 }
     }
 
-    init(_ keyPath: KeyPath<StateT, SubstateT>) {
+    public init(_ keyPath: KeyPath<StateT, SubstateT>) {
         get = { $0[keyPath: keyPath] }
-        set = { _, _ in fallback(message: "Set is restricted for \(keyPath)") }
+        set = { _, _ in assertionFailure("Set is restricted for \(keyPath)") }
     }
 }

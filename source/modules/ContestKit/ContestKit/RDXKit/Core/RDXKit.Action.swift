@@ -8,6 +8,8 @@
 
 import Foundation
 
+import LensKit
+
 public protocol RDXKitAction: CustomDebugStringConvertible {
     associatedtype State
     func adjust(_ state: inout State)
