@@ -18,6 +18,7 @@
 		341BD314268E4A5200B3C53D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30A268E4A5200B3C53D /* Store.swift */; };
 		341BD315268E4A5200B3C53D /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341BD30B268E4A5200B3C53D /* Middleware.swift */; };
 		341BD348268E856900B3C53D /* ToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 341BD347268E856900B3C53D /* ToolKit */; };
+		341BD34D268E8B9200B3C53D /* LensKit in Frameworks */ = {isa = PBXBuildFile; productRef = 341BD34C268E8B9200B3C53D /* LensKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341BD348268E856900B3C53D /* ToolKit in Frameworks */,
+				341BD34D268E8B9200B3C53D /* LensKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,7 @@
 			name = RDXKit;
 			packageProductDependencies = (
 				341BD347268E856900B3C53D /* ToolKit */,
+				341BD34C268E8B9200B3C53D /* LensKit */,
 			);
 			productName = RDXKit;
 			productReference = 341BD2F5268E49B100B3C53D /* RDXKit.framework */;
@@ -173,6 +176,9 @@
 				Base,
 			);
 			mainGroup = 341BD2EB268E49B100B3C53D;
+			packageReferences = (
+				341BD34B268E8B9200B3C53D /* XCRemoteSwiftPackageReference "LensKit" */,
+			);
 			productRefGroup = 341BD2F6268E49B100B3C53D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,10 +416,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		341BD34B268E8B9200B3C53D /* XCRemoteSwiftPackageReference "LensKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmpv/LensKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		341BD347268E856900B3C53D /* ToolKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ToolKit;
+		};
+		341BD34C268E8B9200B3C53D /* LensKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 341BD34B268E8B9200B3C53D /* XCRemoteSwiftPackageReference "LensKit" */;
+			productName = LensKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

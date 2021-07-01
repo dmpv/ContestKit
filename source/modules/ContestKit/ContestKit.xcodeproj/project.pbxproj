@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; };
-		341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD2E7268E439F00B3C53D /* LensKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; };
 		341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		341BD34A268E858B00B3C53D /* ToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 341BD349268E858B00B3C53D /* ToolKit */; };
@@ -70,7 +68,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */,
-				341BD2E9268E439F00B3C53D /* LensKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +137,6 @@
 			files = (
 				341BD34A268E858B00B3C53D /* ToolKit in Frameworks */,
 				341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */,
-				341BD2E8268E439F00B3C53D /* LensKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
