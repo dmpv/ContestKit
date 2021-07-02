@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; };
-		341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341BD317268E4A9700B3C53D /* RDXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34018CAB268E974B00B1215E /* RDXKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34018CAA268E974B00B1215E /* RDXKit */; };
 		341BD34A268E858B00B3C53D /* ToolKit in Frameworks */ = {isa = PBXBuildFile; productRef = 341BD349268E858B00B3C53D /* ToolKit */; };
 		343E8D9425C0E487000FF0AE /* AnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8D9325C0E487000FF0AE /* AnimationTimingState.swift */; };
 		343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E8DBC25C0ED65000FF0AE /* MessageAnimationEditorView.swift */; };
@@ -59,20 +58,6 @@
 		34F2E52925C3777700EB0B96 /* SectionedListState.Store+substores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52825C3777700EB0B96 /* SectionedListState.Store+substores.swift */; };
 		34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2E52E25C37A3600EB0B96 /* RowCell.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		341BD2EA268E439F00B3C53D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				341BD319268E4A9700B3C53D /* RDXKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		341BD2E7268E439F00B3C53D /* LensKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LensKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,8 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34018CAB268E974B00B1215E /* RDXKit in Frameworks */,
 				341BD34A268E858B00B3C53D /* ToolKit in Frameworks */,
-				341BD318268E4A9700B3C53D /* RDXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +377,6 @@
 				34CC95B025BF6CA80081E93B /* Sources */,
 				34CC95B125BF6CA80081E93B /* Frameworks */,
 				34CC95B225BF6CA80081E93B /* Resources */,
-				341BD2EA268E439F00B3C53D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -401,6 +385,7 @@
 			name = ContestKit;
 			packageProductDependencies = (
 				341BD349268E858B00B3C53D /* ToolKit */,
+				34018CAA268E974B00B1215E /* RDXKit */,
 			);
 			productName = ContestKit;
 			productReference = 34CC95B425BF6CA80081E93B /* ContestKit.framework */;
@@ -711,6 +696,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		34018CAA268E974B00B1215E /* RDXKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RDXKit;
+		};
 		341BD349268E858B00B3C53D /* ToolKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ToolKit;
