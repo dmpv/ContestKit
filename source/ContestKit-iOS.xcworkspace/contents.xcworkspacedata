@@ -14,10 +14,4 @@
    <FileRef
       location = "group:modules/ContestKit/ContestKit.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:../../Packages/ToolKit">
-   </FileRef>
-   <FileRef
-      location = "group:../../Packages/RDXKit">
-   </FileRef>
 </Workspace>

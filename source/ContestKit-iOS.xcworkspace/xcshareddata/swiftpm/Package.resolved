@@ -9,6 +9,24 @@
           "revision": "ac5b337dde9e56970fd92a08a1f3e395a25755f9",
           "version": "0.1.0"
         }
+      },
+      {
+        "package": "RDXKit",
+        "repositoryURL": "https://github.com/dmpv/RDXKit.git",
+        "state": {
+          "branch": null,
+          "revision": "8bbfea2954c38e820c1ea13c7145d2cf991a0fa1",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "ToolKit",
+        "repositoryURL": "https://github.com/dmpv/ToolKit.git",
+        "state": {
+          "branch": null,
+          "revision": "fd93fb8266bf09acb60fc34ac71733c711867b6b",
+          "version": "0.1.0"
+        }
       }
     ]
   },
