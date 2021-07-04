@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import ToolKit
+import ComponentKit
 
 extension AppState {
     var configIDSelection: SelectionState<MessageAnimationConfigID> {

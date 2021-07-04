@@ -10,6 +10,7 @@ import UIKit
 
 import RDXKit
 import ToolKit
+import ComponentKit
 
 public class AppModule {
     private let store: Store<AppState>

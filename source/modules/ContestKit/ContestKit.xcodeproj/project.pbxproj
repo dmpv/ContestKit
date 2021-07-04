@@ -18,7 +18,6 @@
 		3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3725C470D500EA3477 /* DottedLineView.swift */; };
 		3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */; };
 		34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DEA25C4C33E005733DD /* AppConfigState.swift */; };
-		34817DEE25C4D0F2005733DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DED25C4D0F2005733DD /* ViewController.swift */; };
 		34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DF025C4DD43005733DD /* AppUICoordinator.swift */; };
 		348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953AF25C1EF1500192DC8 /* SectionedListView.swift */; };
 		348953B325C20E8500192DC8 /* SectionedListState.Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953B225C20E8500192DC8 /* SectionedListState.Module.swift */; };
@@ -30,7 +29,7 @@
 		34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */; };
 		34CE81B425C5C2FC001A4EB0 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */; };
 		34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B725C5C714001A4EB0 /* AppComponents.swift */; };
-		34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */; };
+		34E0486F269262B000D1ED2C /* ComponentKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34E0486E269262B000D1ED2C /* ComponentKit */; };
 		34E0565D25C635880083F001 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565C25C635880083F001 /* PasteboardService.swift */; };
 		34E056A825C6D62C0083F001 /* CKSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056A725C6D62C0083F001 /* CKSlider.swift */; };
 		34E056BE25C707BA0083F001 /* AnimationTimingState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056BD25C707BA0083F001 /* AnimationTimingState+substates.swift */; };
@@ -70,7 +69,6 @@
 		3449FC3725C470D500EA3477 /* DottedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineView.swift; sourceTree = "<group>"; };
 		3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingPathView.swift; sourceTree = "<group>"; };
 		34817DEA25C4C33E005733DD /* AppConfigState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigState.swift; sourceTree = "<group>"; };
-		34817DED25C4D0F2005733DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		34817DF025C4DD43005733DD /* AppUICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUICoordinator.swift; sourceTree = "<group>"; };
 		348953AF25C1EF1500192DC8 /* SectionedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListView.swift; sourceTree = "<group>"; };
 		348953B225C20E8500192DC8 /* SectionedListState.Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListState.Module.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 		34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAnimationTimingState.swift; sourceTree = "<group>"; };
 		34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
 		34CE81B725C5C714001A4EB0 /* AppComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponents.swift; sourceTree = "<group>"; };
-		34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+component.swift"; sourceTree = "<group>"; };
 		34E0565C25C635880083F001 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		34E056A725C6D62C0083F001 /* CKSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKSlider.swift; sourceTree = "<group>"; };
 		34E056BD25C707BA0083F001 /* AnimationTimingState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimationTimingState+substates.swift"; sourceTree = "<group>"; };
@@ -117,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349E8292268FE88700D26AF6 /* RDXKit in Frameworks */,
+				34E0486F269262B000D1ED2C /* ComponentKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +126,7 @@
 			children = (
 				34CC95B625BF6CA80081E93B /* ContestKit */,
 				34CC95B525BF6CA80081E93B /* Products */,
+				34E0486D269262B000D1ED2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +150,13 @@
 				34CC95B825BF6CA80081E93B /* Info.plist */,
 			);
 			path = ContestKit;
+			sourceTree = "<group>";
+		};
+		34E0486D269262B000D1ED2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		34E056AB25C7060F0083F001 /* App */ = {
@@ -209,8 +215,6 @@
 		34E056B525C7070D0083F001 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				34817DED25C4D0F2005733DD /* ViewController.swift */,
-				34CE81BB25C5EA77001A4EB0 /* UIAlertController+component.swift */,
 				343E8DC525C0F218000FF0AE /* ButtonCell.swift */,
 				343E8DC225C0F20E000FF0AE /* PickerCell.swift */,
 				3449FC3725C470D500EA3477 /* DottedLineView.swift */,
@@ -369,6 +373,7 @@
 			name = ContestKit;
 			packageProductDependencies = (
 				349E8291268FE88700D26AF6 /* RDXKit */,
+				34E0486E269262B000D1ED2C /* ComponentKit */,
 			);
 			productName = ContestKit;
 			productReference = 34CC95B425BF6CA80081E93B /* ContestKit.framework */;
@@ -439,7 +444,6 @@
 				343E8DD325C1B75F000FF0AE /* MessageAnimationEditorState.Module.swift in Sources */,
 				34F2E52925C3777700EB0B96 /* SectionedListState.Store+substores.swift in Sources */,
 				34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */,
-				34817DEE25C4D0F2005733DD /* ViewController.swift in Sources */,
 				34E056CB25C70F280083F001 /* MessageAnimationConfigState+substates.swift in Sources */,
 				3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */,
 				34E056E625C7114A0083F001 /* SelectionState+substates.swift in Sources */,
@@ -455,7 +459,6 @@
 				343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */,
 				34CC95ED25BF6DF80081E93B /* draft.swift in Sources */,
 				34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */,
-				34CE81BC25C5EA77001A4EB0 /* UIAlertController+component.swift in Sources */,
 				34E056DC25C7109A0083F001 /* AppConfigState+helpers.swift in Sources */,
 				34E056D425C70FE80083F001 /* MessageAnimationTimingState+helpers.swift in Sources */,
 				343E8D9425C0E487000FF0AE /* AnimationTimingState.swift in Sources */,
@@ -697,6 +700,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 349E8290268FE88700D26AF6 /* XCRemoteSwiftPackageReference "RDXKit" */;
 			productName = RDXKit;
+		};
+		34E0486E269262B000D1ED2C /* ComponentKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ComponentKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

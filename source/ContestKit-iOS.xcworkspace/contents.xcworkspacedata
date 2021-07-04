@@ -14,4 +14,7 @@
    <FileRef
       location = "group:modules/ContestKit/ContestKit.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../../Packages/ComponentKit">
+   </FileRef>
 </Workspace>
