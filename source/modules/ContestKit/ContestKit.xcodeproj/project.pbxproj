@@ -29,7 +29,7 @@
 		34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B025C5B76F001A4EB0 /* MessageAnimationTimingState.swift */; };
 		34CE81B425C5C2FC001A4EB0 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B325C5C2FC001A4EB0 /* SelectionState.swift */; };
 		34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE81B725C5C714001A4EB0 /* AppComponents.swift */; };
-		34E0486F269262B000D1ED2C /* ComponentKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34E0486E269262B000D1ED2C /* ComponentKit */; };
+		34E048712692871900D1ED2C /* ComponentKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34E048702692871900D1ED2C /* ComponentKit */; };
 		34E0565D25C635880083F001 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E0565C25C635880083F001 /* PasteboardService.swift */; };
 		34E056A825C6D62C0083F001 /* CKSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056A725C6D62C0083F001 /* CKSlider.swift */; };
 		34E056BE25C707BA0083F001 /* AnimationTimingState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E056BD25C707BA0083F001 /* AnimationTimingState+substates.swift */; };
@@ -114,7 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349E8292268FE88700D26AF6 /* RDXKit in Frameworks */,
-				34E0486F269262B000D1ED2C /* ComponentKit in Frameworks */,
+				34E048712692871900D1ED2C /* ComponentKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +373,7 @@
 			name = ContestKit;
 			packageProductDependencies = (
 				349E8291268FE88700D26AF6 /* RDXKit */,
-				34E0486E269262B000D1ED2C /* ComponentKit */,
+				34E048702692871900D1ED2C /* ComponentKit */,
 			);
 			productName = ContestKit;
 			productReference = 34CC95B425BF6CA80081E93B /* ContestKit.framework */;
@@ -532,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -590,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -615,7 +615,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ContestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -645,7 +645,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ContestKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,7 +701,7 @@
 			package = 349E8290268FE88700D26AF6 /* XCRemoteSwiftPackageReference "RDXKit" */;
 			productName = RDXKit;
 		};
-		34E0486E269262B000D1ED2C /* ComponentKit */ = {
+		34E048702692871900D1ED2C /* ComponentKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ComponentKit;
 		};
