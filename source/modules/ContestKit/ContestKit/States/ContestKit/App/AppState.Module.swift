@@ -45,13 +45,13 @@ public class AppModule {
             .addObserver { [weak vc] app in
                 vc?.state = app.editorVC
             }
-        vc.handlers = .init(
-            leftBarButton: .init(
+        vc.handlers = .make(
+            leftBarButton: .make(
                 onPress: { [self, weak store] in
                     store?.dispatch(cancelEditing())
                 }
             ),
-            rightBarButton: .init(
+            rightBarButton: .make(
                 onPress: { [self, weak store] in
                     store?.dispatch(endEditing())
                 }
@@ -63,9 +63,9 @@ public class AppModule {
     func durationPickerAlertConroller() -> UIAlertController {
         UIAlertController(
             state: store.state.durationActionSheet,
-            handlers: .init(
+            handlers: .make(
                 actions: store.state.durationActionSheet.actions.indices.map { [self] index in
-                    .init { [self, weak store] in
+                    .make { [self, weak store] in
                         store?.dispatch(finishPickingDuration(with: index))
                     }
                 }
@@ -76,9 +76,9 @@ public class AppModule {
     func shareAlertConroller() -> UIAlertController {
         UIAlertController(
             state: store.state.shareActionSheet,
-            handlers: .init(
+            handlers: .make(
                 actions: store.state.shareActionSheet.actions.indices.map { [self] index in
-                    .init { [self, weak store] in
+                    .make { [self, weak store] in
                         store?.dispatch(finishSharing(with: index))
                     }
                 }
@@ -89,9 +89,9 @@ public class AppModule {
     func importAlertConroller() -> UIAlertController {
         UIAlertController(
             state: store.state.importActionSheet,
-            handlers: .init(
+            handlers: .make(
                 actions: store.state.importActionSheet.actions.indices.map { [self] index in
-                    .init { [self, weak store] in
+                    .make { [self, weak store] in
                         store?.dispatch(finishImporting(with: index))
                     }
                 }
@@ -102,9 +102,9 @@ public class AppModule {
     func restoreAlertConroller() -> UIAlertController {
         UIAlertController(
             state: store.state.restoreActionSheet,
-            handlers: .init(
+            handlers: .make(
                 actions: store.state.restoreActionSheet.actions.indices.map { [self] index in
-                    .init { [self, weak store] in
+                    .make { [self, weak store] in
                         store?.dispatch(finishRestoring(with: index))
                     }
                 }
@@ -115,9 +115,9 @@ public class AppModule {
     func dismissalWarningAlertConroller() -> UIAlertController {
         UIAlertController(
             state: store.state.dismissalWarningActionSheet,
-            handlers: .init(
+            handlers: .make(
                 actions: store.state.dismissalWarningActionSheet.actions.indices.map { [self] index in
-                    .init { [self, weak store] in
+                    .make { [self, weak store] in
                         store?.dispatch(finishDismissal(with: index))
                     }
                 }

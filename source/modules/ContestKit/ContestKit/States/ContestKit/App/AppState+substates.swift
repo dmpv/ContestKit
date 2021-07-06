@@ -36,19 +36,19 @@ extension AppState {
     }
 
     var pickerVC: ViewController.State {
-        .init(
+        .make(
             title: L10n.stub("Animation Type")
         )
     }
 
     var editorVC: ViewController.State {
-        .init(
+        .make(
             title: L10n.stub("Animation Settings"),
-            leftBarButton: .init(
+            leftBarButton: .make(
                 title: L10n.stub("Cancel"),
                 style: .plain
             ),
-            rightBarButton: .init(
+            rightBarButton: .make(
                 title: L10n.stub("Apply"),
                 style: .done,
                 isEnabled: config.hasUnappliedChanges
@@ -57,13 +57,13 @@ extension AppState {
     }
 
     var durationActionSheet: UIAlertController.State {
-        .init(
+        .make(
             title: L10n.stub("Duration"),
             style: .actionSheet,
             actions: config.durationSelection.values.map { duration in
-                .init(title: duration.frameCountFormatted(verbose: true))
+                .make(title: duration.frameCountFormatted(verbose: true))
             } + [
-                .init(
+                .make(
                     title: L10n.stub("Cancel"),
                     style: .cancel
                 )
@@ -72,14 +72,14 @@ extension AppState {
     }
 
     var shareActionSheet: UIAlertController.State {
-        .init(
+        .make(
             title: L10n.stub("Share"),
             message: L10n.stub("Copy to Clipboard"),
             style: .actionSheet,
             actions: [
-                .init(title: L10n.stub("Current Only")),
-                .init(title: L10n.stub("All")),
-                .init(
+                .make(title: L10n.stub("Current Only")),
+                .make(title: L10n.stub("All")),
+                .make(
                     title: L10n.stub("Cancel"),
                     style: .cancel
                 )
@@ -90,45 +90,45 @@ extension AppState {
     var importActionSheet: UIAlertController.State {
         switch config.importableMessageAnimationConfigs {
         case nil:
-            return .init(
+            return .make(
                 title: L10n.stub("There is nothing to import"),
                 message: L10n.stub("Your clipboard is empty"),
                 style: .actionSheet,
                 actions: [
-                    .init(
+                    .make(
                         title: L10n.stub("Import from Clipboard"),
                         isEnabled: false
                     ),
-                    .init(
+                    .make(
                         title: L10n.stub("Cancel"),
                         style: .cancel
                     )
                 ]
             )
         case _ where config.allConfigsAreEqual:
-            return .init(
+            return .make(
                 title: L10n.stub("Just imported"),
                 style: .actionSheet,
                 actions: [
-                    .init(
+                    .make(
                         title: L10n.stub("Import from Clipboard"),
                         isEnabled: false
                     ),
-                    .init(
+                    .make(
                         title: L10n.stub("Cancel"),
                         style: .cancel
                     )
                 ]
             )
         default:
-            return .init(
+            return .make(
                 title: L10n.stub("Import"),
                 style: .actionSheet,
                 actions: [
-                    .init(
+                    .make(
                         title: L10n.stub("Import from Clipboard")
                     ),
-                    .init(
+                    .make(
                         title: L10n.stub("Cancel"),
                         style: .cancel
                     )
@@ -138,27 +138,27 @@ extension AppState {
     }
 
     var restoreActionSheet: UIAlertController.State {
-        .init(
+        .make(
             title: L10n.stub("Restore"),
             style: .actionSheet,
             actions: [
-                .init(title: L10n.stub("Restore to Defaults")),
+                .make(title: L10n.stub("Restore to Defaults")),
                 config.importedMessageAnimationConfigs == nil
                     ? nil
-                    : .init(title: "Restore to Imported"),
-                .init(title: L10n.stub("Cancel"), style: .cancel)
+                    : .make(title: "Restore to Imported"),
+                .make(title: L10n.stub("Cancel"), style: .cancel)
             ].compactMap { $0 }
         )
     }
 
     var dismissalWarningActionSheet: UIAlertController.State {
-        .init(
+        .make(
             title: L10n.stub("You have unapplied changes"),
             style: .actionSheet,
             actions: [
-                .init(title: L10n.stub("Apply")),
-                .init(title: L10n.stub("Discard"), style: .destructive),
-                .init(title: L10n.stub("Stay in Editor"), style: .cancel)
+                .make(title: L10n.stub("Apply")),
+                .make(title: L10n.stub("Discard"), style: .destructive),
+                .make(title: L10n.stub("Stay in Editor"), style: .cancel)
             ].compactMap { $0 }
         )
     }

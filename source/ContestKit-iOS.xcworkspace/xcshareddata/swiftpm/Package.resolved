@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "GenKit",
+        "repositoryURL": "https://github.com/dmpv/GenKit.git",
+        "state": {
+          "branch": null,
+          "revision": "5eec8dbbbfb689970ebd37373d3f551453f5a467",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "LensKit",
         "repositoryURL": "https://github.com/dmpv/LensKit.git",
         "state": {
@@ -20,12 +29,30 @@
         }
       },
       {
+        "package": "ShellOut",
+        "repositoryURL": "https://github.com/JohnSundell/ShellOut.git",
+        "state": {
+          "branch": null,
+          "revision": "e1577acf2b6e90086d01a6d5e2b8efdaae033568",
+          "version": "2.3.0"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
         "state": {
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
+        }
+      },
+      {
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
+        "state": {
+          "branch": null,
+          "revision": "986d191f94cec88f6350056da59c2e59e83d1229",
+          "version": "0.4.3"
         }
       },
       {
