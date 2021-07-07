@@ -33,7 +33,7 @@ public enum MessageAnimationTimingState: StateType {
     case emojiScale(AnimationTimingState)
 }
 
-extension MessageAnimationTimingState: CKIdentifiable {
+extension MessageAnimationTimingState: Identifiable {
     public var id: MessageAnimationTimingID {
         switch self {
         case .positionX:

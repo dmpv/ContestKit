@@ -55,7 +55,7 @@ enum SectionID: IDType {
     case timing(MessageAnimationTimingID)
 }
 
-extension SectionState: StateType, CKIdentifiable {
+extension SectionState: StateType, Identifiable {
     var id: SectionID {
         switch self {
         case .messageAnimations:

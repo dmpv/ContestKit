@@ -21,7 +21,7 @@ public enum RowState: StateType {
     case animationTiming(MessageAnimationTimingState)
 }
 
-extension RowState: CKIdentifiable {
+extension RowState: Identifiable {
     public var id: RowID {
         switch self {
         case .picker(let pickerRow):
@@ -44,7 +44,7 @@ public enum PickerRowState: StateType {
     case messageAnimationDuration(TimeInterval)
 }
 
-extension PickerRowState: CKIdentifiable {
+extension PickerRowState: Identifiable {
     public var id: PickerRowID {
         switch self {
         case .messageAnimationID:
@@ -69,7 +69,7 @@ public enum ButtonRowState: StateType {
     case messageAnimation(id: MessageAnimationConfigID)
 }
 
-extension ButtonRowState: CKIdentifiable {
+extension ButtonRowState: Identifiable {
     public var id: ButtonRowID {
         switch self {
         case .share:

@@ -29,7 +29,7 @@ public enum MessageAnimationConfigState: StateType {
     case videoMessage([MessageAnimationTimingState])
 }
 
-extension MessageAnimationConfigState: CKIdentifiable {
+extension MessageAnimationConfigState: Identifiable {
     public var id: MessageAnimationConfigID {
         switch self {
         case .smallText:

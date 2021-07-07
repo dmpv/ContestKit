@@ -17,4 +17,10 @@
    <FileRef
       location = "group:../../Packages/ComponentKit">
    </FileRef>
+   <FileRef
+      location = "group:../../Packages/RDXKit">
+   </FileRef>
+   <FileRef
+      location = "group:../../Packages/ToolKit">
+   </FileRef>
 </Workspace>
