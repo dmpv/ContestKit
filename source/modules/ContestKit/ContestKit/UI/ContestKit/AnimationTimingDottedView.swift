@@ -41,19 +41,19 @@ final class AnimationTimingDottedView: UIView {
     }
 
     private func setup() {
-        let circleViewStyle: Style<UIView> = {
+        let circleViewSetuper: Setuper<UIView> = {
             $0.backgroundColor = .systemYellow
             $0.layer.borderWidth = 2
             $0.layer.borderColor = UIColor.white.cgColor
         }
 
-        topCircleView = UIView().applying(circleViewStyle)
+        topCircleView = UIView().applying(circleViewSetuper)
         addSubview(topCircleView)
 
         dottedLineView = DottedLineView()
         insertSubview(dottedLineView, at: 0)
 
-        bottomCircleView = UIView().applying(circleViewStyle)
+        bottomCircleView = UIView().applying(circleViewSetuper)
         addSubview(bottomCircleView)
     }
 

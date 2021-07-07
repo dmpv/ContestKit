@@ -69,13 +69,13 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
             layoutMargins.bottom = 17
         }
 
-        let cpSliderStyle: Style<UISlider> = {
+        let cpSliderSetuper: Setuper<UISlider> = {
             let thumbImageSize = SliderThumbView.State.telegram.layout.size
             let transparentImage = UIView.State(layout: .init(frame: .init(origin: .zero, size: thumbImageSize))).image
             $0.setThumbImage(transparentImage, for: .normal)
         }
 
-        let durationSliderStyle: Style<UISlider> = {
+        let durationSliderSetuper: Setuper<UISlider> = {
             $0.minimumTrackTintColor = .clear
             $0.maximumTrackTintColor = .clear
             let image = SliderThumbView.State.telegramVertical.image
@@ -85,7 +85,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         pathView = AnimationTimingPathView()
         contentView.addSubview(pathView)
 
-        topSlider = CKSlider().applying(cpSliderStyle).applying {
+        topSlider = CKSlider().applying(cpSliderSetuper).applying {
             $0.minimumTrackTintColor = UISlider.defaultMaxTrackTintColor
             $0.maximumTrackTintColor = UISlider.defaultMinTrackTintColor
         }
@@ -98,7 +98,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
         contentView.addSubview(topSliderOverlayView)
 
-        bottomSlider = CKSlider().applying(cpSliderStyle)
+        bottomSlider = CKSlider().applying(cpSliderSetuper)
         contentView.addSubview(bottomSlider)
         bottomSlider.addTarget(self, action: #selector(didSlideBottomSlider), for: .primaryActionTriggered)
 
@@ -128,34 +128,34 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
         }
         contentView.addSubview(bottomSliderFakeThumb)
 
-        rightCentralSlider = CKSlider().applying(durationSliderStyle)
+        rightCentralSlider = CKSlider().applying(durationSliderSetuper)
         contentView.addSubview(rightCentralSlider)
         rightCentralSlider.addTarget(self, action: #selector(didSlideRightCentralSlider), for: .primaryActionTriggered)
 
-        leftCentralSlider = CKSlider().applying(durationSliderStyle)
+        leftCentralSlider = CKSlider().applying(durationSliderSetuper)
         contentView.addSubview(leftCentralSlider)
         leftCentralSlider.addTarget(self, action: #selector(didSlideLeftCentralSlider), for: .primaryActionTriggered)
 
-        let cpTooltipLabelStyle: Style<UILabel> = {
+        let cpTooltipLabelSetuper: Setuper<UILabel> = {
             $0.font = .systemFont(ofSize: 12, weight: .regular)
             $0.textColor = .systemBlue
         }
 
-        let durationTooltipLabelStyle: Style<UILabel> = {
+        let durationTooltipLabelSetuper: Setuper<UILabel> = {
             $0.font = .systemFont(ofSize: 12, weight: .regular)
             $0.textColor = .systemYellow
         }
 
-        topTooltipLabel = UILabel().applying(cpTooltipLabelStyle)
+        topTooltipLabel = UILabel().applying(cpTooltipLabelSetuper)
         contentView.addSubview(topTooltipLabel)
 
-        bottomTooltipLabel = UILabel().applying(cpTooltipLabelStyle)
+        bottomTooltipLabel = UILabel().applying(cpTooltipLabelSetuper)
         contentView.addSubview(bottomTooltipLabel)
 
-        rightCentralTooltipLabel = UILabel().applying(durationTooltipLabelStyle)
+        rightCentralTooltipLabel = UILabel().applying(durationTooltipLabelSetuper)
         contentView.addSubview(rightCentralTooltipLabel)
 
-        leftCentralTooltipLabel = UILabel().applying(durationTooltipLabelStyle)
+        leftCentralTooltipLabel = UILabel().applying(durationTooltipLabelSetuper)
         contentView.addSubview(leftCentralTooltipLabel)
     }
 
