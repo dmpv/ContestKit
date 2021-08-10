@@ -15,4 +15,4 @@ FOUNDATION_EXPORT const unsigned char ContestKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ContestKit/PublicHeader.h>
 
-
+uint64_t dispatch_benchmark(size_t count, void (^block)(void));

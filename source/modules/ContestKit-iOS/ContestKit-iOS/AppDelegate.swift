@@ -8,6 +8,8 @@
 import UIKit
 
 import ContestKit
+import ComponentKit
+import ToolKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,13 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        Benchmark.benchmarker = dispatch_benchmark
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIViewController()
         window?.makeKeyAndVisible()
 
-        AppComponents.shared.store.dispatch(
-            AppComponents.shared.module.startEditing()
-        )
+        window?.rootViewController = ContainerTestbed.run()
+
+//        AppComponents.shared.store.dispatch(
+//            AppComponents.shared.module.startEditing()
+//        )
 
         return true
     }

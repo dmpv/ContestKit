@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public struct AppConfigState: StateType {
     var stableMessageAnimationConfigs: [MessageAnimationConfigState] {
         didSet { assert(stableMessageAnimationConfigs != []) }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 struct MessageAnimationEditorState: StateType {
     var messageAnimationConfig: MessageAnimationConfigState
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public struct AppState: StateType {
     var config: AppConfigState = .init()
     var selectedConfigID: MessageAnimationConfigID

@@ -7,6 +7,8 @@
 
 import Foundation
 
+import ToolKit
+
 public struct AnimationTimingState: StateType, Codable {
     var startsAt: TimeInterval
     var c1: TimePoint
