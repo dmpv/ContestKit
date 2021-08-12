@@ -71,7 +71,7 @@ final class AnimationTimingCell: UITableViewCell, RowCell {
 
         let cpSliderSetuper: Setuper<UISlider> = {
             let thumbImageSize = SliderThumbView.State.telegram.layout.size
-            let transparentImage = UIView.State(layout: .init(frame: .init(origin: .zero, size: thumbImageSize))).image
+            let transparentImage = UIView._State(layout: .init(frame: .init(origin: .zero, size: thumbImageSize))).image
             $0.setThumbImage(transparentImage, for: .normal)
         }
 

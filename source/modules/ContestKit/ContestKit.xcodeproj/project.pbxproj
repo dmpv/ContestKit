@@ -17,6 +17,21 @@
 		3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */; };
 		3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3725C470D500EA3477 /* DottedLineView.swift */; };
 		3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */; };
+		3464D1A026C326C600B5344A /* nutson.draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D19F26C326C600B5344A /* nutson.draft.swift */; };
+		3464D1A326C413F400B5344A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1A226C413F400B5344A /* SearchService.swift */; };
+		3464D1A526C4195C00B5344A /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1A426C4195C00B5344A /* NavigationBarView.swift */; };
+		3464D1A926C419A800B5344A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1A826C419A800B5344A /* SearchView.swift */; };
+		3464D1AB26C4252F00B5344A /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1AA26C4252F00B5344A /* TopTabBarView.swift */; };
+		3464D1AD26C42B1C00B5344A /* SearchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1AC26C42B1C00B5344A /* SearchModule.swift */; };
+		3464D1AF26C42D6B00B5344A /* NutsonTestbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1AE26C42D6B00B5344A /* NutsonTestbed.swift */; };
+		3464D1B126C483EB00B5344A /* XectionedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1B026C483EB00B5344A /* XectionedListView.swift */; };
+		3464D1B326C489C900B5344A /* XectionedListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1B226C489C900B5344A /* XectionedListState.swift */; };
+		3464D1B526C49AE500B5344A /* VideoSearchItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1B426C49AE500B5344A /* VideoSearchItemCollectionViewCell.swift */; };
+		3464D1B726C5F46800B5344A /* stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1B626C5F46800B5344A /* stubs.swift */; };
+		3464D1B926C6E49C00B5344A /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1B826C6E49C00B5344A /* SearchState.swift */; };
+		3464D1BB26C6E4A600B5344A /* SearchState+substates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1BA26C6E4A600B5344A /* SearchState+substates.swift */; };
+		3464D1BD26C6E54600B5344A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1BC26C6E54600B5344A /* Store.swift */; };
+		3464D1BF26C9E0D400B5344A /* themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1BE26C9E0D400B5344A /* themes.swift */; };
 		34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DEA25C4C33E005733DD /* AppConfigState.swift */; };
 		34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DF025C4DD43005733DD /* AppUICoordinator.swift */; };
 		348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953AF25C1EF1500192DC8 /* SectionedListView.swift */; };
@@ -65,6 +80,21 @@
 		3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingDottedView.swift; sourceTree = "<group>"; };
 		3449FC3725C470D500EA3477 /* DottedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineView.swift; sourceTree = "<group>"; };
 		3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimingPathView.swift; sourceTree = "<group>"; };
+		3464D19F26C326C600B5344A /* nutson.draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nutson.draft.swift; sourceTree = "<group>"; };
+		3464D1A226C413F400B5344A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		3464D1A426C4195C00B5344A /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		3464D1A826C419A800B5344A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3464D1AA26C4252F00B5344A /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
+		3464D1AC26C42B1C00B5344A /* SearchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModule.swift; sourceTree = "<group>"; };
+		3464D1AE26C42D6B00B5344A /* NutsonTestbed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutsonTestbed.swift; sourceTree = "<group>"; };
+		3464D1B026C483EB00B5344A /* XectionedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XectionedListView.swift; sourceTree = "<group>"; };
+		3464D1B226C489C900B5344A /* XectionedListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XectionedListState.swift; sourceTree = "<group>"; };
+		3464D1B426C49AE500B5344A /* VideoSearchItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		3464D1B626C5F46800B5344A /* stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stubs.swift; sourceTree = "<group>"; };
+		3464D1B826C6E49C00B5344A /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
+		3464D1BA26C6E4A600B5344A /* SearchState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchState+substates.swift"; sourceTree = "<group>"; };
+		3464D1BC26C6E54600B5344A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		3464D1BE26C9E0D400B5344A /* themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themes.swift; sourceTree = "<group>"; };
 		34817DEA25C4C33E005733DD /* AppConfigState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigState.swift; sourceTree = "<group>"; };
 		34817DF025C4DD43005733DD /* AppUICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUICoordinator.swift; sourceTree = "<group>"; };
 		348953AF25C1EF1500192DC8 /* SectionedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListView.swift; sourceTree = "<group>"; };
@@ -115,6 +145,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3464D1A126C326CB00B5344A /* Nutson */ = {
+			isa = PBXGroup;
+			children = (
+				3464D19F26C326C600B5344A /* nutson.draft.swift */,
+				3464D1BE26C9E0D400B5344A /* themes.swift */,
+				3464D1BC26C6E54600B5344A /* Store.swift */,
+				3464D1B826C6E49C00B5344A /* SearchState.swift */,
+				3464D1BA26C6E4A600B5344A /* SearchState+substates.swift */,
+				3464D1B626C5F46800B5344A /* stubs.swift */,
+				3464D1AE26C42D6B00B5344A /* NutsonTestbed.swift */,
+				3464D1AC26C42B1C00B5344A /* SearchModule.swift */,
+				3464D1A226C413F400B5344A /* SearchService.swift */,
+				3464D1A826C419A800B5344A /* SearchView.swift */,
+				3464D1A426C4195C00B5344A /* NavigationBarView.swift */,
+				3464D1AA26C4252F00B5344A /* TopTabBarView.swift */,
+				3464D1B426C49AE500B5344A /* VideoSearchItemCollectionViewCell.swift */,
+				3464D1B026C483EB00B5344A /* XectionedListView.swift */,
+				3464D1B226C489C900B5344A /* XectionedListState.swift */,
+			);
+			path = Nutson;
+			sourceTree = "<group>";
+		};
 		34CC95AA25BF6CA80081E93B = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				34CC95DB25BF6DF80081E93B /* draft.swift */,
+				3464D1A126C326CB00B5344A /* Nutson */,
 				34CE81B725C5C714001A4EB0 /* AppComponents.swift */,
 				34E056E825C711990083F001 /* Services */,
 				34E056DE25C710E10083F001 /* States */,
@@ -414,9 +467,12 @@
 			files = (
 				3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */,
 				34F2E51E25C317DD00EB0B96 /* RowModule.swift in Sources */,
+				3464D1BF26C9E0D400B5344A /* themes.swift in Sources */,
+				3464D1B926C6E49C00B5344A /* SearchState.swift in Sources */,
 				34F2E52525C364AB00EB0B96 /* RowState+substates.swift in Sources */,
 				34E056CE25C70F470083F001 /* MessageAnimationConfigState+helpers.swift in Sources */,
 				34F2E52225C364A000EB0B96 /* RowState.swift in Sources */,
+				3464D1A526C4195C00B5344A /* NavigationBarView.swift in Sources */,
 				348953B325C20E8500192DC8 /* SectionedListState.Module.swift in Sources */,
 				34F2E51225C23D2B00EB0B96 /* MessageAnimationConfigState.swift in Sources */,
 				34E056D125C70FD30083F001 /* MessageAnimationTimingState+substates.swift in Sources */,
@@ -429,19 +485,28 @@
 				34E056CB25C70F280083F001 /* MessageAnimationConfigState+substates.swift in Sources */,
 				3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */,
 				34E0565D25C635880083F001 /* PasteboardService.swift in Sources */,
+				3464D1A926C419A800B5344A /* SearchView.swift in Sources */,
 				348953B625C210EE00192DC8 /* SectionedListState.swift in Sources */,
 				343E8DBD25C0ED65000FF0AE /* MessageAnimationEditorView.swift in Sources */,
 				34E056BE25C707BA0083F001 /* AnimationTimingState+substates.swift in Sources */,
 				3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */,
+				3464D1AD26C42B1C00B5344A /* SearchModule.swift in Sources */,
 				34F2E4FC25C224E300EB0B96 /* AppState.Store+substores.swift in Sources */,
 				34E056A825C6D62C0083F001 /* CKSlider.swift in Sources */,
 				343E8DCA25C0F236000FF0AE /* AnimationTimingCell.swift in Sources */,
+				3464D1AF26C42D6B00B5344A /* NutsonTestbed.swift in Sources */,
 				343E8DC325C0F20E000FF0AE /* PickerCell.swift in Sources */,
+				3464D1B526C49AE500B5344A /* VideoSearchItemCollectionViewCell.swift in Sources */,
+				3464D1AB26C4252F00B5344A /* TopTabBarView.swift in Sources */,
+				3464D1BD26C6E54600B5344A /* Store.swift in Sources */,
+				3464D1A326C413F400B5344A /* SearchService.swift in Sources */,
 				34CC95ED25BF6DF80081E93B /* draft.swift in Sources */,
 				34CE81B125C5B76F001A4EB0 /* MessageAnimationTimingState.swift in Sources */,
+				3464D1B326C489C900B5344A /* XectionedListState.swift in Sources */,
 				34E056DC25C7109A0083F001 /* AppConfigState+helpers.swift in Sources */,
 				34E056D425C70FE80083F001 /* MessageAnimationTimingState+helpers.swift in Sources */,
 				343E8D9425C0E487000FF0AE /* AnimationTimingState.swift in Sources */,
+				3464D1B726C5F46800B5344A /* stubs.swift in Sources */,
 				348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */,
 				34CE81B825C5C714001A4EB0 /* AppComponents.swift in Sources */,
 				34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */,
@@ -453,7 +518,10 @@
 				34F2E50225C2250C00EB0B96 /* AppState.Module.swift in Sources */,
 				34F2E4FF25C224F400EB0B96 /* AppState+substates.swift in Sources */,
 				34E056C125C707CB0083F001 /* AnimationTimingState+helpers.swift in Sources */,
+				3464D1A026C326C600B5344A /* nutson.draft.swift in Sources */,
 				34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */,
+				3464D1BB26C6E4A600B5344A /* SearchState+substates.swift in Sources */,
+				3464D1B126C483EB00B5344A /* XectionedListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

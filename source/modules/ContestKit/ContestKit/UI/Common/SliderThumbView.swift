@@ -157,7 +157,7 @@ extension SliderThumbView.State {
 }
 
 extension UIView {
-    var viewState: State? {
+    var _viewState: _State? {
         get { fatalError(.notImplementedYet) }
         set(newState) {
             backgroundColor = newState?.backgroundColor
@@ -168,21 +168,21 @@ extension UIView {
 }
 
 extension UIView {
-    struct State {
+    struct _State {
         var backgroundColor: UIColor?
         var alpha: CGFloat = 1
-        var layout: Layout = .init()
+        var layout: _Layout = .init()
     }
 
-    struct Layout {
+    struct _Layout {
         var frame: CGRect = .zero
     }
 }
 
-extension UIView.State {
+extension UIView._State {
     var image: UIImage {
         let view = UIView()
-        view.viewState = self
+        view._viewState = self
         UIGraphicsBeginImageContextWithOptions(layout.frame.size, false, 0)
         defer { UIGraphicsEndImageContext() }
         let context = UIGraphicsGetCurrentContext()!

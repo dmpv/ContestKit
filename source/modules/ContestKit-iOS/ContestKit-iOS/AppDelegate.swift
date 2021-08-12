@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UIViewController()
         window?.makeKeyAndVisible()
 
-        window?.rootViewController = ContainerTestbed.run()
+        window?.rootViewController = NutsonTestbed.run()
 
 //        AppComponents.shared.store.dispatch(
 //            AppComponents.shared.module.startEditing()
