@@ -12,6 +12,7 @@ import SnapKit
 import Nuke
 
 import ToolKit
+import NutsonCore
 
 public protocol ChallengeSearchItemCollectionViewCellComponents {
 }

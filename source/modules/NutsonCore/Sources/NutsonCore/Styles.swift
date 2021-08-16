@@ -9,19 +9,19 @@ import Foundation
 import UIKit
 
 extension UIFont {
-    static func light(withSize size: CGFloat) -> UIFont {
+    public static func light(withSize size: CGFloat) -> UIFont {
         .init(name: "SFProDisplay-Light", size: size)!
     }
 
-    static func regular(withSize size: CGFloat) -> UIFont {
+    public static func regular(withSize size: CGFloat) -> UIFont {
         .init(name: "SFProText-Regular", size: size)!
     }
 
-    static func semibold(withSize size: CGFloat) -> UIFont {
+    public static func semibold(withSize size: CGFloat) -> UIFont {
         .init(name: "SFProDisplay-Semibold", size: size)!
     }
 
-    static func bold(withSize size: CGFloat) -> UIFont {
+    public static func bold(withSize size: CGFloat) -> UIFont {
         .init(name: "SFProText-Bold", size: size)!
     }
 }
@@ -44,13 +44,13 @@ extension UIColor {
 //    static let grey_40 = UIColor(hex: "#666666")!
 //    static let grey_50 = UIColor(hex: "#808080")!
 //    static let grey_60 = UIColor(hex: "#999999")!
-    static let grey_70 = UIColor(hex: "#B2B2B2")!
+    public static let grey_70 = UIColor(hex: "#B2B2B2")!
 //    static let grey_80 = UIColor(hex: "#CCCCCC")!
 //    static let grey_90 = UIColor(hex: "#E5E5E5")!
 //
-    static let fullBlack = UIColor(hex: "#000000")!
+    public static let fullBlack = UIColor(hex: "#000000")!
 //
-    static let fullWhite = UIColor(hex: "#FFFFFF")!
+    public static let fullWhite = UIColor(hex: "#FFFFFF")!
 //
 //    static let purple = UIColor(hex: "#C779FF")!
 //    static let lightPurple = UIColor(hex: "#ffb6ff")!
