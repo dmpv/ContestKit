@@ -17,7 +17,6 @@
 		3449FC3525C4531A00EA3477 /* AnimationTimingDottedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3425C4531A00EA3477 /* AnimationTimingDottedView.swift */; };
 		3449FC3825C470D500EA3477 /* DottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3725C470D500EA3477 /* DottedLineView.swift */; };
 		3449FC3B25C4918800EA3477 /* AnimationTimingPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3449FC3A25C4918800EA3477 /* AnimationTimingPathView.swift */; };
-		3464D1C526C9FAB400B5344A /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3464D1C426C9FAB400B5344A /* Nuke */; };
 		3464D1C926CA9AE200B5344A /* Search in Frameworks */ = {isa = PBXBuildFile; productRef = 3464D1C826CA9AE200B5344A /* Search */; };
 		34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DEA25C4C33E005733DD /* AppConfigState.swift */; };
 		34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DF025C4DD43005733DD /* AppUICoordinator.swift */; };
@@ -110,7 +109,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3464D1C926CA9AE200B5344A /* Search in Frameworks */,
-				3464D1C526C9FAB400B5344A /* Nuke in Frameworks */,
 				349E8292268FE88700D26AF6 /* RDXKit in Frameworks */,
 				34E048712692871900D1ED2C /* ComponentKit in Frameworks */,
 			);
@@ -361,7 +359,6 @@
 			packageProductDependencies = (
 				349E8291268FE88700D26AF6 /* RDXKit */,
 				34E048702692871900D1ED2C /* ComponentKit */,
-				3464D1C426C9FAB400B5344A /* Nuke */,
 				3464D1C826CA9AE200B5344A /* Search */,
 			);
 			productName = ContestKit;
@@ -393,7 +390,6 @@
 			mainGroup = 34CC95AA25BF6CA80081E93B;
 			packageReferences = (
 				349E8290268FE88700D26AF6 /* XCRemoteSwiftPackageReference "RDXKit" */,
-				3464D1C326C9FAB400B5344A /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 34CC95B525BF6CA80081E93B /* Products */;
 			projectDirPath = "";
@@ -672,14 +668,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3464D1C326C9FAB400B5344A /* XCRemoteSwiftPackageReference "Nuke" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/Nuke.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.3.2;
-			};
-		};
 		349E8290268FE88700D26AF6 /* XCRemoteSwiftPackageReference "RDXKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmpv/RDXKit.git";
@@ -691,11 +679,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3464D1C426C9FAB400B5344A /* Nuke */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3464D1C326C9FAB400B5344A /* XCRemoteSwiftPackageReference "Nuke" */;
-			productName = Nuke;
-		};
 		3464D1C826CA9AE200B5344A /* Search */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Search;

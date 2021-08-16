@@ -84,7 +84,10 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         userAvatarImageView = UIImageView()
         horStackView.addArrangedSubview(userAvatarImageView)
 
-        userNameLabel = UILabel()
+        userNameLabel = UILabel().applying {
+            $0.font = .bold(withSize: 8)
+            $0.textColor = .fullBlack
+        }
         horStackView.addArrangedSubview(userNameLabel)
 
         likeIconImageView = UIImageView()

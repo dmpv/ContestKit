@@ -8,24 +8,6 @@
 import Foundation
 import UIKit
 
-extension UIFont {
-    public static func light(withSize size: CGFloat) -> UIFont {
-        .init(name: "SFProDisplay-Light", size: size)!
-    }
-
-    public static func regular(withSize size: CGFloat) -> UIFont {
-        .init(name: "SFProText-Regular", size: size)!
-    }
-
-    public static func semibold(withSize size: CGFloat) -> UIFont {
-        .init(name: "SFProDisplay-Semibold", size: size)!
-    }
-
-    public static func bold(withSize size: CGFloat) -> UIFont {
-        .init(name: "SFProText-Bold", size: size)!
-    }
-}
-
 extension UIColor {
 //    static let red_50 = UIColor(hex: "#FF0000")!
 //
