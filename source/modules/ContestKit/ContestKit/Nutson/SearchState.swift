@@ -79,6 +79,18 @@ extension SearchItem: ItemType {}
 
 struct ChallengeSearchItem: StateType, Identifiable {
     var id: String
+    var name: String
+    var status: ChallengeStatus
+    var duration: DateInterval
+    var mediaCount: Int
+    var reward: Int
+
+    var stub__description: String
+}
+
+enum ChallengeStatus: StateType {
+    case created
+    case started
 }
 
 struct VideoSearchItem: StateType, Identifiable {

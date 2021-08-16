@@ -78,16 +78,33 @@ extension SearchModule: XectionedListViewComponents {
     typealias Item = SearchItem
 
     func reusableID(for itemID: SearchItem.ID) -> String {
-        "\(VideoSearchItemCollectionViewCell.self)"
+        switch itemID.sectionID {
+        case .challenge:
+            return "\(ChallengeSearchItemCollectionViewCell.self)"
+        case .video:
+            return "\(VideoSearchItemCollectionViewCell.self)"
+        case .user:
+            fatalError(.notImplementedYet)
+        }
     }
 
     func cellClass(for itemID: SearchItem.ID) -> AnyClass {
-        VideoSearchItemCollectionViewCell.self
+        switch itemID.sectionID {
+        case .challenge:
+            return ChallengeSearchItemCollectionViewCell.self
+        case .video:
+            return VideoSearchItemCollectionViewCell.self
+        case .user:
+            fatalError(.notImplementedYet)
+        }
     }
 
     func setup(cell: UICollectionViewCell, for itemID: SearchItem.ID?) {
         if let itemID = itemID {
             switch (cell, itemID) {
+            case (let cell as ChallengeSearchItemCollectionViewCell, _):
+                cell.state = store.state.challengeItemCollectionViewCell(for: itemID)!
+                cell.components = self
             case (let cell as VideoSearchItemCollectionViewCell, _):
                 cell.state = store.state.videoItemCollectionViewCell(for: itemID)!
                 cell.components = self
@@ -96,6 +113,9 @@ extension SearchModule: XectionedListViewComponents {
             }
         } else {
             switch (cell, itemID) {
+            case (let cell as ChallengeSearchItemCollectionViewCell, _):
+                cell.state = nil
+                cell.components = nil
             case (let cell as VideoSearchItemCollectionViewCell, _):
                 cell.state = nil
                 cell.components = nil
@@ -105,6 +125,8 @@ extension SearchModule: XectionedListViewComponents {
         }
     }
 }
+
+extension SearchModule: ChallengeSearchItemCollectionViewCellComponents {}
 
 extension SearchModule: VideoSearchItemCollectionViewCellComponents {}
 

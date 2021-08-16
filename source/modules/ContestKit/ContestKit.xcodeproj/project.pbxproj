@@ -33,6 +33,7 @@
 		3464D1BD26C6E54600B5344A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1BC26C6E54600B5344A /* Store.swift */; };
 		3464D1BF26C9E0D400B5344A /* themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1BE26C9E0D400B5344A /* themes.swift */; };
 		3464D1C526C9FAB400B5344A /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 3464D1C426C9FAB400B5344A /* Nuke */; };
+		3464D1C726CA058900B5344A /* ChallengeSearchItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3464D1C626CA058900B5344A /* ChallengeSearchItemCollectionViewCell.swift */; };
 		34817DEB25C4C33E005733DD /* AppConfigState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DEA25C4C33E005733DD /* AppConfigState.swift */; };
 		34817DF125C4DD43005733DD /* AppUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34817DF025C4DD43005733DD /* AppUICoordinator.swift */; };
 		348953B025C1EF1500192DC8 /* SectionedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348953AF25C1EF1500192DC8 /* SectionedListView.swift */; };
@@ -96,6 +97,7 @@
 		3464D1BA26C6E4A600B5344A /* SearchState+substates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchState+substates.swift"; sourceTree = "<group>"; };
 		3464D1BC26C6E54600B5344A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3464D1BE26C9E0D400B5344A /* themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = themes.swift; sourceTree = "<group>"; };
+		3464D1C626CA058900B5344A /* ChallengeSearchItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSearchItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		34817DEA25C4C33E005733DD /* AppConfigState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigState.swift; sourceTree = "<group>"; };
 		34817DF025C4DD43005733DD /* AppUICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUICoordinator.swift; sourceTree = "<group>"; };
 		348953AF25C1EF1500192DC8 /* SectionedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedListView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				3464D1A826C419A800B5344A /* SearchView.swift */,
 				3464D1A426C4195C00B5344A /* NavigationBarView.swift */,
 				3464D1AA26C4252F00B5344A /* TopTabBarView.swift */,
+				3464D1C626CA058900B5344A /* ChallengeSearchItemCollectionViewCell.swift */,
 				3464D1B426C49AE500B5344A /* VideoSearchItemCollectionViewCell.swift */,
 				3464D1B026C483EB00B5344A /* XectionedListView.swift */,
 				3464D1B226C489C900B5344A /* XectionedListState.swift */,
@@ -526,6 +529,7 @@
 				34F2E52F25C37A3600EB0B96 /* RowCell.swift in Sources */,
 				3464D1BB26C6E4A600B5344A /* SearchState+substates.swift in Sources */,
 				3464D1B126C483EB00B5344A /* XectionedListView.swift in Sources */,
+				3464D1C726CA058900B5344A /* ChallengeSearchItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

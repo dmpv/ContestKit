@@ -56,7 +56,17 @@ extension SearchState {
     var sectionedListView: XectionedListView<SearchState, SearchModule>.State {
         .init(
             data: .init(
-                sectionedList: self
+                sectionedList: self,
+                columnCount: {
+                    switch selectedSectionID {
+                    case .challenge:
+                        return 1
+                    case .video:
+                        return 2
+                    case .user:
+                        return 1
+                    }
+                }()
             ),
             appearance: .init(
                 viewAppearance: .make(backgroundColor: .systemBlue)
@@ -64,8 +74,15 @@ extension SearchState {
         )
     }
 
+    func challengeItemCollectionViewCell(for itemID: SearchItem.ID) -> ChallengeSearchItemCollectionViewCell.State? {
+        guard let challengeItem = items[itemID].challenge else { return fallback(nil) }
+        return .init(
+            data: .init(item: challengeItem)
+        )
+    }
+
     func videoItemCollectionViewCell(for itemID: SearchItem.ID) -> VideoSearchItemCollectionViewCell.State? {
-        guard let videoItem = items[itemID].video else { return nil }
+        guard let videoItem = items[itemID].video else { return fallback(nil) }
         return .init(
             data: .init(item: videoItem)
         )

@@ -70,33 +70,7 @@ where
     }
 
     private func setup() {
-        let layout: UICollectionViewLayout = {
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
-            )
-            let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
-            fullPhotoItem.contentInsets = NSDirectionalEdgeInsets(
-                top: 2,
-                leading: 2,
-                bottom: 2,
-                trailing: 2
-            )
-
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalWidth(0.7)
-            )
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: groupSize,
-                subitem: fullPhotoItem,
-                count: 2
-            )
-
-            let section = NSCollectionLayoutSection(group: group)
-            return UICollectionViewCompositionalLayout(section: section)
-        }()
-
+        let layout = UICollectionViewLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout).applying {
             $0.backgroundColor = nil
         }
@@ -131,6 +105,65 @@ where
         }
 
         collectionViewDataSource.apply(snapshot)
+
+        if state?.data.columnCount != oldData?.columnCount {
+            switch state?.data.columnCount {
+            case nil:
+                break
+            case 1:
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalHeight(1.0)
+                )
+                let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                fullPhotoItem.contentInsets = NSDirectionalEdgeInsets(
+                    top: 2,
+                    leading: 2,
+                    bottom: 2,
+                    trailing: 2
+                )
+
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalWidth(0.2)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(
+                    layoutSize: groupSize,
+                    subitem: fullPhotoItem,
+                    count: 1
+                )
+
+                let section = NSCollectionLayoutSection(group: group)
+                collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: section)
+            case 2:
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalHeight(1.0)
+                )
+                let fullPhotoItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                fullPhotoItem.contentInsets = NSDirectionalEdgeInsets(
+                    top: 2,
+                    leading: 2,
+                    bottom: 2,
+                    trailing: 2
+                )
+
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalWidth(0.7)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(
+                    layoutSize: groupSize,
+                    subitem: fullPhotoItem,
+                    count: 2
+                )
+
+                let section = NSCollectionLayoutSection(group: group)
+                collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: section)
+            default:
+                fatalError(.notImplementedYet)
+            }
+        }
     }
 
     private func layoutDidChange(from oldLayout: Layout?) {
@@ -185,6 +218,7 @@ extension XectionedListView {
     struct Data: StateType {
         var viewData: UIView.Data = .make()
         var sectionedList: SectionedListT
+        var columnCount: Int
     }
 
     struct Layout: StateType {
