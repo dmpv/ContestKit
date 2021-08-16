@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import SnapKit
+import Nuke
 
 import ToolKit
 
@@ -96,10 +97,29 @@ public final class VideoSearchItemCollectionViewCell: UICollectionViewCell {
     private func dataDidChange(from oldData: Data?) {
         viewData = state?.data.viewData
 
-        previewImageView.image = Stub.image(withSize: .init(width: 500, height: 500))
+        Nuke.loadImage(
+            with: ImageRequest(
+                url: state?.data.item.previewURL,
+                processors: [
+    //                ImageProcessors.Resize(size: imageView.bounds.size),
+                    ImageProcessors.RoundedCorners(radius: 8),
+                ],
+                priority: .veryHigh
+            ),
+            into: previewImageView
+        )
+
         impressionIconImageView.image = Stub.image(withSize: .init(width: 30, height: 30))
         impressionCountLabel.text = state?.data.formattedImpressionCount
-        userAvatarImageView.image = Stub.image(withSize: .init(width: 50, height: 50))
+
+        Nuke.loadImage(
+            with: ImageRequest(
+                url: state?.data.item.userAvatarURL,
+                processors: [ImageProcessors.Circle()]
+            ),
+            into: userAvatarImageView
+        )
+
         userNameLabel.text = state?.data.item.userName
         likeIconImageView.image = Stub.image(withSize: .init(width: 30, height: 30))
         likeCountLabel.text = state?.data.formattedLikeCount

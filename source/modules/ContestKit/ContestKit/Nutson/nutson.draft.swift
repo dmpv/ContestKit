@@ -41,6 +41,6 @@ extension Stub {
     }
 
     static func url(forImageWithSize size: CGSize) -> URL {
-        URL(string: "https://placekitten.com/\(size.width)/\(size.height)")!
+        URL(string: "https://placekitten.com/\(Int(size.width))/\(Int(size.height))")!
     }
 }
