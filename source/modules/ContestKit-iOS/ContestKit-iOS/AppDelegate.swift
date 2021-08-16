@@ -10,6 +10,7 @@ import UIKit
 import ContestKit
 import ComponentKit
 import ToolKit
+import Search
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
