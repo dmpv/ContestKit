@@ -61,7 +61,7 @@ extension SearchState {
                     switch selectedSectionID {
                     case .challenge:
                         return 1
-                    case .video:
+                    case .media:
                         return 2
                     case .user:
                         return 1
@@ -81,10 +81,10 @@ extension SearchState {
         )
     }
 
-    func videoItemCollectionViewCell(for itemID: SearchItem.ID) -> VideoSearchItemCollectionViewCell.State? {
-        guard let videoItem = items[itemID].video else { return fallback(nil) }
+    func mediaItemCollectionViewCell(for itemID: SearchItem.ID) -> MediaSearchItemCollectionViewCell.State? {
+        guard let mediaItem = items[itemID].media else { return fallback(nil) }
         return .init(
-            data: .init(item: videoItem)
+            data: .init(item: mediaItem)
         )
     }
 }
@@ -115,9 +115,9 @@ extension SearchStatus {
 }
 
 extension SearchItem {
-    var video: VideoSearchItem? {
-        guard case .video(let videoItem) = self else { return nil }
-        return videoItem
+    var media: MediaSearchItem? {
+        guard case .media(let mediaItem) = self else { return nil }
+        return mediaItem
     }
 
     var challenge: ChallengeSearchItem? {

@@ -81,8 +81,8 @@ extension SearchModule: XectionedListViewComponents {
         switch itemID.sectionID {
         case .challenge:
             return "\(ChallengeSearchItemCollectionViewCell.self)"
-        case .video:
-            return "\(VideoSearchItemCollectionViewCell.self)"
+        case .media:
+            return "\(MediaSearchItemCollectionViewCell.self)"
         case .user:
             fatalError(.notImplementedYet)
         }
@@ -92,8 +92,8 @@ extension SearchModule: XectionedListViewComponents {
         switch itemID.sectionID {
         case .challenge:
             return ChallengeSearchItemCollectionViewCell.self
-        case .video:
-            return VideoSearchItemCollectionViewCell.self
+        case .media:
+            return MediaSearchItemCollectionViewCell.self
         case .user:
             fatalError(.notImplementedYet)
         }
@@ -105,8 +105,8 @@ extension SearchModule: XectionedListViewComponents {
             case (let cell as ChallengeSearchItemCollectionViewCell, _):
                 cell.state = store.state.challengeItemCollectionViewCell(for: itemID)!
                 cell.components = self
-            case (let cell as VideoSearchItemCollectionViewCell, _):
-                cell.state = store.state.videoItemCollectionViewCell(for: itemID)!
+            case (let cell as MediaSearchItemCollectionViewCell, _):
+                cell.state = store.state.mediaItemCollectionViewCell(for: itemID)!
                 cell.components = self
             default:
                 fatalError(.shouldNeverBeCalled())
@@ -116,7 +116,7 @@ extension SearchModule: XectionedListViewComponents {
             case (let cell as ChallengeSearchItemCollectionViewCell, _):
                 cell.state = nil
                 cell.components = nil
-            case (let cell as VideoSearchItemCollectionViewCell, _):
+            case (let cell as MediaSearchItemCollectionViewCell, _):
                 cell.state = nil
                 cell.components = nil
             default:
@@ -128,7 +128,7 @@ extension SearchModule: XectionedListViewComponents {
 
 extension SearchModule: ChallengeSearchItemCollectionViewCellComponents {}
 
-extension SearchModule: VideoSearchItemCollectionViewCellComponents {}
+extension SearchModule: MediaSearchItemCollectionViewCellComponents {}
 
 extension SearchModule {
     func query(_ str: String) -> (Str<SearchState>) -> Void {

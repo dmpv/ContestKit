@@ -11,7 +11,7 @@ import ToolKit
 
 struct SearchState: StateType {
     var status: SearchStatus = .loaded(result: SearchResult())
-    var selectedSectionID: SearchSectionID = .video
+    var selectedSectionID: SearchSectionID = .media
 }
 
 extension SearchState: XectionedListType {
@@ -36,7 +36,7 @@ extension SearchResult: XectionedListType {}
 
 enum SearchSectionID: String, CaseIterable, IDType {
     case challenge
-    case video
+    case media
     case user
 }
 
@@ -58,7 +58,7 @@ struct SearchItemID: IDType {
 
 enum SearchItem: StateType {
     case challenge(ChallengeSearchItem)
-    case video(VideoSearchItem)
+    case media(MediaSearchItem)
     case user(UserSearchItem)
 }
 
@@ -67,8 +67,8 @@ extension SearchItem: Identifiable {
         switch self {
         case .challenge(let item):
             return .init(sectionID: .challenge, itemSubID: item.id)
-        case .video(let item):
-            return .init(sectionID: .video, itemSubID: item.id)
+        case .media(let item):
+            return .init(sectionID: .media, itemSubID: item.id)
         case .user(let item):
             return .init(sectionID: .user, itemSubID: item.id)
         }
@@ -93,7 +93,7 @@ enum ChallengeStatus: StateType {
     case started
 }
 
-struct VideoSearchItem: StateType, Identifiable {
+struct MediaSearchItem: StateType, Identifiable {
     var id: String
     var previewURL: URL
     var userName: String

@@ -25,7 +25,7 @@ extension Stub {
         )
     }
 
-    static func videoSearchItem(for index: Int) -> VideoSearchItem {
+    static func mediaSearchItem(for index: Int) -> MediaSearchItem {
         .init(
             id: "\(index)",
             previewURL: Stub.url(
@@ -55,17 +55,17 @@ extension Stub {
             ? nil
             : .init(items: queriedChallengeSearchItems.map { .challenge($0) })
 
-        let allVideoSearchItems = (0..<itemCount).map { videoSearchItem(for: $0) }
-        let queriedVideoSearchItems = allVideoSearchItems.filter { item in
+        let allMediaSearchItems = (0..<itemCount).map { mediaSearchItem(for: $0) }
+        let queriedMediaSearchItems = allMediaSearchItems.filter { item in
             item.stub__description.hasPrefix(query)
         }
-        let videoSection: SearchSection? = queriedVideoSearchItems == []
+        let mediaSection: SearchSection? = queriedMediaSearchItems == []
             ? nil
-            : .init(items: queriedVideoSearchItems.map { .video($0) })
+            : .init(items: queriedMediaSearchItems.map { .media($0) })
 
         return .init(
             query: query,
-            sections: [challengeSection, videoSection].compactMap { $0 }
+            sections: [challengeSection, mediaSection].compactMap { $0 }
         )
     }
 }

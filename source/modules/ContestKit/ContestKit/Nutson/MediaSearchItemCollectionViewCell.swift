@@ -1,5 +1,5 @@
 //
-//  VideoSearchItemCollectionViewCell.swift
+//  MediaSearchItemCollectionViewCell.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 12.08.2021.
@@ -13,10 +13,10 @@ import Nuke
 
 import ToolKit
 
-public protocol VideoSearchItemCollectionViewCellComponents {
+public protocol MediaSearchItemCollectionViewCellComponents {
 }
 
-public final class VideoSearchItemCollectionViewCell: UICollectionViewCell {
+public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
     var state: State? {
         didSet(oldState) {
             if state?.data != oldState?.data {
@@ -37,7 +37,7 @@ public final class VideoSearchItemCollectionViewCell: UICollectionViewCell {
         didSet { handlersDidChange() }
     }
 
-    var components: VideoSearchItemCollectionViewCellComponents?
+    var components: MediaSearchItemCollectionViewCellComponents?
 
     private var currentLayout: Layout?
 
@@ -168,7 +168,7 @@ public final class VideoSearchItemCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension VideoSearchItemCollectionViewCell {
+extension MediaSearchItemCollectionViewCell {
     public struct State: StateType {
         var data: Data
         var layout: Layout = .init()
@@ -177,7 +177,7 @@ extension VideoSearchItemCollectionViewCell {
 
     public struct Data: StateType {
         var viewData: UIView.Data = .make()
-        var item: VideoSearchItem
+        var item: MediaSearchItem
     }
 
     public struct Layout: StateType {
@@ -192,7 +192,7 @@ extension VideoSearchItemCollectionViewCell {
     }
 }
 
-extension VideoSearchItemCollectionViewCell.Data {
+extension MediaSearchItemCollectionViewCell.Data {
     var formattedImpressionCount: String {
         String("\(item.impressionCount)".prefix(10))
     }
