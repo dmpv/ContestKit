@@ -1,5 +1,5 @@
 //
-//  SectionedListState.Store+substores.swift
+//  _XectionedListState.Store+substores.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 29.01.2021.
@@ -10,7 +10,7 @@ import Foundation
 import LensKit
 import RDXKit
 
-extension Store where StateT == SectionedListState {
+extension Store where StateT == _XectionedListState {
     func rowStore(for id: RowID) -> Store<RowState> {
         makeProxy(
             config: .init(

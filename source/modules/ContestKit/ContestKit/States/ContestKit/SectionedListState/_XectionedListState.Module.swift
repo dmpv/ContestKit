@@ -1,5 +1,5 @@
 //
-//  SectionedListState.Module.swift
+//  _XectionedListState.Module.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 28.01.2021.
@@ -11,12 +11,12 @@ import UIKit
 import RDXKit
 import ToolKit
 
-public class SectionedListModule: NSObject {
-    private let store: Store<SectionedListState>
+public class _XectionedListModule: NSObject {
+    private let store: Store<_XectionedListState>
 
     private(set) var tableView: UITableView!
 
-    public init(store: Store<SectionedListState>) {
+    public init(store: Store<_XectionedListState>) {
         self.store = store
         super.init()
         setup()
@@ -28,8 +28,8 @@ public class SectionedListModule: NSObject {
         tableView.delegate = self
     }
 
-    public var view: SectionedListView {
-        let view = SectionedListView(module: self)
+    public var view: _XectionedListView {
+        let view = _XectionedListView(module: self)
         _ = store.stateObservable
             .addObserver { [weak view] state in
                 view?.state = state.view
@@ -38,7 +38,7 @@ public class SectionedListModule: NSObject {
     }
 }
 
-extension SectionedListModule {
+extension _XectionedListModule {
     fileprivate func willDisplay(cell: RowCell, for rowID: RowID) {
         let rowModule = RowModule(store: store.rowStore(for: rowID))
         rowModule.setup(cell: cell)
@@ -127,7 +127,7 @@ extension SectionedListModule {
     }
 }
 
-extension SectionedListModule: UITableViewDelegate {
+extension _XectionedListModule: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         willDisplay(cell: cell as! RowCell, for: row(at: indexPath).id)
     }
@@ -149,7 +149,7 @@ extension SectionedListModule: UITableViewDelegate {
     }
 }
 
-extension SectionedListModule: UITableViewDataSource {
+extension _XectionedListModule: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         store.state.sections.count
     }

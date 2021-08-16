@@ -21,7 +21,7 @@ extension Store where StateT == AppState {
 }
 
 extension Store where StateT == AppState {
-    var sectionedListStore: Store<SectionedListState> {
+    var sectionedListStore: Store<_XectionedListState> {
         makeProxy(
             config: .init(
                 lens: Lens(\.config.messageAnimationIDPickerSectionedList)

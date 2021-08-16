@@ -53,7 +53,7 @@ extension SearchState {
         )
     }
 
-    var sectionedListView: XectionedListView<SearchState, SearchModule>.State {
+    var sectionedListView: SectionedListView<SearchState, SearchModule>.State {
         .init(
             data: .init(
                 sectionedList: self,

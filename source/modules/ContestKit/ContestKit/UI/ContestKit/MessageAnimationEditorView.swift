@@ -22,11 +22,11 @@ public final class MessageAnimationEditorView: UIView {
     private var activated = false
     private var currentLayout: Layout?
 
-    private var sectionedListView: SectionedListView!
+    private var sectionedListView: _XectionedListView!
 
-    private let module: SectionedListModule
+    private let module: _XectionedListModule
 
-    public init(module: SectionedListModule) {
+    public init(module: _XectionedListModule) {
         self.module = module
         super.init(frame: .zero)
         setup()

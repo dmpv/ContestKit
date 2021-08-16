@@ -11,7 +11,7 @@ import LensKit
 import RDXKit
 
 extension Store where StateT == MessageAnimationEditorState {
-    var sectionedListStore: Store<SectionedListState> {
+    var sectionedListStore: Store<_XectionedListState> {
         makeProxy(
             config: .init(
                 lens: Lens(\.sectionedList)

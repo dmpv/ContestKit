@@ -21,7 +21,7 @@ class MessageAnimationEditorModule {
     private func setup() {}
 
     var view: UIView {
-        let sectionedListModule = SectionedListModule(store: store.sectionedListStore)
+        let sectionedListModule = _XectionedListModule(store: store.sectionedListStore)
         let view = MessageAnimationEditorView(module: sectionedListModule)
         _ = store.stateObservable
             .addObserver { [weak view] sectionedList in

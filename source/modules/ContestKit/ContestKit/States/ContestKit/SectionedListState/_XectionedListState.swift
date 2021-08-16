@@ -1,5 +1,5 @@
 //
-//  SectionedListState.swift
+//  _XectionedListState.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 28.01.2021.
@@ -9,7 +9,7 @@ import Foundation
 
 import ToolKit
 
-public struct SectionedListState: StateType {
+public struct _XectionedListState: StateType {
     var sections: [SectionState] = []
 }
 

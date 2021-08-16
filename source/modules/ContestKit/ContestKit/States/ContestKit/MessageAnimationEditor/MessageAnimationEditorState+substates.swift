@@ -10,7 +10,7 @@ import Foundation
 import ToolKit
 
 extension MessageAnimationEditorState {
-    var sectionedList: SectionedListState {
+    var sectionedList: _XectionedListState {
         get {
             .init(
                 sections: [

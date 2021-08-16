@@ -1,5 +1,5 @@
 //
-//  SectionedListState+substates.swift
+//  _XectionedListState+substates.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 28.01.2021.
@@ -9,8 +9,8 @@ import Foundation
 
 import ToolKit
 
-extension SectionedListState {
-    var view: SectionedListView.State {
+extension _XectionedListState {
+    var view: _XectionedListView.State {
         .init(sectionedList: self)
     }
 

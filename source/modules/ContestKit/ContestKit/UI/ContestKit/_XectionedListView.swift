@@ -1,5 +1,5 @@
 //
-//  SectionedListView.swift
+//  _XectionedListView.swift
 //  ContestKit
 //
 //  Created by Dmitry Purtov on 27.01.2021.
@@ -10,7 +10,7 @@ import UIKit
 
 import ToolKit
 
-public final class SectionedListView: UIView {
+public final class _XectionedListView: UIView {
     var state: State? {
         didSet { stateDidChange(from: oldValue) }
     }
@@ -24,9 +24,9 @@ public final class SectionedListView: UIView {
 
     private var tableView: UITableView!
 
-    private let module: SectionedListModule
+    private let module: _XectionedListModule
 
-    public init(module: SectionedListModule) {
+    public init(module: _XectionedListModule) {
         self.module = module
         super.init(frame: .zero)
         setup()
@@ -103,9 +103,9 @@ public final class SectionedListView: UIView {
     }
 }
 
-extension SectionedListView {
+extension _XectionedListView {
     struct State: StateType {
-        var sectionedList: SectionedListState = .init()
+        var sectionedList: _XectionedListState = .init()
         var layout: Layout = .init()
         var appearance: Appearance = .init()
     }

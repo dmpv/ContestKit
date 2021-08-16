@@ -27,7 +27,7 @@ public class AppModule {
     }
 
     func messageAnimationPickerVC() -> UIViewController {
-        let sectionedListModule = SectionedListModule(store: store.sectionedListStore)
+        let sectionedListModule = _XectionedListModule(store: store.sectionedListStore)
         let view = sectionedListModule.view
         let vc = ViewController(view: view)
         _ = store.stateObservable

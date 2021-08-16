@@ -26,7 +26,7 @@ extension AppConfigState {
         }
     }
 
-    var messageAnimationIDPickerSectionedList: SectionedListState {
+    var messageAnimationIDPickerSectionedList: _XectionedListState {
         get {
             .init(
                 sections: [

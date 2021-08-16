@@ -34,7 +34,7 @@ extension SearchModule: SearchViewComponents {
     }
 
     func listView() -> UIView {
-        let view = XectionedListView<SearchState, SearchModule>(components: self)
+        let view = SectionedListView<SearchState, SearchModule>(components: self)
         _ = store.stateObservable
             .addObserver { [weak view] search in
                 view?.state = search.sectionedListView
@@ -73,7 +73,7 @@ extension SearchModule: NavigationBarViewComponents {
 
 extension SearchModule: TopTabBarViewViewComponents {}
 
-extension SearchModule: XectionedListViewComponents {
+extension SearchModule: SectionedListViewComponents {
     typealias Section = SearchSection
     typealias Item = SearchItem
 

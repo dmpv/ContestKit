@@ -8,13 +8,14 @@
 import Foundation
 
 import ToolKit
+import ComponentKit
 
 struct SearchState: StateType {
     var status: SearchStatus = .loaded(result: SearchResult())
     var selectedSectionID: SearchSectionID = .media
 }
 
-extension SearchState: XectionedListType {
+extension SearchState: SectionedListType {
     typealias Section = SearchSection
 
     var sections: [SearchSection] {
@@ -32,7 +33,7 @@ struct SearchResult: StateType {
     var sections: [SearchSection] = []
 }
 
-extension SearchResult: XectionedListType {}
+extension SearchResult: SectionedListType {}
 
 enum SearchSectionID: String, CaseIterable, IDType {
     case challenge
@@ -44,7 +45,7 @@ struct SearchSection {
     var items: [SearchItem] = []
 }
 
-extension SearchSection: XectionType {
+extension SearchSection: SectionType {
     var id: SearchSectionID {
         assert(items.map(\.id).areUnique)
         return items.first!.id.sectionID
