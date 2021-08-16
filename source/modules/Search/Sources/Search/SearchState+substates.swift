@@ -36,7 +36,7 @@ extension SearchState {
             data: .make(
                 text: status.query,
                 placeholder: selectedSectionID.rawValue,
-                leftIconImage: Stub.image(withSize: .init(width: 20, height: 20))
+                leftIconImage: UIImage(named: "icon-basic-search", in: .module, with: nil)
             ),
             layout: .make(
                 viewLayout: .make(

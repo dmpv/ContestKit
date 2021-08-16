@@ -13,8 +13,11 @@ extension Stub {
     static func challengeSearchItem(for index: Int) -> ChallengeSearchItem {
         .init(
             id: "\(index)",
-            name: "Challenge \(index)",
-            status: .created,
+            name: [
+                "[\(index)] Lorem ipsum dolor sit amet, consectetur adipiscing",
+                "[\(index)] Lorem ipsum dolor sit amet",
+            ].randomElement()!,
+            status: [.created, .active, .completed].randomElement()!,
             duration: .init(
                 start: Date.init(timeIntervalSinceNow: -10_000),
                 end: Date.init(timeIntervalSinceNow: -10_000)

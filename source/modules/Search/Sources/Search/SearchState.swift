@@ -91,7 +91,8 @@ struct ChallengeSearchItem: StateType, Identifiable {
 
 enum ChallengeStatus: StateType {
     case created
-    case started
+    case active
+    case completed
 }
 
 struct MediaSearchItem: StateType, Identifiable {

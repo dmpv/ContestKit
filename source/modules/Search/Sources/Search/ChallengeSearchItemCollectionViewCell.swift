@@ -68,7 +68,14 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
     }
 
     private func setup() {
-        horStackView = UIStackView()
+        contentView.applying {
+            $0.layoutMargins = .zero
+        }
+
+        horStackView = UIStackView().applying {
+            $0.alignment = .center
+            $0.spacing = 16
+        }
         contentView.addSubview(horStackView)
 
         statusImageView = UIImageView()
@@ -79,49 +86,80 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         }
         horStackView.addArrangedSubview(centralVertStackView)
 
-        nameLabel = UILabel()
+        nameLabel = UILabel().applying {
+            $0.font = .regular(withSize: 12)
+            $0.textColor = .fullBlack
+        }
         centralVertStackView.addArrangedSubview(nameLabel)
 
-        statusLabel = UILabel()
+        statusLabel = UILabel().applying {
+            $0.font = .regular(withSize: 12)
+            $0.textColor = .grey_70
+        }
         centralVertStackView.addArrangedSubview(statusLabel)
 
         rightVertStackView = UIStackView().applying {
             $0.axis = .vertical
+            $0.alignment = .trailing
+            $0.spacing = 6
         }
         horStackView.addArrangedSubview(rightVertStackView)
 
-        rightTopHorStackView = UIStackView()
+        rightTopHorStackView = UIStackView().applying {
+            $0.spacing = 8
+        }
         rightVertStackView.addArrangedSubview(rightTopHorStackView)
 
-        mediaCountLabel = UILabel()
+        mediaCountLabel = UILabel().applying {
+            $0.font = .regular(withSize: 12)
+            $0.textColor = .fullBlack
+        }
         rightTopHorStackView.addArrangedSubview(mediaCountLabel)
 
-        mediaIconImageView = UIImageView()
+        mediaIconImageView = UIImageView().applying {
+            $0.image = UIImage(named: "icon-basic-media", in: .module, with: nil)
+        }
         rightTopHorStackView.addArrangedSubview(mediaIconImageView)
 
-        rightBottomHorStackView = UIStackView()
+        rightBottomHorStackView = UIStackView().applying {
+            $0.spacing = 8
+        }
         rightVertStackView.addArrangedSubview(rightBottomHorStackView)
 
-        rewardLabel = UILabel()
+        rewardLabel = UILabel().applying {
+            $0.font = .regular(withSize: 12)
+            $0.textColor = .fullBlack
+        }
         rightBottomHorStackView.addArrangedSubview(rewardLabel)
 
-        rewardIconImageView = UIImageView()
+        rewardIconImageView = UIImageView().applying {
+            $0.image = UIImage(named: "icon-basic-reward", in: .module, with: nil)
+        }
         rightBottomHorStackView.addArrangedSubview(rewardIconImageView)
     }
 
     private func dataDidChange(from oldData: Data?) {
         viewData = state?.data.viewData
 
-        statusImageView.image = Stub.image(withSize: .init(width: 200, height: 200))
+        statusImageView.image = {
+            switch state?.data.item.status {
+            case nil:
+                return nil
+            case .created:
+                return UIImage(named: "icon-challenge-future", in: .module, with: nil)
+            case .active:
+                return UIImage(named: "icon-challenge-active", in: .module, with: nil)
+            case .completed:
+                return UIImage(named: "icon-challenge-completed", in: .module, with: nil)
+            }
+        }()
 
         nameLabel.text = state?.data.item.name
         statusLabel.text = state?.data.formattedStatus
 
         mediaCountLabel.text = state?.data.formattedMediaCount
-        mediaIconImageView.image = Stub.image(withSize: .init(width: 100, height: 100))
 
         rewardLabel.text = state?.data.formattedReward
-        rewardIconImageView.image = Stub.image(withSize: .init(width: 100, height: 100))
     }
 
     private func layoutDidChange(from oldLayout: Layout?) {
@@ -146,6 +184,18 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
 
         horStackView.snp.updateConstraints {
             $0.edges.equalTo(contentView.layoutMarginsGuide)
+        }
+
+        statusImageView.snp.updateConstraints {
+            $0.size.equalTo(CGSize(width: 40, height: 40))
+        }
+
+        mediaIconImageView.snp.updateConstraints {
+            $0.size.equalTo(CGSize(width: 16, height: 16))
+        }
+
+        rewardIconImageView.snp.updateConstraints {
+            $0.size.equalTo(CGSize(width: 16, height: 16))
         }
     }
 }
