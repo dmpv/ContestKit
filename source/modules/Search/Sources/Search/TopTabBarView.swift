@@ -128,7 +128,7 @@ public final class TopTabBarView: UIView {
         guard let layout = state?.layout else { return }
 
         horStackView.snp.updateConstraints {
-            $0.edges.equalTo(layoutMarginsGuide)
+            $0.edges.equalTo(layoutMarginsGuide).flexible()
         }
 
         pointerView.snp.remakeConstraints {

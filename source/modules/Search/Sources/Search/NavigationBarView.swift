@@ -64,7 +64,7 @@ public final class NavigationBarView: UIView {
         }
         addSubview(separatorView)
 
-        vertStackView = UIStackView().applying {
+        vertStackView = UIStackView().applying(noAutoresize).applying {
             $0.axis = .vertical
         }
         addSubview(vertStackView)
@@ -101,7 +101,7 @@ public final class NavigationBarView: UIView {
         guard state?.layout != currentLayout else { return }
 
         vertStackView.snp.updateConstraints {
-            $0.edges.equalTo(layoutMarginsGuide)
+            $0.edges.equalTo(layoutMarginsGuide).flexible()
         }
 
         searchFieldView.snp.updateConstraints {

@@ -95,7 +95,7 @@ public final class SearchView: UIView {
         guard state?.layout != currentLayout else { return }
 
         vertStackView.snp.updateConstraints {
-            $0.edges.equalTo(0)
+            $0.edges.equalTo(0).flexible()
         }
     }
 }

@@ -73,7 +73,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
             $0.layoutMargins = .zero
         }
 
-        horStackView = UIStackView().applying {
+        horStackView = UIStackView().applying(noAutoresize).applying {
             $0.alignment = .center
             $0.spacing = 16
         }
@@ -82,7 +82,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         statusImageView = UIImageView()
         horStackView.addArrangedSubview(statusImageView)
 
-        centralVertStackView = UIStackView().applying {
+        centralVertStackView = UIStackView().applying(noAutoresize).applying {
             $0.axis = .vertical
         }
         horStackView.addArrangedSubview(centralVertStackView)
@@ -100,13 +100,13 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         }
         centralVertStackView.addArrangedSubview(statusLabel)
 
-        rightVertStackView = UIStackView().applying {
+        rightVertStackView = UIStackView().applying(noAutoresize).applying {
             $0.axis = .vertical
             $0.spacing = 6
         }
         horStackView.addArrangedSubview(rightVertStackView)
 
-        rightTopHorStackView = UIStackView().applying {
+        rightTopHorStackView = UIStackView().applying(noAutoresize).applying {
             $0.alignment = .center
             $0.spacing = 8
         }
@@ -124,7 +124,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         }
         rightTopHorStackView.addArrangedSubview(mediaIconImageView)
 
-        rightBottomHorStackView = UIStackView().applying {
+        rightBottomHorStackView = UIStackView().applying(noAutoresize).applying {
             $0.alignment = .center
             $0.spacing = 8
         }
@@ -188,7 +188,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         guard state?.layout != currentLayout else { return }
 
         horStackView.snp.updateConstraints {
-            $0.edges.equalTo(contentView.layoutMarginsGuide)
+            $0.edges.equalTo(contentView.layoutMarginsGuide).flexible()
         }
 
         statusImageView.snp.updateConstraints {

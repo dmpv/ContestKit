@@ -85,7 +85,7 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         }
         contentView.addSubview(impressionCountLabel)
 
-        bottomHorStackView = UIStackView().applying {
+        bottomHorStackView = UIStackView().applying(noAutoresize).applying {
             $0.alignment = .center
             $0.spacing = 4
         }
@@ -162,13 +162,13 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         guard state?.layout != currentLayout else { return }
 
         previewImageView.snp.updateConstraints {
-            $0.top.leading.trailing.equalTo(contentView.layoutMarginsGuide)
+            $0.top.leading.trailing.equalTo(contentView.layoutMarginsGuide).flexible()
         }
 
         bottomHorStackView.snp.updateConstraints {
             $0.top.equalTo(previewImageView.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(contentView.layoutMarginsGuide).inset(8)
-            $0.bottom.equalTo(contentView.layoutMarginsGuide)
+            $0.leading.trailing.equalTo(contentView.layoutMarginsGuide).inset(8).flexible()
+            $0.bottom.equalTo(contentView.layoutMarginsGuide).flexible()
             $0.height.equalTo(16)
         }
 

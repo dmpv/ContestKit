@@ -65,7 +65,7 @@ public final class UserSearchItemCollectionViewCell: UICollectionViewCell {
             $0.layoutMargins = .zero
         }
 
-        horStackView = UIStackView().applying {
+        horStackView = UIStackView().applying(noAutoresize).applying {
             $0.alignment = .center
             $0.spacing = 12
         }
@@ -74,7 +74,7 @@ public final class UserSearchItemCollectionViewCell: UICollectionViewCell {
         avatarImageView = UIImageView()
         horStackView.addArrangedSubview(avatarImageView)
 
-        rightVertStackView = UIStackView().applying {
+        rightVertStackView = UIStackView().applying(noAutoresize).applying {
             $0.axis = .vertical
         }
         horStackView.addArrangedSubview(rightVertStackView)
@@ -128,7 +128,7 @@ public final class UserSearchItemCollectionViewCell: UICollectionViewCell {
         guard state?.layout != currentLayout else { return }
 
         horStackView.snp.updateConstraints {
-            $0.edges.equalTo(contentView.layoutMarginsGuide)
+            $0.edges.equalTo(contentView.layoutMarginsGuide).flexible()
         }
 
         avatarImageView.snp.updateConstraints {
