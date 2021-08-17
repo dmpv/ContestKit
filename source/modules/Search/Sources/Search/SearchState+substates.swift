@@ -57,14 +57,14 @@ extension SearchState {
         .init(
             data: .init(
                 sectionedList: self,
-                columnCount: {
+                mode: {
                     switch selectedSectionID {
                     case .challenge:
-                        return 1
+                        return .challenge
                     case .media:
-                        return 2
+                        return .media
                     case .user:
-                        return 1
+                        return .user
                     }
                 }()
             ),
@@ -85,6 +85,13 @@ extension SearchState {
         guard let mediaItem = items[itemID].media else { return fallback(nil) }
         return .init(
             data: .init(item: mediaItem)
+        )
+    }
+
+    func userItemCollectionViewCell(for itemID: SearchItem.ID) -> UserSearchItemCollectionViewCell.State? {
+        guard let userItem = items[itemID].user else { return fallback(nil) }
+        return .init(
+            data: .init(item: userItem)
         )
     }
 }

@@ -108,5 +108,11 @@ struct MediaSearchItem: StateType, Identifiable {
 
 struct UserSearchItem: StateType, Identifiable {
     var id: String
-    var userName: String
+    var name: String
+    var avatarURL: URL
+    var followerCount: Int
+    var mediaCount: Int
+    var challengeCount: Int
+
+    var stub__description: String
 }

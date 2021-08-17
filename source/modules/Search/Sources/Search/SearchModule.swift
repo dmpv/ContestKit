@@ -27,10 +27,10 @@ class SearchModule {
 
 extension SearchModule: SearchViewComponents {
     func navigationBarView() -> UIView {
-        let navigationBarView = NavigationBarView(components: self)
-        navigationBarView.state = .init()
-        navigationBarView.state?.appearance.viewAppearance.backgroundColor = .fullWhite
-        return navigationBarView
+        let view = NavigationBarView(components: self)
+        view.state = .init()
+        view.state?.appearance.viewAppearance.backgroundColor = .fullWhite
+        return view
     }
 
     func listView() -> UIView {
@@ -84,7 +84,7 @@ extension SearchModule: SectionedListViewComponents {
         case .media:
             return "\(MediaSearchItemCollectionViewCell.self)"
         case .user:
-            fatalError(.notImplementedYet)
+            return "\(UserSearchItemCollectionViewCell.self)"
         }
     }
 
@@ -95,7 +95,7 @@ extension SearchModule: SectionedListViewComponents {
         case .media:
             return MediaSearchItemCollectionViewCell.self
         case .user:
-            fatalError(.notImplementedYet)
+            return UserSearchItemCollectionViewCell.self
         }
     }
 
@@ -108,6 +108,9 @@ extension SearchModule: SectionedListViewComponents {
             case (let cell as MediaSearchItemCollectionViewCell, _):
                 cell.state = store.state.mediaItemCollectionViewCell(for: itemID)!
                 cell.components = self
+            case (let cell as UserSearchItemCollectionViewCell, _):
+                cell.state = store.state.userItemCollectionViewCell(for: itemID)!
+                cell.components = self
             default:
                 fatalError(.shouldNeverBeCalled())
             }
@@ -117,6 +120,9 @@ extension SearchModule: SectionedListViewComponents {
                 cell.state = nil
                 cell.components = nil
             case (let cell as MediaSearchItemCollectionViewCell, _):
+                cell.state = nil
+                cell.components = nil
+            case (let cell as UserSearchItemCollectionViewCell, _):
                 cell.state = nil
                 cell.components = nil
             default:
@@ -129,6 +135,8 @@ extension SearchModule: SectionedListViewComponents {
 extension SearchModule: ChallengeSearchItemCollectionViewCellComponents {}
 
 extension SearchModule: MediaSearchItemCollectionViewCellComponents {}
+
+extension SearchModule: UserSearchItemCollectionViewCellComponents {}
 
 extension SearchModule {
     func query(_ str: String) -> (Str<SearchState>) -> Void {

@@ -36,10 +36,28 @@ extension Stub {
             ),
             userName: "User \(index)",
             userAvatarURL: Stub.url(
-                forImageWithSize: .init(width: 50, height: 50)
+                forImageWithSize: .init(width: 200, height: 200)
             ),
             likeCount: 1000_000_000,
             impressionCount: 1000_000_000,
+            stub__description: "Group \(index / 20)"
+        )
+    }
+
+    static func userSearchItem(for index: Int) -> UserSearchItem {
+        .init(
+            id: "\(index)",
+            name: [
+                "@[\(index)]Konstantin-Konstantinovich-Konstantinopolski",
+                "@[\(index)]Ivan",
+                "@[\(index)]prince.albert",
+            ].randomElement()!,
+            avatarURL: Stub.url(
+                forImageWithSize: .init(width: 200, height: 200)
+            ),
+            followerCount: 100_000,
+            mediaCount: 200_000,
+            challengeCount: 10_000,
             stub__description: "Group \(index / 20)"
         )
     }
@@ -66,9 +84,17 @@ extension Stub {
             ? nil
             : .init(items: queriedMediaSearchItems.map { .media($0) })
 
+        let allUserSearchItems = (0..<itemCount).map { userSearchItem(for: $0) }
+        let queriedUserSearchItems = allUserSearchItems.filter { item in
+            item.stub__description.hasPrefix(query)
+        }
+        let userSection: SearchSection? = queriedUserSearchItems == []
+            ? nil
+            : .init(items: queriedUserSearchItems.map { .user($0) })
+
         return .init(
             query: query,
-            sections: [challengeSection, mediaSection].compactMap { $0 }
+            sections: [challengeSection, mediaSection, userSection].compactMap { $0 }
         )
     }
 }
