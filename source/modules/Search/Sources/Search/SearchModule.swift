@@ -29,7 +29,7 @@ extension SearchModule: SearchViewComponents {
     func navigationBarView() -> UIView {
         let navigationBarView = NavigationBarView(components: self)
         navigationBarView.state = .init()
-        navigationBarView.state?.appearance.viewAppearance.backgroundColor = .systemRed
+        navigationBarView.state?.appearance.viewAppearance.backgroundColor = .fullWhite
         return navigationBarView
     }
 

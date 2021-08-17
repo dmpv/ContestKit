@@ -24,10 +24,7 @@ extension SearchState {
                     TabState(id: sectionID.rawValue, name: "\(sectionID)")
                 }
             ),
-            layout: .init(selectedTabIndex: tabSelectionState.selectedIndex),
-            appearance: .init(
-                viewAppearance: .make(backgroundColor: .systemTeal)
-            )
+            layout: .init(selectedTabIndex: tabSelectionState.selectedIndex)
         )
     }
 
@@ -40,15 +37,18 @@ extension SearchState {
             ),
             layout: .make(
                 viewLayout: .make(
-                    layoutMargins: .init(top: 0, left: 8, bottom: 0, right: 8)
+                    layoutMargins: .init(top: 4, left: 16, bottom: 4, right: 16)
                 ),
                 textInsets: .init(top: 0, left: 35, bottom: 0, right: 20)
             ),
             appearance: .make(
                 textFieldViewAppearance: .make(
-                    backgroundColor: .gray,
+                    backgroundColor: .grey_90,
                     cornerRadius: 18
-                )
+                ),
+                textColor: .fullBlack,
+                textFont: .regular(withSize: 16),
+                placeholderColor: .grey_70
             )
         )
     }
@@ -69,7 +69,7 @@ extension SearchState {
                 }()
             ),
             appearance: .init(
-                viewAppearance: .make(backgroundColor: .systemBlue)
+                viewAppearance: .make(backgroundColor: .fullWhite)
             )
         )
     }

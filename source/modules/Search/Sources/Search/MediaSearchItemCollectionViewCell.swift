@@ -41,13 +41,11 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
 
     private var currentLayout: Layout?
 
-    private var vertStackView: UIStackView!
-
     private var previewImageView: UIImageView!
     private var impressionIconImageView: UIImageView!
     private var impressionCountLabel: UILabel!
 
-    private var horStackView: UIStackView!
+    private var bottomHorStackView: UIStackView!
     private var userAvatarImageView: UIImageView!
     private var userNameLabel: UILabel!
     private var likeIconImageView: UIImageView!
@@ -64,37 +62,54 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
     }
 
     private func setup() {
-        vertStackView = UIStackView().applying {
-            $0.axis = .vertical
+        contentView.applying {
+            $0.layoutMargins = .zero
         }
-        contentView.addSubview(vertStackView)
 
-        previewImageView = UIImageView()
-        vertStackView.addArrangedSubview(previewImageView)
+        previewImageView = UIImageView().applying {
+            $0.contentMode = .scaleAspectFill
+            // dp-performance-TODO: Consider clipping images on load instead of heavy clipsToBounds
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
+        }
+        contentView.addSubview(previewImageView)
 
-        impressionIconImageView = UIImageView()
+        impressionIconImageView = UIImageView().applying {
+            $0.image = UIImage(named: "icon-basic-impressions", in: .module, with: nil)
+        }
         contentView.addSubview(impressionIconImageView)
 
-        impressionCountLabel = UILabel()
+        impressionCountLabel = UILabel().applying {
+            $0.font = .regular(withSize: 12)
+            $0.textColor = .fullWhite
+        }
         contentView.addSubview(impressionCountLabel)
 
-        horStackView = UIStackView()
-        vertStackView.addArrangedSubview(horStackView)
+        bottomHorStackView = UIStackView().applying {
+            $0.alignment = .center
+            $0.spacing = 4
+        }
+        contentView.addSubview(bottomHorStackView)
 
         userAvatarImageView = UIImageView()
-        horStackView.addArrangedSubview(userAvatarImageView)
+        bottomHorStackView.addArrangedSubview(userAvatarImageView)
 
         userNameLabel = UILabel().applying {
             $0.font = .bold(withSize: 8)
             $0.textColor = .fullBlack
         }
-        horStackView.addArrangedSubview(userNameLabel)
+        bottomHorStackView.addArrangedSubview(userNameLabel)
 
-        likeIconImageView = UIImageView()
-        horStackView.addArrangedSubview(likeIconImageView)
+        likeIconImageView = UIImageView().applying {
+            $0.image = UIImage(named: "icon-basic-like", in: .module, with: nil)
+        }
+        bottomHorStackView.addArrangedSubview(likeIconImageView)
 
-        likeCountLabel = UILabel()
-        horStackView.addArrangedSubview(likeCountLabel)
+        likeCountLabel = UILabel().applying {
+            $0.font = .bold(withSize: 8)
+            $0.textColor = .fullBlack
+        }
+        bottomHorStackView.addArrangedSubview(likeCountLabel)
     }
 
     private func dataDidChange(from oldData: Data?) {
@@ -104,15 +119,14 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
             with: ImageRequest(
                 url: state?.data.item.previewURL,
                 processors: [
-    //                ImageProcessors.Resize(size: imageView.bounds.size),
-                    ImageProcessors.RoundedCorners(radius: 8),
+//                    ImageProcessors.Resize(size: imageView.bounds.size),
+//                    ImageProcessors.RoundedCorners(radius: 8),
                 ],
                 priority: .veryHigh
             ),
             into: previewImageView
         )
 
-        impressionIconImageView.image = Stub.image(withSize: .init(width: 30, height: 30))
         impressionCountLabel.text = state?.data.formattedImpressionCount
 
         Nuke.loadImage(
@@ -124,7 +138,6 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         )
 
         userNameLabel.text = state?.data.item.userName
-        likeIconImageView.image = Stub.image(withSize: .init(width: 30, height: 30))
         likeCountLabel.text = state?.data.formattedLikeCount
     }
 
@@ -148,26 +161,37 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         }
         guard state?.layout != currentLayout else { return }
 
-        vertStackView.snp.updateConstraints {
-            $0.edges.equalTo(contentView.layoutMarginsGuide)
+        previewImageView.snp.updateConstraints {
+            $0.top.leading.trailing.equalTo(contentView.layoutMarginsGuide)
         }
 
+        bottomHorStackView.snp.updateConstraints {
+            $0.top.equalTo(previewImageView.snp.bottom).offset(8)
+            $0.leading.trailing.equalTo(contentView.layoutMarginsGuide).inset(8)
+            $0.bottom.equalTo(contentView.layoutMarginsGuide)
+            $0.height.equalTo(16)
+        }
+
+        // dp-design-TODO: set correct layout after design fix
         impressionIconImageView.snp.updateConstraints {
             $0.leading.bottom.equalTo(previewImageView).inset(8)
+            $0.size.equalTo(CGSize(width: 16, height: 16))
         }
 
         impressionCountLabel.snp.updateConstraints {
-            $0.leading.equalTo(impressionIconImageView.snp.trailing).offset(8)
+            $0.leading.equalTo(impressionIconImageView.snp.trailing).offset(4)
             $0.centerY.equalTo(impressionIconImageView.snp.centerY)
-            $0.trailing.equalTo(previewImageView).inset(8)
         }
 
         userAvatarImageView.snp.updateConstraints {
             $0.size.equalTo(CGSize(width: 16, height: 16))
         }
 
-        impressionIconImageView.snp.contentHuggingHorizontalPriority = 1000
-        likeIconImageView.snp.contentHuggingHorizontalPriority = 1000
+        likeIconImageView.snp.updateConstraints {
+            $0.size.equalTo(CGSize(width: 16, height: 16))
+        }
+
+        userNameLabel.snp.contentHuggingHorizontalPriority = 51
     }
 }
 

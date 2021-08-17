@@ -43,6 +43,7 @@ public final class NavigationBarView: UIView {
     private var vertStackView: UIStackView!
     private var searchFieldView: UIView!
     private var filterView: UIView!
+    private var separatorView: UIView!
 
     private let components: NavigationBarViewComponents
 
@@ -58,6 +59,11 @@ public final class NavigationBarView: UIView {
     }
 
     private func setup() {
+        separatorView = UIView().applying {
+            $0.backgroundColor = .grey_90
+        }
+        addSubview(separatorView)
+
         vertStackView = UIStackView().applying {
             $0.axis = .vertical
         }
@@ -99,7 +105,16 @@ public final class NavigationBarView: UIView {
         }
 
         searchFieldView.snp.updateConstraints {
-            $0.height.equalTo(36)
+            $0.height.equalTo(44)
+        }
+
+        filterView.snp.updateConstraints {
+            $0.height.equalTo(40)
+        }
+
+        separatorView.snp.updateConstraints {
+            $0.leading.bottom.trailing.equalTo(0)
+            $0.height.equalTo(0.5)
         }
     }
 }

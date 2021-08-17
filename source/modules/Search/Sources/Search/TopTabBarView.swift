@@ -94,13 +94,10 @@ public final class TopTabBarView: UIView {
             let buttonView = tabView as! ButtonView
             buttonView.state = .make().reduce {
                 $0.data.title = tabs[index].name
-                $0.data.subtitle = tabs[index].name
                 $0.appearance.titleColor = tabs[index].id == state?.data.selectedTabID
-                    ? .systemYellow
-                    : .systemGray2
-                $0.appearance.subtitleColor = tabs[index].id == state?.data.selectedTabID
-                    ? .systemYellow
-                    : .systemGray4
+                    ? .fullBlack
+                    : .grey_70
+                $0.appearance.titleFont = .regular(withSize: 12)
             }
             buttonView.handlers.onPress = { [weak self] in
                 self?.handlers.onSelect?(tabs[index].id)
@@ -136,7 +133,7 @@ public final class TopTabBarView: UIView {
 
         pointerView.snp.remakeConstraints {
             $0.leading.bottom.trailing.equalTo(tabViews[layout.selectedTabIndex])
-            $0.height.equalTo(3)
+            $0.height.equalTo(0.5)
         }
     }
 }

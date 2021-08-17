@@ -32,7 +32,7 @@ extension Stub {
         .init(
             id: "\(index)",
             previewURL: Stub.url(
-                forImageWithSize: .init(width: 200, height: 200)
+                forImageWithSize: .init(width: 400, height: 400)
             ),
             userName: "User \(index)",
             userAvatarURL: Stub.url(

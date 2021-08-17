@@ -28,7 +28,7 @@ extension UIColor {
 //    static let grey_60 = UIColor(hex: "#999999")!
     public static let grey_70 = UIColor(hex: "#B2B2B2")!
 //    static let grey_80 = UIColor(hex: "#CCCCCC")!
-//    static let grey_90 = UIColor(hex: "#E5E5E5")!
+    public static let grey_90 = UIColor(hex: "#E5E5E5")!
 //
     public static let fullBlack = UIColor(hex: "#000000")!
 //

@@ -90,6 +90,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         nameLabel = UILabel().applying {
             $0.font = .regular(withSize: 12)
             $0.textColor = .fullBlack
+            $0.numberOfLines = 2
         }
         centralVertStackView.addArrangedSubview(nameLabel)
 
@@ -101,12 +102,12 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
 
         rightVertStackView = UIStackView().applying {
             $0.axis = .vertical
-            $0.alignment = .trailing
             $0.spacing = 6
         }
         horStackView.addArrangedSubview(rightVertStackView)
 
         rightTopHorStackView = UIStackView().applying {
+            $0.alignment = .center
             $0.spacing = 8
         }
         rightVertStackView.addArrangedSubview(rightTopHorStackView)
@@ -114,6 +115,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         mediaCountLabel = UILabel().applying {
             $0.font = .regular(withSize: 12)
             $0.textColor = .fullBlack
+            $0.textAlignment = .right
         }
         rightTopHorStackView.addArrangedSubview(mediaCountLabel)
 
@@ -123,6 +125,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         rightTopHorStackView.addArrangedSubview(mediaIconImageView)
 
         rightBottomHorStackView = UIStackView().applying {
+            $0.alignment = .center
             $0.spacing = 8
         }
         rightVertStackView.addArrangedSubview(rightBottomHorStackView)
@@ -130,6 +133,7 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         rewardLabel = UILabel().applying {
             $0.font = .regular(withSize: 12)
             $0.textColor = .fullBlack
+            $0.textAlignment = .right
         }
         rightBottomHorStackView.addArrangedSubview(rewardLabel)
 
@@ -198,6 +202,12 @@ public final class ChallengeSearchItemCollectionViewCell: UICollectionViewCell {
         rewardIconImageView.snp.updateConstraints {
             $0.size.equalTo(CGSize(width: 16, height: 16))
         }
+
+        mediaCountLabel.snp.contentHuggingHorizontalPriority = 999
+        mediaCountLabel.snp.contentCompressionResistanceHorizontalPriority = 1000
+        
+        rewardLabel.snp.contentHuggingHorizontalPriority = 999
+        rewardLabel.snp.contentCompressionResistanceHorizontalPriority = 1000
     }
 }
 
