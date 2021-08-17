@@ -75,7 +75,7 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(previewImageView)
 
         impressionIconImageView = UIImageView().applying {
-            $0.image = UIImage(named: "icon-basic-impressions", in: .module, with: nil)
+            $0.image = UIImage(named: "icon-basic-impression", in: .module, with: nil)
         }
         contentView.addSubview(impressionIconImageView)
 
@@ -172,9 +172,9 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(16)
         }
 
-        // dp-design-TODO: set correct layout after design fix
         impressionIconImageView.snp.updateConstraints {
-            $0.leading.bottom.equalTo(previewImageView).inset(8)
+            $0.leading.equalTo(previewImageView).inset(8)
+            $0.bottom.equalTo(previewImageView).inset(5)
             $0.size.equalTo(CGSize(width: 16, height: 16))
         }
 
