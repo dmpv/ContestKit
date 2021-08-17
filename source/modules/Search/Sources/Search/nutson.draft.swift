@@ -43,4 +43,13 @@ extension Stub {
     static func url(forImageWithSize size: CGSize) -> URL {
         URL(string: "https://placekitten.com/\(Int(size.width))/\(Int(size.height))")!
     }
+
+    static func avatarImageURL() -> URL {
+        Self.url(
+            forImageWithSize: .init(
+                width: 200 + (-5...5).randomElement()!,
+                height: 200 + (-5...5).randomElement()!
+            )
+        )
+    }
 }

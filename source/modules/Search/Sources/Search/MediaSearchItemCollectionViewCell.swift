@@ -14,6 +14,7 @@ import Nuke
 import ToolKit
 
 public protocol MediaSearchItemCollectionViewCellComponents {
+    func imagePipeline() -> ImagePipeline
 }
 
 public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
@@ -67,6 +68,7 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         }
 
         previewImageView = UIImageView().applying {
+            $0.backgroundColor = .grey_90
             $0.contentMode = .scaleAspectFill
             // dp-performance-TODO: Consider clipping images on load instead of heavy clipsToBounds
             $0.clipsToBounds = true
@@ -91,7 +93,10 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         }
         contentView.addSubview(bottomHorStackView)
 
-        userAvatarImageView = UIImageView()
+        userAvatarImageView = UIImageView().applying {
+            $0.backgroundColor = .grey_90
+            $0.layer.cornerRadius = 8
+        }
         bottomHorStackView.addArrangedSubview(userAvatarImageView)
 
         userNameLabel = UILabel().applying {
@@ -119,11 +124,15 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
             with: ImageRequest(
                 url: state?.data.item.previewURL,
                 processors: [
+                    // dp-performance-TODO: Consider clipping images on load instead of heavy clipsToBounds
 //                    ImageProcessors.Resize(size: imageView.bounds.size),
-//                    ImageProcessors.RoundedCorners(radius: 8),
-                ],
-                priority: .veryHigh
+                ]
             ),
+            options: {
+                var options = ImageLoadingOptions(transition: .fadeIn(duration: 0.1))
+                options.pipeline = components?.imagePipeline()
+                return options
+            }(),
             into: previewImageView
         )
 
@@ -132,8 +141,16 @@ public final class MediaSearchItemCollectionViewCell: UICollectionViewCell {
         Nuke.loadImage(
             with: ImageRequest(
                 url: state?.data.item.userAvatarURL,
-                processors: [ImageProcessors.Circle()]
+                processors: [
+                    ImageProcessors.Resize(size: .init(width: 16, height: 16)),
+                    ImageProcessors.Circle()
+                ]
             ),
+            options: {
+                var options = ImageLoadingOptions()
+                options.pipeline = components?.imagePipeline()
+                return options
+            }(),
             into: userAvatarImageView
         )
 

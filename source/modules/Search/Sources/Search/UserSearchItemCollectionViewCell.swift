@@ -15,6 +15,7 @@ import ToolKit
 import NutsonCore
 
 public protocol UserSearchItemCollectionViewCellComponents {
+    func imagePipeline() -> ImagePipeline
 }
 
 public final class UserSearchItemCollectionViewCell: UICollectionViewCell {
@@ -71,7 +72,10 @@ public final class UserSearchItemCollectionViewCell: UICollectionViewCell {
         }
         contentView.addSubview(horStackView)
 
-        avatarImageView = UIImageView()
+        avatarImageView = UIImageView().applying {
+            $0.backgroundColor = .grey_90
+            $0.layer.cornerRadius = 26
+        }
         horStackView.addArrangedSubview(avatarImageView)
 
         rightVertStackView = UIStackView().applying(noAutoresize).applying {
@@ -98,8 +102,16 @@ public final class UserSearchItemCollectionViewCell: UICollectionViewCell {
         Nuke.loadImage(
             with: ImageRequest(
                 url: state?.data.item.avatarURL,
-                processors: [ImageProcessors.Circle()]
+                processors: [
+                    ImageProcessors.Resize(size: .init(width: 26, height: 26)),
+                    ImageProcessors.Circle()
+                ]
             ),
+            options: {
+                var options = ImageLoadingOptions()
+                options.pipeline = components?.imagePipeline()
+                return options
+            }(),
             into: avatarImageView
         )
 

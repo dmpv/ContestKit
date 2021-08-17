@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import Nuke
+
 import ToolKit
 import ComponentKit
 
@@ -103,14 +105,14 @@ extension SearchModule: SectionedListViewComponents {
         if let itemID = itemID {
             switch (cell, itemID) {
             case (let cell as ChallengeSearchItemCollectionViewCell, _):
+                cell.components = self
                 cell.state = store.state.challengeItemCollectionViewCell(for: itemID)!
-                cell.components = self
             case (let cell as MediaSearchItemCollectionViewCell, _):
+                cell.components = self
                 cell.state = store.state.mediaItemCollectionViewCell(for: itemID)!
-                cell.components = self
             case (let cell as UserSearchItemCollectionViewCell, _):
-                cell.state = store.state.userItemCollectionViewCell(for: itemID)!
                 cell.components = self
+                cell.state = store.state.userItemCollectionViewCell(for: itemID)!
             default:
                 fatalError(.shouldNeverBeCalled())
             }
@@ -134,7 +136,14 @@ extension SearchModule: SectionedListViewComponents {
 
 extension SearchModule: ChallengeSearchItemCollectionViewCellComponents {}
 
-extension SearchModule: MediaSearchItemCollectionViewCellComponents {}
+extension SearchModule: MediaSearchItemCollectionViewCellComponents {
+    func imagePipeline() -> ImagePipeline {
+        ImagePipeline { config in
+            config = .withDataCache
+            config.dataCachePolicy = .automatic
+        }
+    }
+}
 
 extension SearchModule: UserSearchItemCollectionViewCellComponents {}
 

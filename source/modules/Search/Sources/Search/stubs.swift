@@ -38,12 +38,7 @@ extension Stub {
                 )
             ),
             userName: "User \(index)",
-            userAvatarURL: Stub.url(
-                forImageWithSize: .init(
-                    width: 200 + (-5...5).randomElement()!,
-                    height: 200 + (-5...5).randomElement()!
-                )
-            ),
+            userAvatarURL: Stub.avatarImageURL(),
             likeCount: 1000_000_000,
             impressionCount: 1000_000_000,
             stub__description: "Group \(index / 20)"
@@ -58,9 +53,7 @@ extension Stub {
                 "@[\(index)]Ivan",
                 "@[\(index)]prince.albert",
             ].randomElement()!,
-            avatarURL: Stub.url(
-                forImageWithSize: .init(width: 200, height: 200)
-            ),
+            avatarURL: Stub.avatarImageURL(),
             followerCount: 100_000,
             mediaCount: 200_000,
             challengeCount: 10_000,
