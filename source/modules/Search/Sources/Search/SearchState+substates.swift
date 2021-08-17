@@ -21,7 +21,32 @@ extension SearchState {
             data: .init(
                 selectedTabID: tabSelectionState.selectedValue.rawValue,
                 tabs: tabSelectionState.values.map { sectionID in
-                    TabState(id: sectionID.rawValue, name: "\(sectionID)")
+                    TabState(
+                        id: sectionID.rawValue,
+                        name: {
+                            switch sectionID {
+                            case .challenge:
+                                return L10n.stub("Challenges")
+                            case .media:
+                                return L10n.stub("Videos")
+                            case .user:
+                                return L10n.stub("Users")
+                            }
+                        }(),
+                        iconImage: {
+                            switch sectionID {
+                            case .challenge:
+                                return UIImage(named: "icon-basic-challenge", in: .module, with: nil)?
+                                    .withRenderingMode(.alwaysTemplate)
+                            case .media:
+                                return UIImage(named: "icon-basic-media", in: .module, with: nil)?
+                                    .withRenderingMode(.alwaysTemplate)
+                            case .user:
+                                return UIImage(named: "icon-basic-user", in: .module, with: nil)?
+                                    .withRenderingMode(.alwaysTemplate)
+                            }
+                        }()
+                    )
                 }
             ),
             layout: .init(selectedTabIndex: tabSelectionState.selectedIndex)
@@ -32,7 +57,16 @@ extension SearchState {
         .make(
             data: .make(
                 text: status.query,
-                placeholder: selectedSectionID.rawValue,
+                placeholder: {
+                    switch selectedSectionID {
+                    case .challenge:
+                        return L10n.stub("challenges")
+                    case .media:
+                        return L10n.stub("videos")
+                    case .user:
+                        return L10n.stub("users")
+                    }
+                }(),
                 leftIconImage: UIImage(named: "icon-basic-search", in: .module, with: nil)
             ),
             layout: .make(
@@ -43,7 +77,8 @@ extension SearchState {
             ),
             appearance: .make(
                 textFieldViewAppearance: .make(
-                    backgroundColor: .grey_90,
+                    backgroundColor: .grey_90.withAlphaComponent(0.52),
+                    tintColor: .fullBlack,
                     cornerRadius: 18
                 ),
                 textColor: .fullBlack,

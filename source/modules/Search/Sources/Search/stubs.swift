@@ -32,11 +32,17 @@ extension Stub {
         .init(
             id: "\(index)",
             previewURL: Stub.url(
-                forImageWithSize: .init(width: 400, height: 400)
+                forImageWithSize: .init(
+                    width: 400 + (-5...5).randomElement()!,
+                    height: 400 + (-5...5).randomElement()!
+                )
             ),
             userName: "User \(index)",
             userAvatarURL: Stub.url(
-                forImageWithSize: .init(width: 200, height: 200)
+                forImageWithSize: .init(
+                    width: 200 + (-5...5).randomElement()!,
+                    height: 200 + (-5...5).randomElement()!
+                )
             ),
             likeCount: 1000_000_000,
             impressionCount: 1000_000_000,

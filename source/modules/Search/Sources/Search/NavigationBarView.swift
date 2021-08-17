@@ -114,7 +114,7 @@ public final class NavigationBarView: UIView {
 
         separatorView.snp.updateConstraints {
             $0.leading.bottom.trailing.equalTo(0)
-            $0.height.equalTo(0.5)
+            $0.height.equalTo(1)
         }
     }
 }

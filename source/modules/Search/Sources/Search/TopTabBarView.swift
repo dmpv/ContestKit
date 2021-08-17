@@ -92,13 +92,23 @@ public final class TopTabBarView: UIView {
 
         for (index, tabView) in tabViews.enumerated() {
             let buttonView = tabView as! ButtonView
-            buttonView.state = .make().reduce {
-                $0.data.title = tabs[index].name
-                $0.appearance.titleColor = tabs[index].id == state?.data.selectedTabID
-                    ? .fullBlack
-                    : .grey_70
-                $0.appearance.titleFont = .regular(withSize: 12)
-            }
+            buttonView.state = .make(
+                data: .make(
+                    title: tabs[index].name,
+                    image: tabs[index].iconImage
+                ),
+                appearance: .make(
+                    buttonAppearance: .make(
+                        tintColor: tabs[index].id == state?.data.selectedTabID
+                            ? .fullBlack
+                            : .grey_70
+                    ),
+                    titleColor: tabs[index].id == state?.data.selectedTabID
+                        ? .fullBlack
+                        : .grey_70,
+                    titleFont: .regular(withSize: 12)
+                )
+            )
             buttonView.handlers.onPress = { [weak self] in
                 self?.handlers.onSelect?(tabs[index].id)
             }
@@ -133,7 +143,7 @@ public final class TopTabBarView: UIView {
 
         pointerView.snp.remakeConstraints {
             $0.leading.bottom.trailing.equalTo(tabViews[layout.selectedTabIndex])
-            $0.height.equalTo(0.5)
+            $0.height.equalTo(1)
         }
     }
 }
@@ -168,4 +178,5 @@ extension TopTabBarView {
 struct TabState: StateType, Identifiable {
     var id: String
     var name: String
+    var iconImage: UIImage?
 }
