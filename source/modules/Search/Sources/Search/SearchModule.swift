@@ -21,9 +21,14 @@ class SearchModule {
     }
 
     func searchView() -> UIView {
-        SearchView(components: self).applying {
-            $0.backgroundColor = .systemGreen
-        }
+        let view = SearchView(components: self)
+        _ = store.stateObservable
+            .addObserver { [weak view] search in
+                view?.state = .init(
+                    data: .init(selectedSectionID: search.selectedSectionID)
+                )
+            }
+        return view
     }
 }
 
@@ -35,11 +40,11 @@ extension SearchModule: SearchViewComponents {
         return view
     }
 
-    func listView() -> UIView {
-        let view = SectionedListView<SearchState, SearchModule>(components: self)
+    func listView(for sectionID: SearchSection.ID) -> UIView {
+        let view = SectionedListView<SearchResult, SearchModule>(components: self)
         _ = store.stateObservable
             .addObserver { [weak view] search in
-                view?.state = search.sectionedListView
+                view?.state = search.searchResult(for: sectionID)?.sectionedListView(for: sectionID)
             }
         return view
     }

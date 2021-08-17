@@ -12,12 +12,12 @@ import SnapKit
 
 import ToolKit
 
-public protocol SearchViewComponents {
+protocol SearchViewComponents {
     func navigationBarView() -> UIView
-    func listView() -> UIView
+    func listView(for sectionID: SearchSection.ID) -> UIView
 }
 
-public final class SearchView: UIView {
+final class SearchView: UIView {
     var state: State? {
         didSet(oldState) {
             if state?.data != oldState?.data {
@@ -42,11 +42,15 @@ public final class SearchView: UIView {
 
     private var vertStackView: UIStackView!
     private var navigationBarView: UIView!
-    private var listView: UIView!
+
+    private var listContainerView: UIView!
+    private var challengeListView: UIView!
+    private var mediaListView: UIView!
+    private var userListView: UIView!
 
     private let components: SearchViewComponents
 
-    public init(components: SearchViewComponents) {
+    init(components: SearchViewComponents) {
         self.components = components
         super.init(frame: .zero)
         setup()
@@ -66,12 +70,25 @@ public final class SearchView: UIView {
         navigationBarView = components.navigationBarView()
         vertStackView.addArrangedSubview(navigationBarView)
 
-        listView = components.listView()
-        vertStackView.addArrangedSubview(listView)
+        listContainerView = UIView()
+        vertStackView.addArrangedSubview(listContainerView)
+
+        challengeListView = components.listView(for: .challenge)
+        listContainerView.addSubview(challengeListView)
+
+        mediaListView = components.listView(for: .media)
+        listContainerView.addSubview(mediaListView)
+
+        userListView = components.listView(for: .user)
+        listContainerView.addSubview(userListView)
     }
 
     private func dataDidChange(from oldData: Data?) {
         viewData = state?.data.viewData
+
+        challengeListView.isHidden = state?.data.selectedSectionID != .challenge
+        mediaListView.isHidden = state?.data.selectedSectionID != .media
+        userListView.isHidden = state?.data.selectedSectionID != .user
     }
 
     private func layoutDidChange(from oldLayout: Layout?) {
@@ -87,7 +104,7 @@ public final class SearchView: UIView {
     private func handlersDidChange() {
     }
 
-    public override func updateConstraints() {
+    override func updateConstraints() {
         defer {
             currentLayout = state?.layout
             super.updateConstraints()
@@ -97,25 +114,38 @@ public final class SearchView: UIView {
         vertStackView.snp.updateConstraints {
             $0.edges.equalTo(0).flexible()
         }
+
+        challengeListView.snp.updateConstraints {
+            $0.edges.equalTo(0)
+        }
+
+        mediaListView.snp.updateConstraints {
+            $0.edges.equalTo(0)
+        }
+
+        userListView.snp.updateConstraints {
+            $0.edges.equalTo(0)
+        }
     }
 }
 
 extension SearchView {
-    public struct State: StateType {
-        var data: Data = .init()
+    struct State: StateType {
+        var data: Data
         var layout: Layout = .init()
         var appearance: Appearance = .init()
     }
 
-    public struct Data: StateType {
+    struct Data: StateType {
         var viewData: UIView.Data = .make()
+        var selectedSectionID: SearchSection.ID
     }
 
-    public struct Layout: StateType {
+    struct Layout: StateType {
         var viewLayout: UIView.Layout = .make()
     }
 
-    public struct Appearance: StateType {
+    struct Appearance: StateType {
         var viewAppearance: UIView.Appearance = .make()
     }
 

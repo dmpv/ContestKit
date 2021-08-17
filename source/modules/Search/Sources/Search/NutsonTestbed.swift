@@ -26,7 +26,6 @@ public class NutsonTestbed {
         let searchModule = SearchModule(store: store)
 
         let searchView = searchModule.searchView() as! SearchView
-        searchView.state = .init()
 
         return ViewController(view: searchView)
     }

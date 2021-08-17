@@ -15,11 +15,23 @@ struct SearchState: StateType {
     var selectedSectionID: SearchSectionID = .media
 }
 
+extension SearchState {
+    func searchResult(for sectionID: SearchSection.ID) -> SearchResult? {
+        if sectionID == selectedSectionID {
+            return status.result?.reduce { result in
+                result.sections = [result.sections[safe: sectionID]].compactMap { $0 } 
+            }
+        } else {
+            return SearchResult()
+        }
+    }
+}
+
 extension SearchState: SectionedListType {
     typealias Section = SearchSection
 
     var sections: [SearchSection] {
-        status.result?.sections.filter { $0.id == selectedSectionID } ?? []
+        status.result?.sections ?? []
     }
 }
 

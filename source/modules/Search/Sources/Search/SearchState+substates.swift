@@ -88,27 +88,6 @@ extension SearchState {
         )
     }
 
-    var sectionedListView: SectionedListView<SearchState, SearchModule>.State {
-        .init(
-            data: .init(
-                sectionedList: self,
-                mode: {
-                    switch selectedSectionID {
-                    case .challenge:
-                        return .challenge
-                    case .media:
-                        return .media
-                    case .user:
-                        return .user
-                    }
-                }()
-            ),
-            appearance: .init(
-                viewAppearance: .make(backgroundColor: .fullWhite)
-            )
-        )
-    }
-
     func challengeItemCollectionViewCell(for itemID: SearchItem.ID) -> ChallengeSearchItemCollectionViewCell.State? {
         guard let challengeItem = items[itemID].challenge else { return fallback(nil) }
         return .init(
@@ -170,5 +149,32 @@ extension SearchItem {
     var user: UserSearchItem? {
         guard case .user(let userItem) = self else { return nil }
         return userItem
+    }
+}
+
+extension SearchSectionID {
+    var sectionedListViewMode: SectionedListView<SearchResult, SearchModule>.Mode {
+        switch self {
+        case .challenge:
+            return .challenge
+        case .media:
+            return .media
+        case .user:
+            return .user
+        }
+    }
+}
+
+extension SearchResult {
+    func sectionedListView(for sectionID: SearchSection.ID) -> SectionedListView<Self, SearchModule>.State {
+        .init(
+            data: .init(
+                sectionedList: self,
+                mode: sectionID.sectionedListViewMode
+            ),
+            appearance: .init(
+                viewAppearance: .make(backgroundColor: .fullWhite)
+            )
+        )
     }
 }
