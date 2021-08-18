@@ -14,10 +14,10 @@ import ToolKit
 import ComponentKit
 
 class SearchModule {
-    private let store: Str<SearchState>
+    private let store: Store<SearchState>
     private let searchService: SearchService
 
-    init(store: Str<SearchState>, searchService: SearchService) {
+    init(store: Store<SearchState>, searchService: SearchService) {
         self.store = store
         self.searchService = searchService
     }
@@ -166,7 +166,7 @@ extension SearchModule: MediaSearchItemCollectionViewCellComponents {
 extension SearchModule: UserSearchItemCollectionViewCellComponents {}
 
 extension SearchModule {
-    func query(_ query: String) -> (Str<SearchState>) -> Void {
+    func query(_ query: String) -> (Store<SearchState>) -> Void {
         { [self] store in
             guard store.state.query != query else { return }
             store.adjust { search in
@@ -186,7 +186,7 @@ extension SearchModule {
         }
     }
 
-    func loadNextPageIfNeeded(for sectionID: SearchSection.ID) -> (Str<SearchState>) -> Void {
+    func loadNextPageIfNeeded(for sectionID: SearchSection.ID) -> (Store<SearchState>) -> Void {
         { [self] store in
             guard store.state.paginatedSections[sectionID].status.loadingStatus == .idle else { return }
 
@@ -213,7 +213,7 @@ extension SearchModule {
         }
     }
 
-    func execute(request: SearchRequest) -> (Str<SearchState>) -> Void {
+    func execute(request: SearchRequest) -> (Store<SearchState>) -> Void {
         { [self] store in
             searchService.fetchSearchResult(for: request) { result in
                 switch result {

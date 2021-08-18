@@ -9,7 +9,7 @@ import Foundation
 
 import ToolKit
 
-class Str<StateT: StateType> {
+class Store<StateT: StateType> {
     private(set) var state: StateT
 
     private(set) lazy var stateObservable = Observable(value: state)
@@ -26,7 +26,7 @@ class Str<StateT: StateType> {
         }
     }
 
-    func dispatch(_ action: @escaping (Str<StateT>) -> Void) {
+    func dispatch(_ action: @escaping (Store<StateT>) -> Void) {
         let oldState = state
         action(self)
         if let _ = broadcasting {

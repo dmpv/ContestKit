@@ -13,14 +13,12 @@ import ComponentKit
 
 public class NutsonTestbed {
     public static func run() -> UIViewController {
-        let store = Str(state: SearchState())
+        let store = Store(state: SearchState())
 
         let searchService = SearchService()
 
         let searchModule = SearchModule(store: store, searchService: searchService)
 
-        let searchView = searchModule.searchView() as! SearchView
-
-        return ViewController(view: searchView)
+        return ViewController(view: searchModule.searchView())
     }
 }

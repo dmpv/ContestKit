@@ -113,7 +113,7 @@ extension Stub {
             return .init(section: nil, nextPageID: nil)
         }
         let id = request.pageID ?? nextPageID(
-            for: request.pageID,
+            for: nil,
             totalElementCount: wholeSection.items.count
         )!
 
@@ -139,12 +139,22 @@ extension Stub {
     ) -> String? {
         switch pageID {
         case nil:
-            return string(for: 0..<pageSize)
+            return string(for: 0..<min(pageSize, totalElementCount))
         case let pageID?:
             let lastElementIndex = range(for: pageID).upperBound
-            return lastElementIndex < totalElementCount - 1
-                ? string(for: lastElementIndex..<(lastElementIndex + pageSize))
+            let remainderElementCount = totalElementCount - lastElementIndex - 1
+            return remainderElementCount > 0
+                ? string(for: lastElementIndex..<(lastElementIndex + min(pageSize, remainderElementCount)))
                 : nil
         }
+    }
+
+    static func avatarImageURL() -> URL {
+        Self.url(
+            forImageWithSize: .init(
+                width: 200 + (-5...5).randomElement()!,
+                height: 200 + (-5...5).randomElement()!
+            )
+        )
     }
 }
