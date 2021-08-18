@@ -12,8 +12,26 @@ import ToolKit
 import ComponentKit
 
 extension SearchState {
-    var tabSelectionState: SelectionState<SearchSectionID> {
-        .init(values: SearchSectionID.allCases, selectedValue: selectedSectionID)
+    func searchResult(for sectionID: SearchSection.ID) -> SearchResult? {
+        if sectionID == selectedSectionID {
+            return status.result?.reduce { result in
+                result.sections = [result.sections[safe: sectionID]].compactMap { $0 }
+            }
+        } else {
+            return SearchResult()
+        }
+    }
+
+    var tabSelectionState: SelectionState<SearchSection.ID> {
+        .init(values: SearchSection.ID.allCases, selectedValue: selectedSectionID)
+    }
+
+    var navigationBarView: NavigationBarView.State {
+        .init(
+            appearance: .init(
+                viewAppearance: .make(backgroundColor: .fullWhite)
+            )
+        )
     }
 
     var topTabBarView: TopTabBarView.State {
@@ -135,6 +153,20 @@ extension SearchStatus {
     }
 }
 
+extension SearchResult {
+    func sectionedListView(for sectionID: SearchSection.ID) -> SectionedListView<Self, SearchModule>.State {
+        .init(
+            data: .init(
+                sectionedList: self,
+                mode: sectionID.sectionedListViewMode
+            ),
+            appearance: .init(
+                viewAppearance: .make(backgroundColor: .fullWhite)
+            )
+        )
+    }
+}
+
 extension SearchItem {
     var media: MediaSearchItem? {
         guard case .media(let mediaItem) = self else { return nil }
@@ -152,7 +184,7 @@ extension SearchItem {
     }
 }
 
-extension SearchSectionID {
+extension SearchSection.ID {
     var sectionedListViewMode: SectionedListView<SearchResult, SearchModule>.Mode {
         switch self {
         case .challenge:
@@ -162,19 +194,5 @@ extension SearchSectionID {
         case .user:
             return .user
         }
-    }
-}
-
-extension SearchResult {
-    func sectionedListView(for sectionID: SearchSection.ID) -> SectionedListView<Self, SearchModule>.State {
-        .init(
-            data: .init(
-                sectionedList: self,
-                mode: sectionID.sectionedListViewMode
-            ),
-            appearance: .init(
-                viewAppearance: .make(backgroundColor: .fullWhite)
-            )
-        )
     }
 }

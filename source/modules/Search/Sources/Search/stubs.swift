@@ -61,39 +61,93 @@ extension Stub {
         )
     }
 
-    static func searchResult(for query: String) -> SearchResult {
+    static func searchResult(for query: String, sectionID: SearchSection.ID) -> SearchResult {
         guard query != "" else {
             return .init()
         }
         let itemCount = 100
 
-        let allChallengeSearchItems = (0..<itemCount).map { challengeSearchItem(for: $0) }
-        let queriedChallengeSearchItems = allChallengeSearchItems.filter { item in
-            item.stub__description.hasPrefix(query)
+        switch sectionID {
+        case .challenge:
+            let allChallengeSearchItems = (0..<itemCount).map { challengeSearchItem(for: $0) }
+            let queriedChallengeSearchItems = allChallengeSearchItems.filter { item in
+                item.stub__description.hasPrefix(query)
+            }
+            let challengeSection: SearchSection? = queriedChallengeSearchItems == []
+                ? nil
+                : .init(items: queriedChallengeSearchItems.map { .challenge($0) })
+            return .init(
+                query: query,
+                sections: [challengeSection].compactMap { $0 }
+            )
+        case .media:
+            let allMediaSearchItems = (0..<itemCount).map { mediaSearchItem(for: $0) }
+            let queriedMediaSearchItems = allMediaSearchItems.filter { item in
+                item.stub__description.hasPrefix(query)
+            }
+            let mediaSection: SearchSection? = queriedMediaSearchItems == []
+                ? nil
+                : .init(items: queriedMediaSearchItems.map { .media($0) })
+            return .init(
+                query: query,
+                sections: [mediaSection].compactMap { $0 }
+            )
+        case .user:
+            let allUserSearchItems = (0..<itemCount).map { userSearchItem(for: $0) }
+            let queriedUserSearchItems = allUserSearchItems.filter { item in
+                item.stub__description.hasPrefix(query)
+            }
+            let userSection: SearchSection? = queriedUserSearchItems == []
+                ? nil
+                : .init(items: queriedUserSearchItems.map { .user($0) })
+            return .init(
+                query: query,
+                sections: [userSection].compactMap { $0 }
+            )
         }
-        let challengeSection: SearchSection? = queriedChallengeSearchItems == []
-            ? nil
-            : .init(items: queriedChallengeSearchItems.map { .challenge($0) })
+    }
 
-        let allMediaSearchItems = (0..<itemCount).map { mediaSearchItem(for: $0) }
-        let queriedMediaSearchItems = allMediaSearchItems.filter { item in
-            item.stub__description.hasPrefix(query)
-        }
-        let mediaSection: SearchSection? = queriedMediaSearchItems == []
-            ? nil
-            : .init(items: queriedMediaSearchItems.map { .media($0) })
-
-        let allUserSearchItems = (0..<itemCount).map { userSearchItem(for: $0) }
-        let queriedUserSearchItems = allUserSearchItems.filter { item in
-            item.stub__description.hasPrefix(query)
-        }
-        let userSection: SearchSection? = queriedUserSearchItems == []
-            ? nil
-            : .init(items: queriedUserSearchItems.map { .user($0) })
+    static func searchResponse(for request: SearchRequest) -> SearchResponse {
+        let wholeResult = searchResult(for: request.query, sectionID: request.sectionID)
+        let wholeSection = wholeResult.sections[request.sectionID]
+        let id = request.pageID ?? nextPageID(
+            for: request.pageID,
+            totalElementCount: wholeSection.items.count
+        )!
 
         return .init(
-            query: query,
-            sections: [challengeSection, mediaSection, userSection].compactMap { $0 }
+            result: .init(
+                query: request.query,
+                sections: [
+                    .init(items: Array(wholeSection.items[range(for: id)]))
+                ]
+            ),
+            nextPageID: nextPageID(for: id, totalElementCount: wholeSection.items.count)
         )
+    }
+
+    static func range(for str: String) -> Range<Int> {
+        try! JSONDecoder().decode(Range<Int>.self, from: str.data(using: .utf8)!)
+    }
+
+    static func string(for range: Range<Int>) -> String {
+        let data = try! JSONEncoder().encode(range)
+        return String(data: data, encoding: .utf8)!
+    }
+
+    static func nextPageID(
+        for pageID: String?,
+        totalElementCount: Int,
+        pageSize: Int = 20
+    ) -> String? {
+        switch pageID {
+        case nil:
+            return string(for: 0..<pageSize)
+        case let pageID?:
+            let lastElementIndex = range(for: pageID).upperBound
+            return lastElementIndex < totalElementCount - 1
+                ? string(for: lastElementIndex..<(lastElementIndex + pageSize))
+                : nil
+        }
     }
 }

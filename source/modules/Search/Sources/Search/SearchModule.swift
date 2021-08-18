@@ -35,8 +35,7 @@ class SearchModule {
 extension SearchModule: SearchViewComponents {
     func navigationBarView() -> UIView {
         let view = NavigationBarView(components: self)
-        view.state = .init()
-        view.state?.appearance.viewAppearance.backgroundColor = .fullWhite
+        view.state = store.state.navigationBarView
         return view
     }
 
@@ -71,7 +70,7 @@ extension SearchModule: NavigationBarViewComponents {
             }
         view.handlers.onSelect = { [weak store] tabID in
             store?.adjust { search in
-                search.selectedSectionID = SearchSectionID(rawValue: tabID)!
+                search.selectedSectionID = SearchSection.ID(rawValue: tabID)!
             }
         }
         return view
@@ -159,9 +158,9 @@ extension SearchModule {
                 search.status = .loading(query: str)
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                 store.adjust { search in
-                    search.status = .loaded(result: Stub.searchResult(for: str))
+//                    search.status = .loaded(result: Stub.searchResult(for: str))
                 }
             }
         }
