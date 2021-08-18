@@ -9,13 +9,13 @@ import Foundation
 
 import ComponentKit
 
-extension SearchState: SectionedListType {
-    typealias Section = SearchSection
-
-    var sections: [SearchSection] {
-        status.result?.sections ?? []
-    }
-}
+//extension SearchState: SectionedListType {
+//    typealias Section = SearchSection
+//
+//    var sections: [SearchSection] {
+//        status.result?.sections ?? []
+//    }
+//}
 
 extension SearchResult: SectionedListType {}
 

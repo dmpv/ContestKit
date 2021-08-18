@@ -12,9 +12,16 @@ import ToolKit
 import ComponentKit
 
 extension SearchState {
-    func searchResult(for sectionID: SearchSection.ID) -> SearchResult? {
+    var result: SearchResult {
+        .init(
+            query: query,
+            sections: paginatedSections.compactMap(\.status.data)
+        )
+    }
+
+    func searchResult(for sectionID: SearchSection.ID) -> SearchResult {
         if sectionID == selectedSectionID {
-            return status.result?.reduce { result in
+            return result.reduce { result in
                 result.sections = [result.sections[safe: sectionID]].compactMap { $0 }
             }
         } else {
@@ -74,7 +81,7 @@ extension SearchState {
     var searchFieldView: TextFieldView.State {
         .make(
             data: .make(
-                text: status.query,
+                text: query,
                 placeholder: {
                     switch selectedSectionID {
                     case .challenge:
@@ -107,49 +114,24 @@ extension SearchState {
     }
 
     func challengeItemCollectionViewCell(for itemID: SearchItem.ID) -> ChallengeSearchItemCollectionViewCell.State? {
-        guard let challengeItem = items[itemID].challenge else { return fallback(nil) }
+        guard let challengeItem = result.items[itemID].challenge else { return fallback(nil) }
         return .init(
             data: .init(item: challengeItem)
         )
     }
 
     func mediaItemCollectionViewCell(for itemID: SearchItem.ID) -> MediaSearchItemCollectionViewCell.State? {
-        guard let mediaItem = items[itemID].media else { return fallback(nil) }
+        guard let mediaItem = result.items[itemID].media else { return fallback(nil) }
         return .init(
             data: .init(item: mediaItem)
         )
     }
 
     func userItemCollectionViewCell(for itemID: SearchItem.ID) -> UserSearchItemCollectionViewCell.State? {
-        guard let userItem = items[itemID].user else { return fallback(nil) }
+        guard let userItem = result.items[itemID].user else { return fallback(nil) }
         return .init(
             data: .init(item: userItem)
         )
-    }
-}
-
-extension SearchStatus {
-    var result: SearchResult? {
-        get {
-            switch self {
-            case .loaded(let result):
-                return result
-            case .loading:
-                return nil
-            }
-        }
-        set {
-            fatalError(.notImplementedYet)
-        }
-    }
-
-    var query: String {
-        switch self {
-        case .loaded(let result):
-            return result.query
-        case .loading(let query):
-            return query
-        }
     }
 }
 
@@ -193,6 +175,28 @@ extension SearchSection.ID {
             return .media
         case .user:
             return .user
+        }
+    }
+}
+
+extension SearchPaginationStatus {
+    var data: SearchSection? {
+        switch self {
+        case .empty:
+            return nil
+        case .partial(let data, _, _):
+            return data
+        case .full(let data):
+            return data
+        }
+    }
+
+    var loadingStatus: LoadingStatus {
+        switch self {
+        case .empty(let loadingStatus), .partial(_, _, let loadingStatus):
+            return loadingStatus
+        case .full:
+            return .idle
         }
     }
 }

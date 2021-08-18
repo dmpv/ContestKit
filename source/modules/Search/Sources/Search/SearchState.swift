@@ -11,13 +11,9 @@ import ToolKit
 import ComponentKit
 
 struct SearchState: StateType {
-    var status: SearchStatus = .loaded(result: SearchResult())
-    var selectedSectionID: SearchSection.ID = .media
-}
-
-enum SearchStatus: StateType {
-    case loaded(result: SearchResult)
-    case loading(query: String)
+    var query: String = ""
+    var paginatedSections: [SearchPaginatedSection] = []
+    var selectedSectionID: SearchSection.ID = .challenge
 }
 
 struct SearchResult: StateType {
@@ -40,4 +36,22 @@ extension SearchSection: Identifiable {
         case media
         case user
     }
+}
+
+struct SearchPaginatedSection: StateType, Identifiable {
+    var id: SearchSection.ID
+    var status: SearchPaginationStatus
+}
+
+typealias SearchPaginationStatus = PaginationStatus<SearchSection, String>
+
+enum PaginationStatus<DataT: StateType, PageIDT: IDType>: StateType {
+    case empty(loadingStatus: LoadingStatus)
+    case partial(data: DataT, nextPageID: PageIDT, loadingStatus: LoadingStatus)
+    case full(data: DataT?)
+}
+
+enum LoadingStatus {
+    case idle
+    case loading
 }

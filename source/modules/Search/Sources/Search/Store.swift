@@ -27,10 +27,12 @@ class Str<StateT: StateType> {
     }
 
     func dispatch(_ action: @escaping (Str<StateT>) -> Void) {
+        let oldState = state
         action(self)
         if let _ = broadcasting {
             fatalError(.shouldNeverBeCalled())
         }
+        guard state != oldState else { return }
         broadcasting = action
         stateObservable.value = state
         broadcasting = nil

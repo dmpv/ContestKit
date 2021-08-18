@@ -13,17 +13,11 @@ import ComponentKit
 
 public class NutsonTestbed {
     public static func run() -> UIViewController {
-        let store = Str<SearchState>(state: .init())
+        let store = Str(state: SearchState())
 
-//        store.adjust { search in
-//            search = .init(
-//                status: .loaded(
-//                    result: Stub.searchResult(for: "Group 0")
-//                )
-//            )
-//        }
+        let searchService = SearchService()
 
-        let searchModule = SearchModule(store: store)
+        let searchModule = SearchModule(store: store, searchService: searchService)
 
         let searchView = searchModule.searchView() as! SearchView
 

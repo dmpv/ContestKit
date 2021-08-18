@@ -65,11 +65,11 @@ extension Stub {
         guard query != "" else {
             return .init()
         }
-        let itemCount = 100
+        let totalItemCount = 1000
 
         switch sectionID {
         case .challenge:
-            let allChallengeSearchItems = (0..<itemCount).map { challengeSearchItem(for: $0) }
+            let allChallengeSearchItems = (0..<totalItemCount).map { challengeSearchItem(for: $0) }
             let queriedChallengeSearchItems = allChallengeSearchItems.filter { item in
                 item.stub__description.hasPrefix(query)
             }
@@ -81,7 +81,7 @@ extension Stub {
                 sections: [challengeSection].compactMap { $0 }
             )
         case .media:
-            let allMediaSearchItems = (0..<itemCount).map { mediaSearchItem(for: $0) }
+            let allMediaSearchItems = (0..<totalItemCount).map { mediaSearchItem(for: $0) }
             let queriedMediaSearchItems = allMediaSearchItems.filter { item in
                 item.stub__description.hasPrefix(query)
             }
@@ -93,7 +93,7 @@ extension Stub {
                 sections: [mediaSection].compactMap { $0 }
             )
         case .user:
-            let allUserSearchItems = (0..<itemCount).map { userSearchItem(for: $0) }
+            let allUserSearchItems = (0..<totalItemCount).map { userSearchItem(for: $0) }
             let queriedUserSearchItems = allUserSearchItems.filter { item in
                 item.stub__description.hasPrefix(query)
             }
@@ -109,19 +109,16 @@ extension Stub {
 
     static func searchResponse(for request: SearchRequest) -> SearchResponse {
         let wholeResult = searchResult(for: request.query, sectionID: request.sectionID)
-        let wholeSection = wholeResult.sections[request.sectionID]
+        guard let wholeSection = wholeResult.sections[safe: request.sectionID] else {
+            return .init(section: nil, nextPageID: nil)
+        }
         let id = request.pageID ?? nextPageID(
             for: request.pageID,
             totalElementCount: wholeSection.items.count
         )!
 
         return .init(
-            result: .init(
-                query: request.query,
-                sections: [
-                    .init(items: Array(wholeSection.items[range(for: id)]))
-                ]
-            ),
+            section: .init(items: Array(wholeSection.items[range(for: id)])),
             nextPageID: nextPageID(for: id, totalElementCount: wholeSection.items.count)
         )
     }
@@ -138,7 +135,7 @@ extension Stub {
     static func nextPageID(
         for pageID: String?,
         totalElementCount: Int,
-        pageSize: Int = 20
+        pageSize: Int = 50
     ) -> String? {
         switch pageID {
         case nil:

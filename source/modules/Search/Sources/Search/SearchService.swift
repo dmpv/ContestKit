@@ -16,21 +16,30 @@ struct SearchRequest: StateType {
 }
 
 struct SearchResponse: StateType {
-    var result: SearchResult
+    var section: SearchSection?
     var nextPageID: String?
 }
 
 
 class SearchService {
-    func asyncExecute(_ execute: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+    func asyncBackgroundExecute(_ execute: @escaping () -> Void) {
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + .milliseconds(300)) {
             execute()
         }
     }
 
     func fetchSearchResult(for request: SearchRequest, then: @escaping (Result<SearchResponse, Error>) -> Void) {
-        asyncExecute {
-            then(.success(Stub.searchResponse(for: request)))
+        log("Start fetchSearchResult: \(request)")
+        asyncBackgroundExecute {
+            let response = Stub.searchResponse(for: request)
+            log("""
+                END fetchSearchResult:
+                -> \(request)
+                <- \(response.nextPageID), \(response.section?.items.count ?? 0)
+            """)
+            DispatchQueue.main.async {
+                then(.success(response))
+            }
         }
     }
 }
